@@ -1,4 +1,7 @@
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM phusion/baseimage:0.9.19
+
+CMD ["/sbin/my_init"]
 
 RUN apt-get update && \
     apt-get install -y \
