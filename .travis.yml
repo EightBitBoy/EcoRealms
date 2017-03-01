@@ -1,6 +1,7 @@
-language: objective-c
+sudo: required
 
-osx_image: xcode8.2
+services:
+  - docker
 
-install:
-  - ./Scripts/install.sh
+before_install:
+  - docker build -t eightbitboy/ecorealms .
