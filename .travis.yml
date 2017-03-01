@@ -5,3 +5,6 @@ services:
 
 before_install:
   - docker build -t eightbitboy/ecorealms .
+
+script:
+  - echo "Hello world!"
