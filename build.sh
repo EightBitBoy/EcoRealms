@@ -1,2 +1,2 @@
 #docker build -t eightbitboy/ecorealms .
-echo "Hello world!"
+echo "Hello world from build.sh!"
