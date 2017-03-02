@@ -1,2 +1,2 @@
-echo "Starting the tests."
+echo "###--- Starting the tests."
 echo "Hello from test.sh!"
