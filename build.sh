@@ -1,2 +1,2 @@
-#docker build -t eightbitboy/ecorealms .
-echo "Hello world from build.sh!"
+echo "Starting the Docker build."
+docker build -t eightbitboy/ecorealms .
