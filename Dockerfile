@@ -2,8 +2,7 @@ FROM phusion/baseimage:0.9.19
 
 CMD ["/sbin/my_init"]
 
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update && apt-get install -y \
         curl \
         gconf-service \
         lib32gcc1 \
@@ -49,5 +48,6 @@ RUN apt-get update && \
 
 RUN mkdir -p /root/.cache/unity3d && \
     curl -o /tmp/unity.deb -s "http://download.unity3d.com/download_unity/linux/unity-editor-5.4.0f3+20160727_amd64.deb" && \
+    dpkg --info /tmp/unity.deb && \ 
     dpkg -i /tmp/unity.deb && \
     rm /tmp/unity.deb
