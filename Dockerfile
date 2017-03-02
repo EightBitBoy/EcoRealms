@@ -48,7 +48,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir -p /root/.cache/unity3d && \
     curl -o /tmp/unity.deb -s "http://download.unity3d.com/download_unity/linux/unity-editor-5.4.0f3+20160727_amd64.deb" && \
-    dpkg --info /tmp/unity.deb && \ 
+    #dpkg --info /tmp/unity.deb && \ 
     dpkg -i /tmp/unity.deb && \
-    rm /tmp/unity.deb && \
+    #rm /tmp/unity.deb && \
     dpkg -L unity-editor
