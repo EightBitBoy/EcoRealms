@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012305395984}
-  - 114: {fileID: 114000010012456658}
+  - 114: {fileID: 114000012908840476}
   m_Layer: 0
   m_Name: MainScriptEmpty
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010012456658
+--- !u!114 &114000012908840476
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
