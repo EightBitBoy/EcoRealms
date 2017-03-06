@@ -3,14 +3,11 @@ using System.Collections;
 
 public class EcoRealmsMain : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-		 Debug.Log("Log!");
-		 Debug.LogWarning("Warning!");
-		 Debug.LogError("Error!");
+		 Debug.Log("EcoRealmsMain Start!");
+		 //Component playground = GetComponent<Playground>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

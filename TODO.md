@@ -10,3 +10,7 @@ http://www.kinematicsoup.com/news/using-the-command-line-toolset-to-run-unity-te
 https://github.com/phusion/baseimage-docker
 http://phusion.github.io/baseimage-docker/
 https://hub.docker.com/r/phusion/baseimage/
+
+http://devmag.org.za/2012/07/12/50-tips-for-working-with-unity-best-practices/
+https://developer.tizen.org/community/tip-tech/essential-game-mechanics-unity3d
+http://unity-coding.slashgames.org/cbes-creating-a-component-based-game/
