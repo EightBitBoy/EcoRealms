@@ -20,7 +20,15 @@ http://devmag.org.za/2012/07/12/50-tips-for-working-with-unity-best-practices/
 https://developer.tizen.org/community/tip-tech/essential-game-mechanics-unity3d
 http://unity-coding.slashgames.org/cbes-creating-a-component-based-game/
 !!! http://blog.theknightsofunity.com/
+http://www.insaneunity.com/blog/
 
-https://gist.github.com/samsheffield/96608e465091069d15fdaea29457ec85
-http://unitylist.com/
-https://github.com/sschmid/Entitas-CSharp
+https://docs.unity3d.com/Manual/testing-editortestsrunner.html
+http://www.tallior.com/whats-new-automated-testing-unity/
+
+https://shadowplaycoding.com/4x-space-game/
+
+!!! https://www.raywenderlich.com/category/unity
+https://www.raywenderlich.com/107525/create-tower-defense-game-unity-part-1
+
+!!! http://catlikecoding.com/unity/tutorials/
+!!! https://noobtuts.com/unity/tower-defense-game
