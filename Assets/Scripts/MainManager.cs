@@ -2,7 +2,7 @@
 using System.Collections;
 using ecorealms.map;
 
-namespace ecorealms{
+namespace ecorealms {
 	public class MainManager : MonoBehaviour {
 
 		[Range(64,512)]
