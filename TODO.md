@@ -31,6 +31,8 @@ https://www.raywenderlich.com/107525/create-tower-defense-game-unity-part-1
 
 http://alexstv.com/index.php/category/voxel-tutorial
 
+http://www-cs-students.stanford.edu/~amitp/gameprog.html
+
 !!! https://www.raywenderlich.com/category/unity
 !!! http://catlikecoding.com/unity/tutorials/
 !!! https://noobtuts.com/unity/tower-defense-game
