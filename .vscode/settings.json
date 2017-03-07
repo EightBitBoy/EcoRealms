@@ -1,2 +1,6 @@
+
 {
+    "editor.codeLens": false,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false
 }
