@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using EcoRealms.map;
+using ecorealms.map;
 
-namespace EcoRealms{
+namespace ecorealms{
 	public class MainManager : MonoBehaviour {
 
 		void Start () {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace EcoRealms.map{
+namespace ecorealms.map{
 	public class Map {
 
 		public Map(){
