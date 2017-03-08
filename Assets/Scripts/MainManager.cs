@@ -5,6 +5,8 @@ using ecorealms.map;
 namespace ecorealms {
 	public class MainManager : MonoBehaviour {
 
+		public MapManager mapManager;
+
 		[Range(64,512)]
 		public int worldSizeX = 64;
 		[Range(64,512)]
@@ -14,7 +16,12 @@ namespace ecorealms {
 			Map map = new Map();
 		}
 		
-		void Update () {
+		void Awake() {
+			mapManager = GetComponent<MapManager>();
+			mapManager.SayHello();
+		}
+
+		void Update() {
 		
 		}
 	}

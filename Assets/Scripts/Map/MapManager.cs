@@ -10,7 +10,7 @@ namespace ecorealms.map {
 		private Transform mapHolder;
 		private List<Vector3> positions = new List<Vector3>();
 
-		void GenerateMap (int sizeX, int sizeY) {
+		void GenerateMap(int sizeX, int sizeY) {
 			for(int x = 0; x < sizeX; x++){
 				for(int y = 0; y < sizeY; y++){
 					positions.Add(new Vector3(x, 0, y));
@@ -26,8 +26,12 @@ namespace ecorealms.map {
 			}
 		}
 		
-		public void Setup (int sizeX, int sizeY) {
+		public void Setup(int sizeX, int sizeY) {
 			GenerateMap(sizeX, sizeY);
+		}
+
+		public void SayHello() {
+			Debug.Log("Hello from MapManager!");
 		}
 	}
 }
