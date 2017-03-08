@@ -39,6 +39,8 @@ http://beetlecircus.com/unitytips.htm
 
 SCRIPTABLE OBJECTS!!! Use this for multiple tile types?
 
+https://weesals.wordpress.com/category/unityrts/
+
 !!! https://www.raywenderlich.com/category/unity
 !!! http://catlikecoding.com/unity/tutorials/
 !!! https://noobtuts.com/unity/tower-defense-game
