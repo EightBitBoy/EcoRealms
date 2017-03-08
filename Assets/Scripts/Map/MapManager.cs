@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 namespace ecorealms.map {
 	public class MapManager : MonoBehaviour {
@@ -20,7 +21,7 @@ namespace ecorealms.map {
 			mapHolder = new GameObject("Map").transform;
 			for(int x = 0; x < sizeX; x++){
 				for(int y = 0; y < sizeY; y++){
-					GameObject instance = Instantiate(groundTile, new Vector3(x, 0, y), Quaternion.identity) as GameObject;
+					GameObject instance = Instantiate(groundTile, new Vector3(x, -0.1f * Random.Range(1,4), y), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(mapHolder);
 				}
 			}
