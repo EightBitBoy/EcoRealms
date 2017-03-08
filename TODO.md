@@ -33,6 +33,12 @@ http://alexstv.com/index.php/category/voxel-tutorial
 
 http://www-cs-students.stanford.edu/~amitp/gameprog.html
 
+http://devdog.io/blog/2017/03/17-best-unity-tips-for-game-developers-35
+https://github.com/blog/2329-introducing-github-for-unity
+http://beetlecircus.com/unitytips.htm
+
+SCRIPTABLE OBJECTS!!! Use this for multiple tile types?
+
 !!! https://www.raywenderlich.com/category/unity
 !!! http://catlikecoding.com/unity/tutorials/
 !!! https://noobtuts.com/unity/tower-defense-game
