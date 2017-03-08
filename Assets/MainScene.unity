@@ -171,6 +171,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010649933368, guid: aee60445ee25baf4ca3598a6c8dbe3b2,
+        type: 2}
+      propertyPath: moveSensitivity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010649933368, guid: aee60445ee25baf4ca3598a6c8dbe3b2,
+        type: 2}
+      propertyPath: scrollSensitivity
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aee60445ee25baf4ca3598a6c8dbe3b2, type: 2}
   m_IsPrefabParent: 0
