@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9cf99f59d304449bca7d8c8beba6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 62913bd21c65a4518b86d443f2cd0b4b, type: 2}
 --- !u!114 &114000012908840476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManager: {fileID: 0}
+  mapPresenter: {fileID: 0}
   terrainManager: {fileID: 0}
   worldSizeX: 64
   worldSizeY: 64
