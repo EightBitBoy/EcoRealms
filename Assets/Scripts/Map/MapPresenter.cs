@@ -31,9 +31,11 @@ namespace ecorealms.map {
 		}
 
 		private void GenerateMap() {
+			int tileIndex = 0;
 			for(int x = 0; x < sizeX; x++) {
 				for(int y = 0; y < sizeY; y++) {
-					CreateQuad(x, y);
+					tiles[tileIndex] = new Tile(x, y);
+					tileIndex++;
 				}
 			}
 		}
@@ -42,13 +44,18 @@ namespace ecorealms.map {
 			//TDOD do something
 			yield return new WaitForSeconds(0.5f);
 		}
-
-		private void CreateQuad(int x, int y) {
-			//Vector3.one;
-		}
 	}
 
 	public class Tile {
 		private Vector3[] vertices;
+
+		public Tile(int x, int y) {
+			vertices = new Vector3[4];
+
+			vertices[0] = new Vector3((float)(x + 0), 0.0f, (float)(y + 0)); 
+			vertices[1] = new Vector3((float)(x + 0), 0.0f, (float)(y + 1)); 
+			vertices[2] = new Vector3((float)(x + 1), 0.0f, (float)(y + 1)); 
+			vertices[3] = new Vector3((float)(x + 1), 0.0f, (float)(y + 0)); 
+		}
 	}
 }
