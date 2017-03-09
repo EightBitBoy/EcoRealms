@@ -12,14 +12,34 @@ namespace ecorealms.map {
 		public Mesh mesh;
 		public Material material;
 
+		private Tile[] tiles;
+
 		public void Setup(int sizeX, int sizeY) {
 			this.sizeX = sizeX;
 			this.sizeY = sizeY;
 
+			tiles = new Tile[sizeX * sizeY];
+
 			rootObject = new GameObject("MapRoot");
-			root = rootObject.transform;
 			rootObject.AddComponent<MeshFilter>().mesh = mesh;
 			rootObject.AddComponent<MeshRenderer>().material = material;
+
+			root = rootObject.transform;
+
+			StartCoroutine(DelayedFunction());
 		}
+
+		private IEnumerator DelayedFunction () {
+			//TDOD do something
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		private void CreateQuad(){
+			//Vector3.one;
+		}
+	}
+
+	public class Tile {
+
 	}
 }
