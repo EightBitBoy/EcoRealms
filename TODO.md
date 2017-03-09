@@ -10,7 +10,15 @@ Layers
 
 ### Terrain
 
-!!! http://code-phi.com/infinite-terrain-generation-in-unity-3d/
+http://code-phi.com/infinite-terrain-generation-in-unity-3d/
+http://catlikecoding.com/unity/tutorials/procedural-grid/
+http://catlikecoding.com/unity/tutorials/
+http://jayelinda.com/modelling-by-numbers-part-1a/
+https://www.assetstore.unity3d.com/en/#!/content/5141
+https://channel9.msdn.com/Blogs/raw-tech/Procedural-Mesh
+http://kobolds-keep.net/?p=33
+https://www.youtube.com/watch?v=3RlKf7Q8CYM
+https://forum.unity3d.com/threads/tutorial-procedural-meshes-and-voxel-terrain-c.198651/
 
 ### Uncategorized
 

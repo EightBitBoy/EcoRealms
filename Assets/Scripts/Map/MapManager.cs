@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 namespace ecorealms.map {
+	[System.Obsolete("May be replaced by MapPresenter!")]
 	public class MapManager : MonoBehaviour {
 
 		public GameObject groundTile;

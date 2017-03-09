@@ -4,8 +4,12 @@ using System.Collections;
 namespace ecorealms.map{
 	public class Map {
 
-		public Map(){
-			Debug.Log("Map constructor!");
+		private int sizeX;
+		private int sizeY;
+
+		public Map(int sizeX, int sizeY){
+			this.sizeX = sizeX;
+			this.sizeY = sizeY;
 		}
 	}
 }
