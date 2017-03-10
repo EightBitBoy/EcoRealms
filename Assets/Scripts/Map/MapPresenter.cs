@@ -56,6 +56,11 @@ namespace ecorealms.map {
 			mesh.vertices = vertices;
 			mesh.normals = normals;
 			mesh.triangles = triangles;
+
+			for(int i = 0; i < 4; i++){
+				GameObject chunk = new GameObject("Chunk" + i);
+				chunk.transform.SetParent(rootObject.transform);
+			}
 		}
 
 		private void GenerateTiles() {
