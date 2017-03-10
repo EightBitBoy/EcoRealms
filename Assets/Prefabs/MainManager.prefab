@@ -23,8 +23,6 @@ GameObject:
   - 23: {fileID: 23000012673743042}
   - 114: {fileID: 114000012908840476}
   - 114: {fileID: 114000013176817810}
-  - 114: {fileID: 114000012288561776}
-  - 114: {fileID: 114000012892713282}
   m_Layer: 8
   m_Name: MainManager
   m_TagString: Untagged
@@ -81,30 +79,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012674831112}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114000012288561776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012674831112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f9b7df083ce408c9518edb984af7f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000012892713282
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012674831112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9cf99f59d304449bca7d8c8beba6e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 62913bd21c65a4518b86d443f2cd0b4b, type: 2}
 --- !u!114 &114000012908840476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,8 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManager: {fileID: 0}
-  mapPresenter: {fileID: 0}
-  terrainManager: {fileID: 0}
   worldSizeX: 64
   worldSizeY: 64
 --- !u!114 &114000013176817810
@@ -132,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a9a444eab924e4b8ee19952685a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTile: {fileID: 1000011502592732, guid: c69579627e9a89c4e9e9ebb4c3719da6, type: 2}
-  seaTile: {fileID: 1000014168926940, guid: de3e75ee5bfae824184d5342f75bf1d2, type: 2}
+  mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 62913bd21c65a4518b86d443f2cd0b4b, type: 2}
