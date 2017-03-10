@@ -139,6 +139,11 @@ Prefab:
       propertyPath: worldSizeY
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012892713282, guid: 7386e81a4efa2934f978425aa69ecc9d,
+        type: 2}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7386e81a4efa2934f978425aa69ecc9d, type: 2}
   m_IsPrefabParent: 0

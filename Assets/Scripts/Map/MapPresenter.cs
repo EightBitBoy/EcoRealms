@@ -23,6 +23,7 @@ namespace ecorealms.map {
 		private void InitializeData() {
 			tiles = new Tile[sizeX * sizeY];
 			rootObject = new GameObject("MapRoot");
+			//TODO instantiate new mesh without relying on setting one in the editor
 			rootObject.AddComponent<MeshFilter>().mesh = mesh;
 			rootObject.AddComponent<MeshRenderer>().material = material;
 			root = rootObject.transform;
