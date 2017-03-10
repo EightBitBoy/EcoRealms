@@ -8,8 +8,8 @@ namespace ecorealms {
 
 		public static MainManager instance = null;
 		public MapManager mapManager;
-		public int worldSizeX = 64;
-		public int worldSizeY = 64;
+		public int chunksX = 64;
+		public int chunksY = 64;
 		
 		void Awake() {
 
@@ -24,7 +24,7 @@ namespace ecorealms {
 
 		void Initialize() {
 			mapManager = GetComponent<MapManager>();
-			mapManager.Setup(worldSizeX, worldSizeY);
+			mapManager.Setup(chunksX, chunksY);
 		}
 
 		void Start() {

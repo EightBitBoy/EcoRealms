@@ -4,8 +4,8 @@ using System.Collections;
 namespace ecorealms.map {
 	public class MapManager : MonoBehaviour {
 
-		private int sizeX;
-		private int sizeY;
+		private int chunksX;
+		private int chunksY;
 		private int numTiles;
 
 		private GameObject rootObject;
@@ -18,12 +18,12 @@ namespace ecorealms.map {
 		private Vector3[] normals;
 		private int[] triangles;
 
-		public void Setup(int sizeX, int sizeY) {
-			this.sizeX = sizeX;
-			this.sizeY = sizeY;
-			this.numTiles = this.sizeX * this.sizeY;
+		public void Setup(int chunksX, int chunksY) {
+			this.chunksX = chunksX;
+			this.chunksY = chunksY;
+			this.numTiles = this.chunksX * this.chunksY;
 
-			Debug.Log("World size: " + this.sizeX + "*" + this.sizeY);
+			Debug.Log("World size: " + this.chunksX + "*" + this.chunksY);
 			Debug.Log("Tiles: " + this.numTiles);
 
 			InitializeData();
@@ -68,8 +68,8 @@ namespace ecorealms.map {
 
 		private void GenerateTiles() {
 			int tileIndex = 0;
-			for(int x = 0; x < sizeX; x++) {
-				for(int y = 0; y < sizeY; y++) {
+			for(int x = 0; x < chunksX; x++) {
+				for(int y = 0; y < chunksY; y++) {
 					tiles[tileIndex] = new Tile(x, y);
 					tileIndex++;
 				}
@@ -78,8 +78,8 @@ namespace ecorealms.map {
 
 		private void MergeTiles(){
 			int index = 0;
-			for(int x = 0; x < sizeX; x++) {
-				for(int y = 0; y < sizeY; y++) {
+			for(int x = 0; x < chunksX; x++) {
+				for(int y = 0; y < chunksY; y++) {
 					Tile tile = tiles[index];
 
 					for(int v = 0; v < tile.vertices.Length; v++){
