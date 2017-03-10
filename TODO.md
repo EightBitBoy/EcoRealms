@@ -19,8 +19,10 @@ https://channel9.msdn.com/Blogs/raw-tech/Procedural-Mesh
 http://kobolds-keep.net/?p=33
 https://www.youtube.com/watch?v=3RlKf7Q8CYM
 https://forum.unity3d.com/threads/tutorial-procedural-meshes-and-voxel-terrain-c.198651/
+http://alexstv.com/index.php/category/voxel-tutorial
+http://www.paladinstudios.com/2013/07/12/building-levels-in-unity-part-2-of-3/
 
-Google "unity3d procedural terrain"
+Google "unity3d procedural terrain", "procedural mesh"
 
 ### Uncategorized
 
@@ -45,8 +47,6 @@ http://www.tallior.com/whats-new-automated-testing-unity/
 https://shadowplaycoding.com/4x-space-game/
 
 https://www.raywenderlich.com/107525/create-tower-defense-game-unity-part-1
-
-http://alexstv.com/index.php/category/voxel-tutorial
 
 http://www-cs-students.stanford.edu/~amitp/gameprog.html
 
