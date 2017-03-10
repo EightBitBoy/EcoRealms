@@ -2,16 +2,23 @@
 using System.Collections;
 
 namespace ecorealms.map {
+	[RequireComponent(typeof(Chunk))]
 	public class MapManager : MonoBehaviour {
 
 		private int chunksX;
 		private int chunksY;
-		private int numTiles;
+		private int numChunks;
+
+		//TODO define these in the future Chunk class.
+		private int tilesX = 64;
+		private int tilesY = 64;
 
 		private GameObject rootObject;
 		private Transform root;
 		public Mesh mesh;
 		public Material material;
+
+		//public Chunk chunk;
 
 		private Tile[] tiles;
 		private Vector3[] vertices;
@@ -21,10 +28,10 @@ namespace ecorealms.map {
 		public void Setup(int chunksX, int chunksY) {
 			this.chunksX = chunksX;
 			this.chunksY = chunksY;
-			this.numTiles = this.chunksX * this.chunksY;
+			this.numChunks = this.chunksX * this.chunksY;
 
 			Debug.Log("World size: " + this.chunksX + "*" + this.chunksY);
-			Debug.Log("Tiles: " + this.numTiles);
+			Debug.Log("Tiles: " + this.numChunks);
 
 			InitializeData();
 		}
@@ -44,10 +51,10 @@ namespace ecorealms.map {
 			mesh.normals = t.normals;
 			mesh.triangles = t.triangles;
 
-			tiles = new Tile[numTiles];
-			vertices = new Vector3[numTiles * 4];
-			normals = new Vector3[numTiles * 4];
-			triangles = new int[numTiles * 6];
+			tiles = new Tile[numChunks];
+			vertices = new Vector3[numChunks * 4];
+			normals = new Vector3[numChunks * 4];
+			triangles = new int[numChunks * 6];
 
 			GenerateTiles();
 			MergeTiles();
@@ -57,12 +64,12 @@ namespace ecorealms.map {
 			mesh.normals = normals;
 			mesh.triangles = triangles;
 
-			//GameObject instance = Instantiate(groundTile, new Vector3(x, -0.1f * Random.Range(1,4), y), Quaternion.identity) as GameObject;
-			//instance.transform.SetParent(mapHolder);
-
 			for(int i = 0; i < 4; i++){
 				GameObject chunk = new GameObject("Chunk" + i);
+				//TODO new Chunk()
 				chunk.transform.SetParent(rootObject.transform);
+				Mesh m = chunk.AddComponent<MeshFilter>().mesh;
+				m.Clear();
 			}
 		}
 

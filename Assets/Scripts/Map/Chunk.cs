@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Chunk : MonoBehaviour {
+namespace ecorealms.map {
+	public class Chunk {
 
-	private int sizeX;
-	private int sizeY;
-	
-	public Chunk(int sizeX, int sizeY){
+		private int tilesX = 64;
+		private int tilesY = 64;
 
+		private GameObject rootObject;
+
+		public Chunk(GameObject rootObject){
+			this.rootObject = rootObject;
+		}
 	}
 }
