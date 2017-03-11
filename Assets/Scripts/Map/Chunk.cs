@@ -2,15 +2,13 @@
 using System.Collections;
 
 namespace ecorealms.map {
-	public class Chunk {
+	public class Chunk : MonoBehaviour{
 
 		private int tilesX = 64;
 		private int tilesY = 64;
 
-		private GameObject rootObject;
-
-		public Chunk(GameObject rootObject){
-			this.rootObject = rootObject;
+		public void Setup(){
+			gameObject.AddComponent<MeshFilter>();
 		}
 	}
 }

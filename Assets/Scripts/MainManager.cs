@@ -6,10 +6,12 @@ namespace ecorealms {
 	[RequireComponent(typeof(MapManager))]
 	public class MainManager : MonoBehaviour {
 
-		public static MainManager instance = null;
-		public MapManager mapManager;
-		public int chunksX = 64;
-		public int chunksY = 64;
+		private static MainManager instance = null;
+		private MapManager mapManager;
+		public int chunksX = 2;
+		public int chunksY = 2;
+		public int tilesX = 64;
+		public int tilesY = 64;
 		
 		void Awake() {
 
@@ -24,7 +26,7 @@ namespace ecorealms {
 
 		void Initialize() {
 			mapManager = GetComponent<MapManager>();
-			mapManager.Setup(chunksX, chunksY);
+			mapManager.Setup(chunksX, chunksY, tilesX, tilesY);
 		}
 
 		void Start() {

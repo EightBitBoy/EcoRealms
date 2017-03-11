@@ -9,6 +9,13 @@ Layers
 
 ## Links
 
+### Code quality
+
+http://stackoverflow.com/questions/38635/what-static-analysis-tools-are-available-for-c
+http://www.mono-project.com/docs/tools+libraries/tools/gendarme/
+https://forum.unity3d.com/threads/gendarme-for-unity-a-code-analysis-tool.112552/
+https://github.com/jbevain/cecil
+
 ### Terrain
 
 http://code-phi.com/infinite-terrain-generation-in-unity-3d/

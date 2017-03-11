@@ -7,31 +7,30 @@ namespace ecorealms.map {
 
 		private int chunksX;
 		private int chunksY;
-		private int numChunks;
+		private int tilesX;
+		private int tilesY;
 
-		//TODO define these in the future Chunk class.
-		private int tilesX = 64;
-		private int tilesY = 64;
+		private int numChunks;
 
 		private GameObject rootObject;
 		private Transform root;
 		public Mesh mesh;
 		public Material material;
 
-		//public Chunk chunk;
-
 		private Tile[] tiles;
 		private Vector3[] vertices;
 		private Vector3[] normals;
 		private int[] triangles;
 
-		public void Setup(int chunksX, int chunksY) {
+		public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
 			this.chunksX = chunksX;
 			this.chunksY = chunksY;
+			this.tilesX = tilesX;
+			this.tilesY = tilesY;
+
 			this.numChunks = this.chunksX * this.chunksY;
 
-			Debug.Log("World size: " + this.chunksX + "*" + this.chunksY);
-			Debug.Log("Tiles: " + this.numChunks);
+			Debug.Log("World size in chunks: " + this.chunksX + "*" + this.chunksY);
 
 			InitializeData();
 		}
@@ -42,14 +41,10 @@ namespace ecorealms.map {
 			rootObject.AddComponent<MeshFilter>().mesh = mesh;
 			rootObject.AddComponent<MeshRenderer>().material = material;
 			root = rootObject.transform;
+
+			CreateChunks();
 			
 			StartCoroutine(DelayedFunction()); //TODO do something awesome
-
-			Tile t = new Tile(0,0);
-			mesh.Clear();
-			mesh.vertices = t.vertices;
-			mesh.normals = t.normals;
-			mesh.triangles = t.triangles;
 
 			tiles = new Tile[numChunks];
 			vertices = new Vector3[numChunks * 4];
@@ -66,10 +61,22 @@ namespace ecorealms.map {
 
 			for(int i = 0; i < 4; i++){
 				GameObject chunk = new GameObject("Chunk" + i);
-				//TODO new Chunk()
 				chunk.transform.SetParent(rootObject.transform);
-				Mesh m = chunk.AddComponent<MeshFilter>().mesh;
-				m.Clear();
+				Chunk c = chunk.AddComponent<Chunk>();
+				c.Setup();
+			}
+		}
+
+		private void CreateChunks(){
+			int chunkIndex = 0;
+			for(int x = 0; x < chunksX; x++){
+				for(int y = 0; y < chunksY; y++){
+					GameObject chunkRoot = new GameObject("Chunk" + chunkIndex);
+					chunkRoot.transform.SetParent(rootObject.transform);
+					Chunk chunk = chunkRoot.AddComponent<Chunk>() as Chunk;
+					chunk.Setup();
+					chunkIndex++;
+				}
 			}
 		}
 
