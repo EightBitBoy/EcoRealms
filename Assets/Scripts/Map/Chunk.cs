@@ -2,6 +2,7 @@
 using System.Collections;
 
 namespace ecorealms.map {
+	
 	public class Chunk : MonoBehaviour{
 
 		private int tilesX;
@@ -18,7 +19,7 @@ namespace ecorealms.map {
 			this.tilesY = tilesY;
 
 			numTiles = this.tilesX * this.tilesY;
-			
+
 			mesh = gameObject.AddComponent<MeshFilter>().mesh;
 			gameObject.AddComponent<MeshRenderer>().material = material;
 
