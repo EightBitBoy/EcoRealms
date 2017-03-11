@@ -14,7 +14,7 @@ namespace ecorealms.map {
 
 		private GameObject rootObject;
 		private Transform root;
-		public Mesh mesh;
+		private Mesh mesh;
 		public Material material;
 
 		private Tile[] tiles;
@@ -37,9 +37,8 @@ namespace ecorealms.map {
 
 		private void InitializeData() {
 			rootObject = new GameObject("MapRoot");
-			//TODO instantiate new mesh without relying on setting one in the editor
-			rootObject.AddComponent<MeshFilter>().mesh = mesh;
 			rootObject.AddComponent<MeshRenderer>().material = material;
+			mesh = rootObject.AddComponent<MeshFilter>().mesh;
 			root = rootObject.transform;
 
 			CreateChunks();
