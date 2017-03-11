@@ -26,8 +26,8 @@ namespace ecorealms.map {
 			numTiles = this.tilesX * this.tilesY;
 
 			mesh = gameObject.AddComponent<MeshFilter>().mesh;
-			Material mat = new Material(material);
-			mat.color = new Color(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1));
+			Material mat = Instantiate(material);
+			mat.color = Random.ColorHSV();
 			gameObject.AddComponent<MeshRenderer>().material = mat;
 
 			CreateTiles();
