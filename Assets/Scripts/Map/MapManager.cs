@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ecorealms.map {
-	
+
 	[RequireComponent(typeof(Chunk))]
 	public class MapManager : MonoBehaviour {
 
@@ -47,7 +47,7 @@ namespace ecorealms.map {
 					GameObject chunkRoot = new GameObject("Chunk" + chunkIndex);
 					chunkRoot.transform.SetParent(rootObject.transform);
 					Chunk chunk = chunkRoot.AddComponent<Chunk>() as Chunk;
-					chunk.Setup(tilesX, tilesY, material);
+					chunk.Setup(tilesX, tilesY, material, new Vector3(tilesX * x, 0, tilesY * y));
 					chunkIndex++;
 				}
 			}

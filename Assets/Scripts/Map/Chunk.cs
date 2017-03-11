@@ -14,7 +14,7 @@ namespace ecorealms.map {
 		private Vector3[] normals;
 		private int[] triangles;
 
-		public void Setup(int tilesX, int tilesY, Material material){
+		public void Setup(int tilesX, int tilesY, Material material, Vector3 offset){
 			this.tilesX = tilesX;
 			this.tilesY = tilesY;
 
