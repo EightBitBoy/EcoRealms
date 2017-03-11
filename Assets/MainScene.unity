@@ -129,31 +129,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012908840476, guid: 7386e81a4efa2934f978425aa69ecc9d,
-        type: 2}
-      propertyPath: worldSizeX
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012908840476, guid: 7386e81a4efa2934f978425aa69ecc9d,
-        type: 2}
-      propertyPath: worldSizeY
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012892713282, guid: 7386e81a4efa2934f978425aa69ecc9d,
-        type: 2}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 114000012908840476, guid: 7386e81a4efa2934f978425aa69ecc9d,
-        type: 2}
-      propertyPath: chunksX
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012908840476, guid: 7386e81a4efa2934f978425aa69ecc9d,
-        type: 2}
-      propertyPath: chunksY
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7386e81a4efa2934f978425aa69ecc9d, type: 2}
   m_IsPrefabParent: 0
