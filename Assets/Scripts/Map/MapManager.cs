@@ -57,13 +57,6 @@ namespace ecorealms.map {
 			mesh.vertices = vertices;
 			mesh.normals = normals;
 			mesh.triangles = triangles;
-
-			for(int i = 0; i < 4; i++){
-				GameObject chunk = new GameObject("Chunk" + i);
-				chunk.transform.SetParent(rootObject.transform);
-				Chunk c = chunk.AddComponent<Chunk>();
-				c.Setup();
-			}
 		}
 
 		private void CreateChunks(){
@@ -73,7 +66,7 @@ namespace ecorealms.map {
 					GameObject chunkRoot = new GameObject("Chunk" + chunkIndex);
 					chunkRoot.transform.SetParent(rootObject.transform);
 					Chunk chunk = chunkRoot.AddComponent<Chunk>() as Chunk;
-					chunk.Setup();
+					chunk.Setup(tilesX, tilesY, material);
 					chunkIndex++;
 				}
 			}
