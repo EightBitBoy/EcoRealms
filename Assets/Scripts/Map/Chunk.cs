@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 namespace ecorealms.map {
 	
@@ -7,6 +8,7 @@ namespace ecorealms.map {
 
 		private int tilesX;
 		private int tilesY;
+		private Vector3 offset;
 		private int numTiles;
 		private Mesh mesh;
 		private Tile[] tiles;
@@ -15,13 +17,18 @@ namespace ecorealms.map {
 		private int[] triangles;
 
 		public void Setup(int tilesX, int tilesY, Material material, Vector3 offset){
+			Debug.Log("Offset: " + offset.x + " " + offset.y + " " + offset.z);
+
 			this.tilesX = tilesX;
 			this.tilesY = tilesY;
+			this.offset = offset;
 
 			numTiles = this.tilesX * this.tilesY;
 
 			mesh = gameObject.AddComponent<MeshFilter>().mesh;
-			gameObject.AddComponent<MeshRenderer>().material = material;
+			Material mat = new Material(material);
+			mat.color = new Color(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1));
+			gameObject.AddComponent<MeshRenderer>().material = mat;
 
 			CreateTiles();
 			CreateMesh();
@@ -33,7 +40,7 @@ namespace ecorealms.map {
 
 			for(int x = 0; x < tilesX; x++) {
 				for(int y = 0; y < tilesY; y++) {
-					tiles[tileIndex] = new Tile(x, y);
+					tiles[tileIndex] = new Tile(x, y, offset);
 					tileIndex++;
 				}
 			}

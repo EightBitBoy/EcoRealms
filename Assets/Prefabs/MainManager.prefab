@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f20687f172acf4794b8dd69b2870c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapManager: {fileID: 0}
-  chunksX: 2
-  chunksY: 2
+  chunksX: 4
+  chunksY: 4
+  tilesX: 64
+  tilesY: 64
 --- !u!114 &114000013176817810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,5 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a9a444eab924e4b8ee19952685a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: 62913bd21c65a4518b86d443f2cd0b4b, type: 2}

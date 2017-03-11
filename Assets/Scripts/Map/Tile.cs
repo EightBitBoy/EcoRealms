@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace ecorealms.map {
 	public class Tile {
@@ -7,11 +6,11 @@ namespace ecorealms.map {
 		public Vector3[] normals = new Vector3[4];
 		public int[] triangles = new int[6];
 
-		public Tile(int x, int y) {
-			vertices[0] = new Vector3((float)(x + 0), 0.0f, (float)(y + 0)); 
-			vertices[1] = new Vector3((float)(x + 0), 0.0f, (float)(y + 1)); 
-			vertices[2] = new Vector3((float)(x + 1), 0.0f, (float)(y + 1)); 
-			vertices[3] = new Vector3((float)(x + 1), 0.0f, (float)(y + 0));
+		public Tile(int x, int y, Vector3 offset) {
+			vertices[0] = new Vector3((float)(x + 0), 0.0f, (float)(y + 0)) + offset; 
+			vertices[1] = new Vector3((float)(x + 0), 0.0f, (float)(y + 1)) + offset; 
+			vertices[2] = new Vector3((float)(x + 1), 0.0f, (float)(y + 1)) + offset; 
+			vertices[3] = new Vector3((float)(x + 1), 0.0f, (float)(y + 0)) + offset;
 
 			normals[0] = Vector3.up;
 			normals[1] = Vector3.up;
