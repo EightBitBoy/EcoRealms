@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 114000010228290238}
   - 114: {fileID: 114000013474035218}
   m_Layer: 0
-  m_Name: UserInterfaceEventSystem
+  m_Name: DebugEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
