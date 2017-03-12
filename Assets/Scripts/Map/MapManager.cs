@@ -27,17 +27,15 @@ namespace ecorealms.map {
 
 			Debug.Log("World size in chunks: " + this.chunksX + "*" + this.chunksY);
 
-			InitializeData();
+			Initialize();
 		}
 
-		private void InitializeData() {
+		private void Initialize() {
 			rootObject = new GameObject("MapRoot");
 			rootObject.AddComponent<MeshRenderer>().material = material;
 			root = rootObject.transform;
 
 			CreateChunks();
-			
-			StartCoroutine(DelayedFunction()); //TODO do something awesome
 		}
 
 		private void CreateChunks(){
@@ -51,10 +49,6 @@ namespace ecorealms.map {
 					chunkIndex++;
 				}
 			}
-		}
-
-		private IEnumerator DelayedFunction() {
-			yield return new WaitForSeconds(0.5f);
 		}
 	}
 }
