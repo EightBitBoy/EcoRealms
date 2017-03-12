@@ -3,13 +3,17 @@ using System.Collections;
 
 public class GridRenderer : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private int linesX;
+	private int linesY;
+
+	public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
+		this.linesX = chunksX * tilesX;
+		this.linesY = chunksY * tilesY;
+
+		Initialize();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	private void Initialize() {
+
 	}
 }

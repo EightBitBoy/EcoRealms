@@ -35,7 +35,7 @@ namespace ecorealms.map {
 
 			GameObject gridRoot = new GameObject("GridRoot");
 			gridRoot.transform.SetParent(mapRoot.transform);
-			gridRoot.AddComponent<GridRenderer>();
+			gridRoot.AddComponent<GridRenderer>().Setup(chunksX, chunksY, tilesX, tilesY);
 
 			CreateChunks();
 		}
