@@ -19,7 +19,10 @@ namespace ecorealms.map {
 			for(int x = 0; x < linesX; x++){
 				GameObject line = new GameObject("LineX" + x);
 				line.transform.SetParent(gameObject.transform);
+
 				LineRenderer renderer = line.AddComponent<LineRenderer>();
+				renderer.SetWidth(0.2f, 0.2f);
+				//renderer.SetPosition()
 			}
 			for(int y = 0; y < linesY; y++){
 
