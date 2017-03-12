@@ -13,8 +13,7 @@ namespace ecorealms.map {
 
 		private int numChunks;
 
-		private GameObject rootObject;
-		private Transform root;
+		private GameObject mapRoot;
 		public Material material;
 
 		public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
@@ -31,9 +30,12 @@ namespace ecorealms.map {
 		}
 
 		private void Initialize() {
-			rootObject = new GameObject("MapRoot");
-			rootObject.AddComponent<MeshRenderer>().material = material;
-			root = rootObject.transform;
+			mapRoot = new GameObject("MapRoot");
+			mapRoot.AddComponent<MeshRenderer>().material = material;
+
+			GameObject gridRoot = new GameObject("GridRoot");
+			gridRoot.transform.SetParent(mapRoot.transform);
+			gridRoot.AddComponent<GridRenderer>();
 
 			CreateChunks();
 		}
@@ -43,7 +45,7 @@ namespace ecorealms.map {
 			for(int x = 0; x < chunksX; x++){
 				for(int y = 0; y < chunksY; y++){
 					GameObject chunkRoot = new GameObject("Chunk" + chunkIndex);
-					chunkRoot.transform.SetParent(rootObject.transform);
+					chunkRoot.transform.SetParent(mapRoot.transform);
 					Chunk chunk = chunkRoot.AddComponent<Chunk>() as Chunk;
 					chunk.Setup(tilesX, tilesY, material, new Vector3(tilesX * x, 0, tilesY * y));
 					chunkIndex++;
