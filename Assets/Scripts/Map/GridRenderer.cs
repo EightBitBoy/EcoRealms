@@ -1,19 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GridRenderer : MonoBehaviour {
+namespace ecorealms.map {
 
-	private int linesX;
-	private int linesY;
+	public class GridRenderer : MonoBehaviour {
 
-	public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
-		this.linesX = chunksX * tilesX;
-		this.linesY = chunksY * tilesY;
+		private int linesX;
+		private int linesY;
 
-		Initialize();
-	}
+		public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
+			this.linesX = chunksX * tilesX;
+			this.linesY = chunksY * tilesY;
 
-	private void Initialize() {
+			Initialize();
+		}
 
+		private void Initialize() {
+			for(int x = 0; x < linesX; x++){
+				GameObject line = new GameObject("LineX" + x);
+				line.transform.SetParent(gameObject.transform);
+				LineRenderer renderer = line.AddComponent<LineRenderer>();
+			}
+			for(int y = 0; y < linesY; y++){
+
+			}
+		}
 	}
 }
