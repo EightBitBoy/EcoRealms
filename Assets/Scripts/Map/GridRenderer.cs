@@ -22,7 +22,10 @@ namespace ecorealms.map {
 
 				LineRenderer renderer = line.AddComponent<LineRenderer>();
 				renderer.SetWidth(0.2f, 0.2f);
-				//renderer.SetPosition()
+				Vector3 start = new Vector3(0, 1, 0);
+				Vector3 end = new Vector3(0, 1, 8);
+				renderer.SetPosition(0, start);
+				renderer.SetPosition(1, end);
 			}
 			for(int y = 0; y < linesY; y++){
 
