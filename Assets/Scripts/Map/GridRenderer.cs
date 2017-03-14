@@ -21,7 +21,7 @@ namespace ecorealms.map {
 		}
 
 		private void Initialize() {
-			material = new Material((Shader.Find(" Diffuse")));
+			material = new Material((Shader.Find("Diffuse")));
 			material.SetColor(0, Color.black);
 
 			for(int x = 0; x < linesX; x++){
