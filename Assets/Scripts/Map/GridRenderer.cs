@@ -6,7 +6,7 @@ namespace ecorealms.map {
 	public class GridRenderer : MonoBehaviour {
 
 		private const float WIDTH = 0.05f;
-		private const float HEIGHT = 0.1f;
+		private const float HEIGHT = 0.05f;
 
 		private int linesX;
 		private int linesY;
