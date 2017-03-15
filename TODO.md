@@ -3,6 +3,7 @@
 ## Get more information
 
 Quadmap
+LOD, Level of Detail
 Scriptable Objects
 Tags
 Layers
@@ -64,6 +65,7 @@ https://www.raywenderlich.com/107525/create-tower-defense-game-unity-part-1
 http://www-cs-students.stanford.edu/~amitp/gameprog.html
 
 http://devdog.io/blog/2017/03/17-best-unity-tips-for-game-developers-35
+http://devdog.io/blog/2017/03/11-best-unity-tips-for-game-developers-36
 https://github.com/blog/2329-introducing-github-for-unity
 http://beetlecircus.com/unitytips.htm
 
