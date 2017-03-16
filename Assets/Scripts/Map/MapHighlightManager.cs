@@ -4,7 +4,7 @@ using System.Collections;
 namespace ecorealms.map {
 	public class MapHighlightManager : MonoBehaviour {
 
-		void Setup () {
+		public void Setup () {
 		
 		}
 	}
