@@ -71,6 +71,8 @@ http://beetlecircus.com/unitytips.htm
 
 https://forum.unity3d.com/threads/tutorial-procedural-meshes-and-voxel-terrain-c.198651/
 
+http://blog.celestial-static-games.de/2017/03/16/introducing-sky-tycoon/
+
 !!! https://www.raywenderlich.com/category/unity
 !!! http://catlikecoding.com/unity/tutorials/
 !!! https://noobtuts.com/unity/tower-defense-game
