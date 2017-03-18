@@ -17,8 +17,6 @@ namespace ecorealms.map {
 		private int[] triangles;
 
 		public void Setup(int tilesX, int tilesY, Material material, Vector3 offset){
-			Debug.Log("Offset: " + offset.x + " " + offset.y + " " + offset.z);
-
 			this.tilesX = tilesX;
 			this.tilesY = tilesY;
 			this.offset = offset;
