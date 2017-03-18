@@ -1,5 +1,9 @@
 # TODO
 
+## Tasks
+
+* Define a Tile resolution. What dimension has a Tile? 1.0 * 1.0!
+
 ## Get more information
 
 Quadmap
