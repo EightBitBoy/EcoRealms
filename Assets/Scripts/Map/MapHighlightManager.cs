@@ -7,16 +7,20 @@ namespace ecorealms.map {
 		private int sizeX;
 		private int sizeY;
 		private float HEIGHT = 0.2f;
+		private Mesh mesh;
 
 		public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
 			this.sizeX = chunksX * tilesX;
 			this.sizeY = chunksY * tilesY;
 
+			mesh = gameObject.AddComponent<MeshFilter>().mesh;
+			gameObject.AddComponent<MeshRenderer>();
+			gameObject.layer = LayerMask.NameToLayer("IgnoreCamera");
+			
 			AddOverlayQuad();
 		}
 
 		void AddOverlayQuad() {
-			gameObject.AddComponent<MeshRenderer>();
 			Vector3[] vertices = new Vector3[4];
 			Vector3[] normals = new Vector3[4];
 			int[] triangles = new int[6];
@@ -38,6 +42,11 @@ namespace ecorealms.map {
 			triangles[3] = 1;
 			triangles[4] = 2;
 			triangles[5] = 3;
+
+			mesh.Clear();
+			mesh.vertices = vertices;
+			mesh.normals = normals;
+			mesh.triangles = triangles;
 		}
 	}
 }
