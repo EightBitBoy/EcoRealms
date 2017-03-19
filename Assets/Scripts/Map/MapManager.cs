@@ -39,7 +39,7 @@ namespace ecorealms.map {
 
 			GameObject highlighterRoot = new GameObject("HighlighterRoot");
 			highlighterRoot.transform.SetParent(mapRoot.transform);
-			highlighterRoot.AddComponent<MapHighlightManager>().Setup();
+			highlighterRoot.AddComponent<MapHighlightManager>().Setup(chunksX, chunksY, tilesX, tilesY);
 
 			CreateChunks();
 		}
