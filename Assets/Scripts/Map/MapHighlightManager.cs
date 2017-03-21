@@ -52,7 +52,20 @@ namespace ecorealms.map {
 		}
 
 		void LateUpdate(){
+			if(Input.GetMouseButtonDown(0)){
+				Vector3 mousePosition = Input.mousePosition;
+				Vector3 mousePositionGame;
+				Debug.Log("MousePos: " + mousePosition);
 
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				Plane plane = new Plane(Vector3.up, new Vector3(0, HEIGHT, 0));
+				float distance;
+				if(plane.Raycast(ray, out distance)){
+					mousePositionGame = ray.GetPoint(distance);
+					Debug.Log("Tile: " + Mathf.FloorToInt(mousePositionGame.x) + " " + Mathf.FloorToInt(mousePositionGame.z));
+				}
+			}
 		}
 	}
 }
