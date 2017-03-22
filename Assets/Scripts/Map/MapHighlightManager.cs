@@ -8,8 +8,8 @@ namespace ecorealms.map {
 		private int sizeY;
 		private float HEIGHT = 0.2f;
 		private Mesh mesh;
-		private float mouseX = 0.0f;
-		private float mouseY = 0.0f;
+		//private float mouseX = 0.0f;
+		//private float mouseY = 0.0f;
 
 		public void Setup(int chunksX, int chunksY, int tilesX, int tilesY) {
 			this.sizeX = chunksX * tilesX;

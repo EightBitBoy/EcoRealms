@@ -11,7 +11,7 @@ namespace ecorealms.map {
 		private int tilesX;
 		private int tilesY;
 
-		private int numChunks;
+		//private int numChunks;
 
 		private GameObject mapRoot;
 		public Material material;
@@ -22,7 +22,7 @@ namespace ecorealms.map {
 			this.tilesX = tilesX;
 			this.tilesY = tilesY;
 
-			this.numChunks = this.chunksX * this.chunksY;
+			//this.numChunks = this.chunksX * this.chunksY;
 
 			Debug.Log("World size in chunks: " + this.chunksX + "*" + this.chunksY);
 
