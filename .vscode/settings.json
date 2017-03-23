@@ -1,6 +1,11 @@
 
 {
     "editor.codeLens": false,
+
     "editor.minimap.enabled": true,
-    "editor.minimap.renderCharacters": false
+    "editor.minimap.renderCharacters": false,
+
+    "files.exclude": {
+        "**/*.meta": true
+    }
 }
