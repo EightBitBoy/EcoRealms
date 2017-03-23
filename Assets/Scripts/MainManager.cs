@@ -3,6 +3,7 @@ using System.Collections;
 using ecorealms.map;
 
 namespace ecorealms {
+
 	[RequireComponent(typeof(MapManager))]
 	public class MainManager : MonoBehaviour {
 
