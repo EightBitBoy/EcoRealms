@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using ecorealms.map;
+using ecorealms.world;
 
 namespace ecorealms {
 
@@ -31,11 +31,9 @@ namespace ecorealms {
 		}
 
 		void Start() {
-			//TODO
 		}
 
 		void Update() {
-			//TODO
 		}
 	}
 }

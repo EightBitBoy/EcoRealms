@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ecorealms.map {
+namespace ecorealms.world {
 	public class Tile {
 		public Vector3[] vertices = new Vector3[4];
 		public Vector3[] normals = new Vector3[4];

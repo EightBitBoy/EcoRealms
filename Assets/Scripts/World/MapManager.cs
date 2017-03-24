@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace ecorealms.map {
+namespace ecorealms.world {
 
 	[RequireComponent(typeof(Chunk))]
 	public class MapManager : MonoBehaviour {

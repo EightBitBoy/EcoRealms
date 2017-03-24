@@ -2,7 +2,7 @@
 using System.Collections;
 using Random = UnityEngine.Random;
 
-namespace ecorealms.map {
+namespace ecorealms.world {
 	
 	public class Chunk : MonoBehaviour{
 
