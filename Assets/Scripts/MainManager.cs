@@ -4,11 +4,11 @@ using ecorealms.world;
 
 namespace ecorealms {
 
-	[RequireComponent(typeof(MapManager))]
+	[RequireComponent(typeof(WorldManager))]
 	public class MainManager : MonoBehaviour {
 
 		private static MainManager instance = null;
-		private MapManager mapManager;
+		private WorldManager mapManager;
 		public int chunksX = 2;
 		public int chunksY = 2;
 		public int tilesX = 64;
@@ -26,7 +26,7 @@ namespace ecorealms {
 		}
 
 		void Initialize() {
-			mapManager = GetComponent<MapManager>();
+			mapManager = GetComponent<WorldManager>();
 			mapManager.Setup(chunksX, chunksY, tilesX, tilesY);
 		}
 

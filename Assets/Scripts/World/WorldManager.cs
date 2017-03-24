@@ -4,7 +4,7 @@ using System.Collections;
 namespace ecorealms.world {
 
 	[RequireComponent(typeof(Chunk))]
-	public class MapManager : MonoBehaviour {
+	public class WorldManager : MonoBehaviour {
 
 		private int chunksX;
 		private int chunksY;
