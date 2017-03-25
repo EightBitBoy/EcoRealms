@@ -43,6 +43,19 @@ http://www.paladinstudios.com/2013/07/12/building-levels-in-unity-part-2-of-3/
 
 Google "unity3d procedural terrain", "procedural mesh"
 
+### Testing
+
+https://docs.unity3d.com/Manual/testing-editortestsrunner.html
+https://www.assetstore.unity3d.com/en/#!/content/72693
+Assertion Library
+
+https://unity3d.com/de/unity/qa/test-tools
+https://blogs.unity3d.com/2013/06/02/runtime-tests-unitys-runtime-api-test-framework/
+https://blogs.unity3d.com/2016/09/08/a-look-inside-the-quest-for-green-automation/
+https://blogs.unity3d.com/2015/10/07/unified-test-runner-test-analytics/
+https://github.com/UnityTech/GamesTestAutomationExample
+Appium
+
 ### Uncategorized
 
 https://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/#post-2648924
