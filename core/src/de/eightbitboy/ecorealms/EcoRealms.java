@@ -12,12 +12,24 @@ public class EcoRealms extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 
+	EcoRealmsConfig config;
 	World world;
+
+
+	public EcoRealms() {
+		this.config = new EcoRealmsConfig();
+	}
+
+	public EcoRealms(EcoRealmsConfig config) {
+		this.config = config;
+	}
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+
+		world = new World(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
 	}
 
 	@Override
