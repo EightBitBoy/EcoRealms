@@ -1,22 +1,15 @@
-language: csharp
-
-mono:
-  - latest
-
-sudo: required
-
-services:
-  - docker
+language: java
 
 before_install:
   - echo "###--- Install step."
-  - ./build.sh
 
 script:
   - echo "###--- Test step."
-  - ./test.sh
+  - ./gradlew assemble
+  - ./gradlew test
 
 branches:
   only:
     - master
     - dev
+    - libgdx
