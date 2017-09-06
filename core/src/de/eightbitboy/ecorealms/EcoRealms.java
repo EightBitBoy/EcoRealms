@@ -9,11 +9,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+	private SpriteBatch batch;
+	private Texture img;
 
-	EcoRealmsConfig config;
-	World world;
+	private EcoRealmsConfig config;
+	private World world;
 
 
 	public EcoRealms() {
