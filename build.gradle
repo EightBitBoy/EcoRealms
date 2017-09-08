@@ -17,7 +17,8 @@ allprojects {
 
     version = '0.1.0'
     ext {
-        appName = "ecorealms"
+        appName = 'ecorealms'
+        javaVersion = JavaVersion.VERSION_1_8
         gdxVersion = '1.9.6'
         roboVMVersion = '2.3.1'
         box2DLightsVersion = '1.4'
@@ -36,6 +37,8 @@ allprojects {
 project(":desktop") {
     apply plugin: "java"
 
+    targetCompatibility = ext.javaVersion
+
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
@@ -43,7 +46,6 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
-        
     }
 }
 
@@ -81,6 +83,8 @@ project(":ios") {
     apply plugin: "java"
     apply plugin: "robovm"
 
+    targetCompatibility = ext.javaVersion
+
     dependencies {
         compile project(":core")
         compile "com.mobidevelop.robovm:robovm-rt:$roboVMVersion"
@@ -89,12 +93,13 @@ project(":ios") {
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
         compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-ios"
         compile "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-ios"
-        
     }
 }
 
 project(":core") {
     apply plugin: "java"
+
+    targetCompatibility = ext.javaVersion
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
@@ -102,6 +107,5 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
         compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-        
     }
 }
