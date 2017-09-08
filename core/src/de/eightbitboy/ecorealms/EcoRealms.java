@@ -8,11 +8,13 @@ import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
 import de.eightbitboy.ecorealms.world.World;
@@ -21,10 +23,11 @@ public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
 	private World world;
 
+	private Environment environment;
 	private PerspectiveCamera cam;
-	public ModelBatch modelBatch;
-	public Model model;
-	public ModelInstance instance;
+	private ModelBatch modelBatch;
+	private Model model;
+	private ModelInstance instance;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -38,6 +41,7 @@ public class EcoRealms extends ApplicationAdapter {
 	public void create() {
 		modelBatch = new ModelBatch();
 		createWorld();
+		createEnvironment();
 		createCamera();
 		createModel();
 	}
@@ -48,7 +52,7 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		modelBatch.begin(cam);
-		modelBatch.render(instance);
+		modelBatch.render(instance, environment);
 		modelBatch.end();
 	}
 
@@ -60,6 +64,12 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private void createWorld() {
 		world = new World(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
+	}
+
+	private void createEnvironment(){
+		environment = new Environment();
+		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
+		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 	}
 
 	private void createCamera() {
