@@ -92,3 +92,5 @@ public class EcoRealms extends ApplicationAdapter {
 		instance = new ModelInstance(model);
 	}
 }
+
+//https://github.com/mattdesl/lwjgl-basics/wiki/LibGDX-Meshes
