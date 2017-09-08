@@ -33,10 +33,6 @@ public class EcoRealms extends ApplicationAdapter {
 		this.config = new EcoRealmsConfig();
 	}
 
-	public EcoRealms(EcoRealmsConfig config) {
-		this.config = config;
-	}
-
 	@Override
 	public void create() {
 		modelBatch = new ModelBatch();
