@@ -1,6 +1,4 @@
 buildscript {
-    
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -10,8 +8,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.1'
-        
-
     }
 }
 
@@ -39,7 +35,6 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java"
-
 
     dependencies {
         compile project(":core")
@@ -79,14 +74,12 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-x86_64"
         compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-        
     }
 }
 
 project(":ios") {
     apply plugin: "java"
     apply plugin: "robovm"
-
 
     dependencies {
         compile project(":core")
@@ -103,7 +96,6 @@ project(":ios") {
 project(":core") {
     apply plugin: "java"
 
-
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
@@ -112,8 +104,4 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         
     }
-}
-
-tasks.eclipse.doLast {
-    delete ".project"
 }
