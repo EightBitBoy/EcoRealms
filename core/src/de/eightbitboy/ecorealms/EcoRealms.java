@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
+import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
 import de.eightbitboy.ecorealms.world.World;
@@ -25,6 +26,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private Environment environment;
 	private PerspectiveCamera cam;
+	private CameraInputController camController;
 	private ModelBatch modelBatch;
 	private Model model;
 	private ModelInstance instance;
@@ -75,6 +77,9 @@ public class EcoRealms extends ApplicationAdapter {
 		cam.near = 1f;
 		cam.far = 300f;
 		cam.update();
+
+		camController = new CameraInputController(cam);
+		Gdx.input.setInputProcessor(camController);
 	}
 
 	private void createModel() {
