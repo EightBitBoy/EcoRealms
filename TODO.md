@@ -19,3 +19,4 @@ http://dshedd.com/2015/09/rendering-a-tiled-tmx-map-as-a-3d-world-in-libgdx/
 https://github.com/libgdx/libgdx/wiki/Tile-maps
 https://stackoverflow.com/questions/35720063/libgdx-grid-design
 https://libgdx.badlogicgames.com/nightlies/docs/api/com/badlogic/gdx/graphics/glutils/ShapeRenderer.html
+https://www.reddit.com/r/Unity3D/comments/6z7ytc/im_trying_to_build_a_similar_scene_to_this_in/
