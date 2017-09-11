@@ -1,11 +1,18 @@
 package de.eightbitboy.ecorealms.world;
 
+import de.eightbitboy.ecorealms.logic.Map;
+
 public class World {
 	private int sizeX;
 	private int sizeY;
 
 	private WorldTile[] worldTiles;
 
+	public World(Map map) {
+		//TODO
+	}
+
+	@Deprecated
 	public World(int sizeX, int sizeY) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
