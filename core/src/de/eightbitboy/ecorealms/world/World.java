@@ -4,12 +4,12 @@ public class World {
 	private int sizeX;
 	private int sizeY;
 
-	private Tile[] tiles;
+	private WorldTile[] worldTiles;
 
 	public World(int sizeX, int sizeY) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
-		this.tiles = new Tile[sizeX * sizeY];
+		this.worldTiles = new WorldTile[sizeX * sizeY];
 
 		generateMap();
 	}
@@ -18,13 +18,13 @@ public class World {
 		int counter = 0;
 		for (int x = 0; x < sizeX; x++) {
 			for (int y = 0; y < sizeY; y++) {
-				tiles[counter] = new Tile();
+				worldTiles[counter] = new WorldTile();
 				counter++;
 			}
 		}
 	}
 
-	public Tile[] getTiles() {
-		return tiles;
+	public WorldTile[] getWorldTiles() {
+		return worldTiles;
 	}
 }

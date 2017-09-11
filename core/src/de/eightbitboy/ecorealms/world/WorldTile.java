@@ -8,11 +8,11 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-public class Tile {
+public class WorldTile {
 	private Model model;
 	private ModelInstance instance;
 
-	public Tile() {
+	public WorldTile() {
 		ModelBuilder modelBuilder = new ModelBuilder();
 		model = modelBuilder.createBox(1f, 1f, 1f,
 				new Material(ColorAttribute.createDiffuse(Color.RED)),

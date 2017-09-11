@@ -21,6 +21,6 @@ https://stackoverflow.com/questions/35720063/libgdx-grid-design
 https://libgdx.badlogicgames.com/nightlies/docs/api/com/badlogic/gdx/graphics/glutils/ShapeRenderer.html
 https://www.reddit.com/r/Unity3D/comments/6z7ytc/im_trying_to_build_a_similar_scene_to_this_in/
 https://github.com/libgdx/libgdx/blob/master/tests/gdx-tests/src/com/badlogic/gdx/tests/bench/TiledMapBench.java#L64-L84
-https://gamedev.stackexchange.com/questions/67992/how-would-i-implement-procedurally-generated-tiles-in-libgdx
-"libgdx programmatic tile map"
+https://gamedev.stackexchange.com/questions/67992/how-would-i-implement-procedurally-generated-worldTiles-in-libgdx
+"libgdx programmatic worldTile map"
 http://www.gamefromscratch.com/post/2014/06/18/LibGDX-Tutorial-11-Tiled-Maps-Part-3-Using-Properties-and-Tile-Map-animations.aspx
