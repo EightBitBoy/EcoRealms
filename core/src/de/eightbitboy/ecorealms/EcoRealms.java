@@ -89,7 +89,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private void createModel() {
 		ModelBuilder modelBuilder = new ModelBuilder();
-		model = modelBuilder.createBox(5f, 5f, 5f,
+		model = modelBuilder.createBox(1f, 1f, 1f,
 				new Material(ColorAttribute.createDiffuse(Color.GREEN)),
 				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
 		instance = new ModelInstance(model);

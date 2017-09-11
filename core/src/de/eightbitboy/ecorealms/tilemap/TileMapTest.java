@@ -1,7 +1,10 @@
 package de.eightbitboy.ecorealms.tilemap;
 
 import com.badlogic.gdx.maps.MapLayers;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 /*
@@ -25,6 +28,9 @@ public class TileMapTest {
 		for (int x = 0; x < WIDTH; x++) {
 			for (int y = 0; y < HEIGHT; y++) {
 				TiledMapTileLayer.Cell cell = new TiledMapTileLayer.Cell();
+
+				RectangleMapObject rect = new RectangleMapObject();
+
 				layer.setCell(x, y, cell);
 			}
 		}
