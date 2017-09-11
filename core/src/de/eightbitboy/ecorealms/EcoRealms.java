@@ -4,7 +4,6 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttributes;
@@ -18,8 +17,6 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.maps.MapRenderer;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import de.eightbitboy.ecorealms.tilemap.TileMapTest;
 import de.eightbitboy.ecorealms.world.World;
@@ -29,12 +26,11 @@ public class EcoRealms extends ApplicationAdapter {
 	private World world;
 
 	private Environment environment;
-	private OrthographicCamera cam;
+	private PerspectiveCamera cam;
 	private CameraInputController camController;
 	private ModelBatch modelBatch;
 	private Model model;
 	private ModelInstance instance;
-	private MapRenderer renderer;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -49,9 +45,6 @@ public class EcoRealms extends ApplicationAdapter {
 		createModel();
 
 		TileMapTest mapTest = new TileMapTest();
-
-		renderer = new OrthogonalTiledMapRenderer(mapTest.getMap());
-		renderer.setView(cam);
 	}
 
 	@Override
@@ -61,7 +54,6 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
-		renderer.render();
 		modelBatch.begin(cam);
 		modelBatch.render(instance, environment);
 		modelBatch.end();
@@ -84,12 +76,11 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void createCamera() {
-		cam = new OrthographicCamera();
-		cam.setToOrtho(false, 320, 320);
-		//cam.position.set(10f, 10f, 10f);
-		//cam.lookAt(0, 0, 0);
-		//cam.near = 1f;
-		//cam.far = 300f;
+		cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		cam.position.set(10f, 10f, 10f);
+		cam.lookAt(0, 0, 0);
+		cam.near = 1f;
+		cam.far = 300f;
 		cam.update();
 
 		camController = new CameraInputController(cam);
