@@ -20,7 +20,16 @@ public class TileMapTest {
 		this.map = new TiledMap();
 
 		MapLayers layers = map.getLayers();
-		TiledMapTileLayer layer =
+		TiledMapTileLayer layer = new TiledMapTileLayer(WIDTH, HEIGHT, TILE_WIDTH, TILE_HEIGHT);
+
+		for (int x = 0; x < WIDTH; x++) {
+			for (int y = 0; y < HEIGHT; y++) {
+				TiledMapTileLayer.Cell cell = new TiledMapTileLayer.Cell();
+				layer.setCell(x, y, cell);
+			}
+		}
+
+		layers.add(layer);
 	}
 
 	public TiledMap getMap() {
