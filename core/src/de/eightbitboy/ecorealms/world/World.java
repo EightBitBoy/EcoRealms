@@ -15,9 +15,11 @@ public class World {
 	}
 
 	private void generateMap() {
+		int counter = 0;
 		for (int x = 0; x < sizeX; x++) {
 			for (int y = 0; y < sizeY; y++) {
-				tiles[x * y] = new Tile();
+				tiles[counter] = new Tile();
+				counter++;
 			}
 		}
 	}

@@ -5,9 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttributes;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
@@ -18,7 +16,7 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-import de.eightbitboy.ecorealms.tilemap.TileMapTest;
+import de.eightbitboy.ecorealms.world.Tile;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
@@ -43,8 +41,6 @@ public class EcoRealms extends ApplicationAdapter {
 		createEnvironment();
 		createCamera();
 		createModel();
-
-		TileMapTest mapTest = new TileMapTest();
 	}
 
 	@Override
@@ -56,6 +52,13 @@ public class EcoRealms extends ApplicationAdapter {
 
 		modelBatch.begin(cam);
 		modelBatch.render(instance, environment);
+
+		Tile[] tiles = world.getTiles();
+		//modelBatch.render(tiles[1].getModelInstance(), environment);
+		for (Tile tile : tiles) {
+			modelBatch.render(tile.getModelInstance(), environment);
+		}
+
 		modelBatch.end();
 	}
 
