@@ -18,6 +18,7 @@ public class Tile {
 				new Material(ColorAttribute.createDiffuse(Color.RED)),
 				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
 		instance = new ModelInstance(model);
+		instance.transform.translate(3, 0, 0);
 	}
 
 	public Model getModel() {
