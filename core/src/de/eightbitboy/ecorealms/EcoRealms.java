@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
+import de.eightbitboy.ecorealms.tilemap.TileMapTest;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
@@ -42,6 +43,8 @@ public class EcoRealms extends ApplicationAdapter {
 		createEnvironment();
 		createCamera();
 		createModel();
+
+		TileMapTest mapTest = new TileMapTest();
 	}
 
 	@Override
@@ -66,7 +69,7 @@ public class EcoRealms extends ApplicationAdapter {
 		world = new World(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
 	}
 
-	private void createEnvironment(){
+	private void createEnvironment() {
 		environment = new Environment();
 		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
 		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
