@@ -16,12 +16,13 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-import de.eightbitboy.ecorealms.world.WorldTile;
+import de.eightbitboy.ecorealms.logic.Map;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
 	private World world;
+	private Map map;
 
 	private Environment environment;
 	private PerspectiveCamera cam;
@@ -52,13 +53,6 @@ public class EcoRealms extends ApplicationAdapter {
 
 		modelBatch.begin(cam);
 		modelBatch.render(instance, environment);
-
-		WorldTile[] worldTiles = world.getWorldTiles();
-		//modelBatch.render(worldTiles[1].getModelInstance(), environment);
-		for (WorldTile worldTile : worldTiles) {
-			modelBatch.render(worldTile.getModelInstance(), environment);
-		}
-
 		modelBatch.end();
 	}
 
@@ -69,7 +63,8 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void createWorld() {
-		world = new World(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
+		map = new Map(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
+		world = new World(map);
 	}
 
 	private void createEnvironment() {
