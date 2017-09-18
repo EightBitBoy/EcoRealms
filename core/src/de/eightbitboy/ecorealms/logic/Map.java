@@ -19,4 +19,12 @@ public class Map {
 			}
 		}
 	}
+
+	public int getSizeX() {
+		return sizeX;
+	}
+
+	public int getSizeY() {
+		return sizeY;
+	}
 }

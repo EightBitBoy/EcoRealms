@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.math.Vector3;
 
 import de.eightbitboy.ecorealms.logic.Map;
@@ -18,7 +17,6 @@ import de.eightbitboy.ecorealms.world.World;
 public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
 	private World world;
-	private Map map;
 
 	private Environment environment;
 	private PerspectiveCamera cam;
@@ -35,15 +33,15 @@ public class EcoRealms extends ApplicationAdapter {
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
-		modelBatch = new ModelBatch();
 		createWorld();
 		createEnvironment();
 		createCamera();
 
+		modelBatch = new ModelBatch();
+		gizmo = new Gizmo();
+
 		control = new Control(cam);
 		Gdx.input.setInputProcessor(control);
-
-		gizmo = new Gizmo();
 	}
 
 	@Override
@@ -55,6 +53,7 @@ public class EcoRealms extends ApplicationAdapter {
 		cam.update();
 
 		modelBatch.begin(cam);
+		modelBatch.render(world.getModelInstances(), environment);
 		modelBatch.render(gizmo.getModelInstances(), environment);
 		modelBatch.end();
 	}
@@ -65,14 +64,14 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void createWorld() {
-		map = new Map(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
+		Map map = new Map(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
 		world = new World(map);
 	}
 
 	private void createEnvironment() {
 		environment = new Environment();
 		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
-		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
+		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, 1f, 0.5f, -0.8f));
 	}
 
 	private void createCamera() {

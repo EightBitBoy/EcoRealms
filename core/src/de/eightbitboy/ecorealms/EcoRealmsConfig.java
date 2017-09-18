@@ -1,6 +1,6 @@
 package de.eightbitboy.ecorealms;
 
-public class EcoRealmsConfig {
-	public final int WORLD_SIZE_X = 2;
-	public final int WORLD_SIZE_Y = 2;
+class EcoRealmsConfig {
+	final int WORLD_SIZE_X = 20;
+	final int WORLD_SIZE_Y = 20;
 }
