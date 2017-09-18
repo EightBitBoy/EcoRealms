@@ -6,10 +6,13 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 
 public class Control extends InputAdapter implements InputProcessor {
+	private static final float SENSITIVITY = 0.1f;
+	private PerspectiveCamera camera;
 	private int cameraX = 0;
 	private int cameraY = 0;
 
 	Control(PerspectiveCamera camera) {
+		this.camera = camera;
 	}
 
 	@Override
@@ -30,6 +33,7 @@ public class Control extends InputAdapter implements InputProcessor {
 				cameraX = +1;
 				break;
 		}
+
 		return false;
 	}
 
@@ -50,5 +54,10 @@ public class Control extends InputAdapter implements InputProcessor {
 				break;
 		}
 		return false;
+	}
+
+	public void update() {
+		camera.position.x += cameraX * SENSITIVITY;
+		camera.position.y += cameraY * SENSITIVITY;
 	}
 }

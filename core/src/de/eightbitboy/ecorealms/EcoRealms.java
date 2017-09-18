@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.math.Vector3;
 
 import de.eightbitboy.ecorealms.logic.Map;
 import de.eightbitboy.ecorealms.world.World;
@@ -21,7 +22,6 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private Environment environment;
 	private PerspectiveCamera cam;
-	private CameraInputController camController;
 	private ModelBatch modelBatch;
 
 	private Control control;
@@ -48,10 +48,11 @@ public class EcoRealms extends ApplicationAdapter {
 
 	@Override
 	public void render() {
-		camController.update();
-
 		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+
+		control.update();
+		cam.update();
 
 		modelBatch.begin(cam);
 		modelBatch.render(gizmo.getModelInstances(), environment);
@@ -76,13 +77,11 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private void createCamera() {
 		cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		cam.position.set(10f, 10f, 10f);
+		cam.position.set(-10f, -10f, 10f);
+		cam.rotate(new Vector3(1, 0, 0), 90);
 		cam.lookAt(0, 0, 0);
 		cam.near = 1f;
 		cam.far = 300f;
 		cam.update();
-
-		camController = new CameraInputController(cam);
-		Gdx.input.setInputProcessor(camController);
 	}
 }
