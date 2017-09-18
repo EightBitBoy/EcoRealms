@@ -5,16 +5,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Environment;
-import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
 import de.eightbitboy.ecorealms.logic.Map;
 import de.eightbitboy.ecorealms.world.World;
@@ -28,8 +25,6 @@ public class EcoRealms extends ApplicationAdapter {
 	private PerspectiveCamera cam;
 	private CameraInputController camController;
 	private ModelBatch modelBatch;
-	private Model model;
-	private ModelInstance instance;
 
 	private Control control;
 	private Gizmo gizmo;
@@ -44,7 +39,6 @@ public class EcoRealms extends ApplicationAdapter {
 		createWorld();
 		createEnvironment();
 		createCamera();
-		createModel();
 
 		control = new Control(cam);
 		gizmo = new Gizmo();
@@ -58,15 +52,13 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		modelBatch.begin(cam);
-		modelBatch.render(instance, environment);
-		modelBatch.render(gizmo, environment);
+		modelBatch.render(gizmo.getModelInstances(), environment);
 		modelBatch.end();
 	}
 
 	@Override
 	public void dispose() {
 		modelBatch.dispose();
-		model.dispose();
 	}
 
 	private void createWorld() {
@@ -90,9 +82,5 @@ public class EcoRealms extends ApplicationAdapter {
 
 		camController = new CameraInputController(cam);
 		Gdx.input.setInputProcessor(camController);
-	}
-
-	private void createModel() {
-		instance = CubeFactory.getCube(Color.GREEN);
 	}
 }
