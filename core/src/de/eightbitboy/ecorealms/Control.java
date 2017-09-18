@@ -6,7 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 
 public class Control extends InputAdapter implements InputProcessor {
-	private static final float SENSITIVITY = 0.1f;
+	private static final float SENSITIVITY = 0.2f;
 	private PerspectiveCamera camera;
 	private int cameraX = 0;
 	private int cameraY = 0;
@@ -21,16 +21,20 @@ public class Control extends InputAdapter implements InputProcessor {
 
 		switch (keycode) {
 			case Keys.W:
+				cameraX = +1;
 				cameraY = +1;
 				break;
 			case Keys.A:
 				cameraX = -1;
+				cameraY = +1;
 				break;
 			case Keys.S:
+				cameraX = -1;
 				cameraY = -1;
 				break;
 			case Keys.D:
 				cameraX = +1;
+				cameraY = -1;
 				break;
 		}
 
@@ -41,22 +45,26 @@ public class Control extends InputAdapter implements InputProcessor {
 	public boolean keyUp(int keycode) {
 		switch (keycode) {
 			case Keys.W:
+				cameraX = 0;
 				cameraY = 0;
 				break;
 			case Keys.A:
 				cameraX = 0;
+				cameraY = 0;
 				break;
 			case Keys.S:
+				cameraX = 0;
 				cameraY = 0;
 				break;
 			case Keys.D:
 				cameraX = 0;
+				cameraY = 0;
 				break;
 		}
 		return false;
 	}
 
-	public void update() {
+	void update() {
 		camera.position.x += cameraX * SENSITIVITY;
 		camera.position.y += cameraY * SENSITIVITY;
 	}
