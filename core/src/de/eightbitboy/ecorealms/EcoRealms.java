@@ -31,6 +31,8 @@ public class EcoRealms extends ApplicationAdapter {
 	private Model model;
 	private ModelInstance instance;
 
+	private Control control;
+
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
 	}
@@ -42,6 +44,8 @@ public class EcoRealms extends ApplicationAdapter {
 		createEnvironment();
 		createCamera();
 		createModel();
+
+		control = new Control(cam);
 	}
 
 	@Override
