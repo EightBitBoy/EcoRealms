@@ -32,6 +32,7 @@ public class EcoRealms extends ApplicationAdapter {
 	private ModelInstance instance;
 
 	private Control control;
+	private Gizmo gizmo;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -46,6 +47,7 @@ public class EcoRealms extends ApplicationAdapter {
 		createModel();
 
 		control = new Control(cam);
+		gizmo = new Gizmo();
 	}
 
 	@Override
@@ -57,6 +59,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 		modelBatch.begin(cam);
 		modelBatch.render(instance, environment);
+		modelBatch.render(gizmo, environment);
 		modelBatch.end();
 	}
 
@@ -90,10 +93,6 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void createModel() {
-		ModelBuilder modelBuilder = new ModelBuilder();
-		model = modelBuilder.createBox(1f, 1f, 1f,
-				new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
-		instance = new ModelInstance(model);
+		instance = CubeFactory.getCube(Color.GREEN);
 	}
 }
