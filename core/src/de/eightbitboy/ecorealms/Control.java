@@ -14,7 +14,7 @@ public class Control extends InputAdapter implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		Logger.debug("Key: " + keycode);
+		Logger.debug("Key: " + Keys.toString(keycode));
 
 		switch (keycode) {
 			case Keys.W:
