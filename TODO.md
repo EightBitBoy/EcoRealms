@@ -26,5 +26,8 @@ https://gamedev.stackexchange.com/questions/67992/how-would-i-implement-procedur
 http://www.gamefromscratch.com/post/2014/06/18/LibGDX-Tutorial-11-Tiled-Maps-Part-3-Using-Properties-and-Tile-Map-animations.aspx
 https://github.com/mattdesl/lwjgl-basics/wiki/LibGDX-Meshes
 
+http://bitiotic.com/blog/2012/10/01/enabling-non-continuous-rendering-in-libgdx/
+http://bitiotic.com/blog/2013/05/23/libgdx-and-android-application-lifecycle/
+
 https://github.com/kotcrab/vis-editor/wiki/VisUI
 https://github.com/libgdx/libgdx/wiki/VisUI

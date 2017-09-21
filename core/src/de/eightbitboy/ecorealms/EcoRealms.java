@@ -19,7 +19,7 @@ public class EcoRealms extends ApplicationAdapter {
 	private World world;
 
 	private Environment environment;
-	private PerspectiveCamera cam;
+	private PerspectiveCamera camera;
 	private ModelBatch modelBatch;
 
 	private Control control;
@@ -40,7 +40,7 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatch = new ModelBatch();
 		gizmo = new Gizmo();
 
-		control = new Control(cam);
+		control = new Control(camera);
 		Gdx.input.setInputProcessor(control);
 	}
 
@@ -50,9 +50,10 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		//unproject, pickray
-		control.update();
+		control.updateCamera();
+		camera.update();
 
-		modelBatch.begin(cam);
+		modelBatch.begin(camera);
 		renderModels();
 		modelBatch.end();
 	}
@@ -80,12 +81,12 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void createCamera() {
-		cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		cam.position.set(-10f, -10f, 10f);
-		cam.rotate(new Vector3(1, 0, 0), 90);
-		cam.lookAt(0, 0, 0);
-		cam.near = 1f;
-		cam.far = 300f;
-		cam.update();
+		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		camera.position.set(-10f, -10f, 10f);
+		camera.rotate(new Vector3(1, 0, 0), 90);
+		camera.lookAt(0, 0, 0);
+		camera.near = 1f;
+		camera.far = 300f;
+		camera.update();
 	}
 }
