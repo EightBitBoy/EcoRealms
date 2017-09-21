@@ -53,14 +53,19 @@ public class EcoRealms extends ApplicationAdapter {
 		cam.update();
 
 		modelBatch.begin(cam);
-		modelBatch.render(world.getModelInstances(), environment);
-		modelBatch.render(gizmo.getModelInstances(), environment);
+		renderModels();
 		modelBatch.end();
 	}
 
 	@Override
 	public void dispose() {
 		modelBatch.dispose();
+	}
+
+	@SuppressWarnings("ConstantConditions")
+	private void renderModels() {
+		modelBatch.render(world.getModelInstances(), environment);
+		if (config.showGizmo) modelBatch.render(gizmo.getModelInstances(), environment);
 	}
 
 	private void createWorld() {
