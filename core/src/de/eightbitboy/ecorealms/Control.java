@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
 import de.eightbitboy.ecorealms.logic.Map;
+import de.eightbitboy.ecorealms.logic.MapPoint;
 
 public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;
@@ -24,6 +25,9 @@ public class Control extends InputAdapter implements InputProcessor {
 	private boolean rmbDown = false;
 	private int mouseScreenX = 0;
 	private int mouseScreenY = 0;
+
+	private Plane mapPlane = new Plane(new Vector3(0, 0, 1), 0);
+	private Vector3 intersection = new Vector3();
 
 	Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
@@ -95,9 +99,7 @@ public class Control extends InputAdapter implements InputProcessor {
 				break;
 		}
 
-		Logger.debug("Screen: " + screenX + "," + screenY);
-		showClickInWorld(screenX, screenY);
-
+		//Logger.debug("Screen: " + screenX + "," + screenY);
 		return super.touchDown(screenX, screenY, pointer, button);
 	}
 
@@ -119,13 +121,13 @@ public class Control extends InputAdapter implements InputProcessor {
 		camera.position.y += cameraY * SENSITIVITY;
 	}
 
-	private void showClickInWorld(int screenX, int screenY) {
-		Plane plane = new Plane(new Vector3(0, 0, 1), 0);
-		Ray ray = camera.getPickRay(screenX, screenY);
+	MapPoint getClickOnMap() {
+		Intersector.intersectRayPlane(camera.getPickRay(mouseScreenX, mouseScreenY),
+				mapPlane, intersection);
+		return new MapPoint((int) intersection.x, (int) intersection.y);
+	}
 
-		Vector3 point = new Vector3();
-		if (Intersector.intersectRayPlane(ray, plane, point)) {
-			Logger.debug(point.toString());
-		}
+	public MapPoint getHoverOverMap() {
+		return new MapPoint();
 	}
 }

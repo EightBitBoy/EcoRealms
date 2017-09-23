@@ -25,6 +25,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private Control control;
 	private Gizmo gizmo;
+	private Highlighter highlighter;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -43,6 +44,8 @@ public class EcoRealms extends ApplicationAdapter {
 
 		control = new Control(camera, map);
 		Gdx.input.setInputProcessor(control);
+
+		highlighter = new Highlighter(control);
 	}
 
 	@Override
@@ -51,6 +54,7 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		control.updateCamera();
+		highlighter.update();
 		camera.update();
 
 		modelBatch.begin(camera);
@@ -67,6 +71,7 @@ public class EcoRealms extends ApplicationAdapter {
 	private void renderModels() {
 		modelBatch.render(world.getModelInstances(), environment);
 		if (config.showGizmo) modelBatch.render(gizmo.getModelInstances(), environment);
+		modelBatch.render(highlighter.getModelInstances(), environment);
 	}
 
 	private void createWorld() {
