@@ -28,6 +28,7 @@ https://github.com/mattdesl/lwjgl-basics/wiki/LibGDX-Meshes
 
 http://bitiotic.com/blog/2012/10/01/enabling-non-continuous-rendering-in-libgdx/
 http://bitiotic.com/blog/2013/05/23/libgdx-and-android-application-lifecycle/
+http://www.aurelienribon.com/post/2011-04-logic-vs-render-separation-of-concerns
 
 https://github.com/kotcrab/vis-editor/wiki/VisUI
 https://github.com/libgdx/libgdx/wiki/VisUI
