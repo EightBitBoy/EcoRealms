@@ -27,11 +27,14 @@ public class Control extends InputAdapter implements InputProcessor {
 	private int mouseScreenY = 0;
 
 	private Plane mapPlane = new Plane(new Vector3(0, 0, 1), 0);
+	private Ray ray;
 	private Vector3 intersection = new Vector3();
 
 	Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
 		this.map = map;
+
+		this.ray = camera.getPickRay(0, 0);
 	}
 
 	@Override
@@ -88,6 +91,8 @@ public class Control extends InputAdapter implements InputProcessor {
 		mouseScreenX = screenX;
 		mouseScreenY = screenY;
 
+		ray = camera.getPickRay(mouseScreenX, mouseScreenY);
+
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
@@ -122,8 +127,7 @@ public class Control extends InputAdapter implements InputProcessor {
 	}
 
 	MapPoint getClickOnMap() {
-		Intersector.intersectRayPlane(camera.getPickRay(mouseScreenX, mouseScreenY),
-				mapPlane, intersection);
+		Intersector.intersectRayPlane(ray, mapPlane, intersection);
 		return new MapPoint((int) intersection.x, (int) intersection.y);
 	}
 

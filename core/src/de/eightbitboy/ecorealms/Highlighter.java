@@ -19,7 +19,7 @@ class Highlighter {
 	private ModelInstance[] instances = new ModelInstance[1];
 	private Control control;
 	private MapPoint mapPoint;
-	private static final float HEIGHT = 0.1f;
+	private static final float HEIGHT = 0.01f;
 
 	Highlighter(Control control) {
 		this.control = control;
