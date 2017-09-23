@@ -10,10 +10,13 @@ import com.badlogic.gdx.math.Plane;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
+import de.eightbitboy.ecorealms.logic.Map;
+
 public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;
 
 	private PerspectiveCamera camera;
+	private Map map;
 	private int cameraX = 0;
 	private int cameraY = 0;
 
@@ -22,8 +25,9 @@ public class Control extends InputAdapter implements InputProcessor {
 	private int mouseScreenX = 0;
 	private int mouseScreenY = 0;
 
-	Control(PerspectiveCamera camera) {
+	Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
+		this.map = map;
 	}
 
 	@Override
