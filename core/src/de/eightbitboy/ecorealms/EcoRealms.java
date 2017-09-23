@@ -41,7 +41,7 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatch = new ModelBatch();
 		gizmo = new Gizmo();
 
-		control = new Control(camera);
+		control = new Control(camera, map);
 		Gdx.input.setInputProcessor(control);
 	}
 
