@@ -5,6 +5,10 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Plane;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.collision.Ray;
 
 public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;
@@ -88,7 +92,8 @@ public class Control extends InputAdapter implements InputProcessor {
 		}
 
 		Logger.debug("Screen: " + screenX + "," + screenY);
-		
+		showClickInWorld(screenX, screenY);
+
 		return super.touchDown(screenX, screenY, pointer, button);
 	}
 
@@ -108,5 +113,15 @@ public class Control extends InputAdapter implements InputProcessor {
 	void updateCamera() {
 		camera.position.x += cameraX * SENSITIVITY;
 		camera.position.y += cameraY * SENSITIVITY;
+	}
+
+	private void showClickInWorld(int screenX, int screenY) {
+		Plane plane = new Plane(new Vector3(0, 0, 1), 0);
+		Ray ray = camera.getPickRay(screenX, screenY);
+
+		Vector3 point = new Vector3();
+		if (Intersector.intersectRayPlane(ray, plane, point)) {
+			Logger.debug(point.toString());
+		}
 	}
 }
