@@ -31,7 +31,8 @@ public class Control extends InputAdapter implements InputProcessor {
 	private Plane mapPlane = new Plane(new Vector3(0, 0, 1), 0);
 	private Ray clickRay;
 	private Ray hoverRay;
-	private Vector3 intersection = new Vector3();
+	private Vector3 clickIntersection = new Vector3();
+	private Vector3 hoverIntersection = new Vector3();
 
 	Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
@@ -95,8 +96,6 @@ public class Control extends InputAdapter implements InputProcessor {
 		mouseClickX = screenX;
 		mouseClickY = screenY;
 
-		clickRay = camera.getPickRay(mouseClickX, mouseClickY);
-
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
@@ -130,8 +129,6 @@ public class Control extends InputAdapter implements InputProcessor {
 		mouseHoverX = screenX;
 		mouseHoverY = screenY;
 
-		clickRay = camera.getPickRay(mouseHoverX, mouseHoverY);
-
 		return super.mouseMoved(screenX, screenY);
 	}
 
@@ -141,12 +138,14 @@ public class Control extends InputAdapter implements InputProcessor {
 	}
 
 	MapPoint getClickOnMap() {
-		Intersector.intersectRayPlane(clickRay, mapPlane, intersection);
-		return new MapPoint((int) intersection.x, (int) intersection.y);
+		clickRay = camera.getPickRay(mouseClickX, mouseClickY);
+		Intersector.intersectRayPlane(clickRay, mapPlane, clickIntersection);
+		return new MapPoint((int) clickIntersection.x, (int) clickIntersection.y);
 	}
 
-	public MapPoint getHoverOverMap() {
-		Intersector.intersectRayPlane(hoverRay, mapPlane, intersection);
-		return new MapPoint((int) intersection.x, (int) intersection.y);
+	MapPoint getHoverOverMap() {
+		hoverRay = camera.getPickRay(mouseHoverX, mouseHoverY);
+		Intersector.intersectRayPlane(hoverRay, mapPlane, hoverIntersection);
+		return new MapPoint((int) hoverIntersection.x, (int) hoverIntersection.y);
 	}
 }
