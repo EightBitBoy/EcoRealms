@@ -11,14 +11,17 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 class CuboidFactory {
 	private static final float SIZE = 1;
 
-	static ModelInstance getCube(Color color) {
+	static ModelInstance getCuboid(float x, float y, float z, Color color) {
 		ModelBuilder modelBuilder = new ModelBuilder();
-
 		Material material = new Material(ColorAttribute.createDiffuse(color));
 
-		Model model = modelBuilder.createBox(SIZE, SIZE, SIZE, material,
+		Model model = modelBuilder.createBox(x, y, z, material,
 				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
 
 		return new ModelInstance(model);
+	}
+
+	static ModelInstance getCube(Color color) {
+		return getCuboid(SIZE, SIZE, SIZE, color);
 	}
 }
