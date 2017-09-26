@@ -13,10 +13,10 @@ class Gizmo {
 	private ModelInstance[] instances = new ModelInstance[4];
 
 	Gizmo() {
-		ModelInstance aCube = CubeFactory.getCube(Color.MAGENTA);
-		ModelInstance xCube = CubeFactory.getCube(Color.RED);
-		ModelInstance yCube = CubeFactory.getCube(Color.GREEN);
-		ModelInstance zCube = CubeFactory.getCube(Color.BLUE);
+		ModelInstance aCube = CuboidFactory.getCube(Color.MAGENTA);
+		ModelInstance xCube = CuboidFactory.getCube(Color.RED);
+		ModelInstance yCube = CuboidFactory.getCube(Color.GREEN);
+		ModelInstance zCube = CuboidFactory.getCube(Color.BLUE);
 
 		xCube.transform.translate(SPACE, 0, 0);
 		yCube.transform.translate(0, SPACE, 0);

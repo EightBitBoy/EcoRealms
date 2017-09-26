@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-class CubeFactory {
+class CuboidFactory {
 	private static final float SIZE = 1;
 
 	static ModelInstance getCube(Color color) {
