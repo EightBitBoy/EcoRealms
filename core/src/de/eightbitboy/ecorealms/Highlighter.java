@@ -1,14 +1,15 @@
 package de.eightbitboy.ecorealms;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -64,6 +65,10 @@ class Highlighter {
 	void update() {
 		clickPoint = control.getClickOnMap();
 		hoverPoint = control.getHoverOverMap();
+
+		BlendingAttribute blending = new BlendingAttribute(GL20.GL_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		blending.opacity = 0.1f;
+		hoverModel.materials.get(0).set(blending);
 
 		clickModel.transform.setToTranslation(clickPoint.getX(), clickPoint.getY(), CLICK_HEIGHT);
 		hoverModel.transform.setToTranslation(hoverPoint.getX(), hoverPoint.getY(), HOVER_HEIGHT);

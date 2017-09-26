@@ -52,6 +52,7 @@ public class EcoRealms extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+		Gdx.gl.glEnable(GL20.GL_BLEND);
 
 		control.updateCamera();
 		highlighter.update();
