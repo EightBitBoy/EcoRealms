@@ -96,6 +96,8 @@ public class Control extends InputAdapter implements InputProcessor {
 		mouseClickX = screenX;
 		mouseClickY = screenY;
 
+		clickRay = camera.getPickRay(mouseClickX, mouseClickY).cpy();
+
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
@@ -138,7 +140,6 @@ public class Control extends InputAdapter implements InputProcessor {
 	}
 
 	MapPoint getClickOnMap() {
-		clickRay = camera.getPickRay(mouseClickX, mouseClickY);
 		Intersector.intersectRayPlane(clickRay, mapPlane, clickIntersection);
 		return new MapPoint((int) clickIntersection.x, (int) clickIntersection.y);
 	}
