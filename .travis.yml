@@ -20,7 +20,7 @@ install:
 
 script:
   - echo "### Test step"
-  - ./gradlew assemble --stacktrace
+  - ./gradlew assemble --debug --stacktrace
   - ./gradlew test
 
 branches:
