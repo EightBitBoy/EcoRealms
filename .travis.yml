@@ -15,6 +15,7 @@ android:
 
 install:
   - echo "### Install step"
+  - echo $ANDROID_HOME
   - chmod +x gradlew
 
 script:
