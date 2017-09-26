@@ -23,18 +23,22 @@ public class Control extends InputAdapter implements InputProcessor {
 
 	private boolean lmbDown = false;
 	private boolean rmbDown = false;
-	private int mouseScreenX = 0;
-	private int mouseScreenY = 0;
+	private int mouseClickX = 0;
+	private int mouseClickY = 0;
+	private int mouseHoverX = 0;
+	private int mouseHoverY = 0;
 
 	private Plane mapPlane = new Plane(new Vector3(0, 0, 1), 0);
-	private Ray ray;
+	private Ray clickRay;
+	private Ray hoverRay;
 	private Vector3 intersection = new Vector3();
 
 	Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
 		this.map = map;
 
-		this.ray = camera.getPickRay(0, 0);
+		this.clickRay = camera.getPickRay(0, 0);
+		this.hoverRay = camera.getPickRay(0, 0);
 	}
 
 	@Override
@@ -88,10 +92,10 @@ public class Control extends InputAdapter implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		mouseScreenX = screenX;
-		mouseScreenY = screenY;
+		mouseClickX = screenX;
+		mouseClickY = screenY;
 
-		ray = camera.getPickRay(mouseScreenX, mouseScreenY);
+		clickRay = camera.getPickRay(mouseClickX, mouseClickY);
 
 		switch (button) {
 			case Buttons.LEFT:
@@ -121,17 +125,28 @@ public class Control extends InputAdapter implements InputProcessor {
 		return super.touchUp(screenX, screenY, pointer, button);
 	}
 
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		mouseHoverX = screenX;
+		mouseHoverY = screenY;
+
+		clickRay = camera.getPickRay(mouseHoverX, mouseHoverY);
+
+		return super.mouseMoved(screenX, screenY);
+	}
+
 	void updateCamera() {
 		camera.position.x += cameraX * SENSITIVITY;
 		camera.position.y += cameraY * SENSITIVITY;
 	}
 
 	MapPoint getClickOnMap() {
-		Intersector.intersectRayPlane(ray, mapPlane, intersection);
+		Intersector.intersectRayPlane(clickRay, mapPlane, intersection);
 		return new MapPoint((int) intersection.x, (int) intersection.y);
 	}
 
 	public MapPoint getHoverOverMap() {
-		return new MapPoint();
+		Intersector.intersectRayPlane(hoverRay, mapPlane, intersection);
+		return new MapPoint((int) intersection.x, (int) intersection.y);
 	}
 }
