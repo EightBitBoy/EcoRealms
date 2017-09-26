@@ -90,7 +90,7 @@ public class EcoRealms extends ApplicationAdapter {
 		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.position.set(-10f, -10f, 10f);
 		camera.rotate(new Vector3(1, 0, 0), 90);
-		camera.lookAt(0, 0, 0);
+		camera.lookAt(0, 0, -5);
 		camera.near = 1f;
 		camera.far = 300f;
 		camera.update();

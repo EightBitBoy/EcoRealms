@@ -8,10 +8,10 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-class CuboidFactory {
+public class CuboidFactory {
 	private static final float SIZE = 1;
 
-	static ModelInstance getCuboid(float x, float y, float z, Color color) {
+	public static ModelInstance getCuboid(float x, float y, float z, Color color) {
 		ModelBuilder modelBuilder = new ModelBuilder();
 		Material material = new Material(ColorAttribute.createDiffuse(color));
 
@@ -21,7 +21,7 @@ class CuboidFactory {
 		return new ModelInstance(model);
 	}
 
-	static ModelInstance getCube(Color color) {
+	public static ModelInstance getCube(Color color) {
 		return getCuboid(SIZE, SIZE, SIZE, color);
 	}
 }

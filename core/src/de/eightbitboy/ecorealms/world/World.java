@@ -1,39 +1,34 @@
 package de.eightbitboy.ecorealms.world;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.VertexAttributes;
-import com.badlogic.gdx.graphics.g3d.Material;
-import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.CuboidFactory;
 import de.eightbitboy.ecorealms.logic.Map;
 
 public class World {
 
-	private ModelInstance[] instances = new ModelInstance[1];
+	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
 
 	public World(Map map) {
-		ModelBuilder modelBuilder = new ModelBuilder();
+		ModelInstance ground = CuboidFactory.getCuboid(map.getSizeX(), map.getSizeY(), 3, new Color(0x208400ff));
+		ground.transform.setToTranslation(map.getSizeX() / 2, map.getSizeY() / 2, -1.5f);
 
-		Material material = new Material(ColorAttribute.createDiffuse(Color.YELLOW));
+		ModelInstance shore = CuboidFactory.getCuboid(map.getSizeX() + 2, map.getSizeY() + 2, 3, Color.YELLOW);
+		shore.transform.setToTranslation(((map.getSizeX() + 2) / 2) - 1, ((map.getSizeY() + 2) / 2) - 1, -1.9f);
 
-		Model model = modelBuilder.createRect(
-				0, 0, 0,
-				map.getSizeX(), 0, 0,
-				map.getSizeX(), map.getSizeY(), 0,
-				0, map.getSizeY(), 0,
-				0, 0, 1, material,
-				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+		ModelInstance sea = CuboidFactory.getCuboid(map.getSizeX() + 100, map.getSizeY() + 100, 3, Color.BLUE);
+		sea.transform.setToTranslation(((map.getSizeX() + 100) / 2) - 50, ((map.getSizeY() + 100) / 2) - 50, -2.5f);
 
-		instances[0] = new ModelInstance(model);
+		instances.add(ground);
+		instances.add(shore);
+		instances.add(sea);
 	}
 
 	public List<ModelInstance> getModelInstances() {
-		return Arrays.asList(instances);
+		return instances;
 	}
 }
