@@ -25,4 +25,9 @@ public class MapPoint {
 	public boolean isOnMap() {
 		return (x >= 0 && y >= 0);
 	}
+
+	@Override
+	public String toString() {
+		return "(" + x + "," + y + ")";
+	}
 }
