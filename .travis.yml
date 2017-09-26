@@ -24,6 +24,7 @@ install:
 script:
   - echo "### Test step"
   - ./gradlew assemble
+  - ls ~/.android
   - ./gradlew test
 
 branches:
