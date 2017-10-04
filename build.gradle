@@ -117,7 +117,6 @@ project(":core") {
 }
 
 project(":map") {
-	apply plugin: "java"
 	apply plugin: "groovy"
 
 	targetCompatibility = ext.javaVersion
