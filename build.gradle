@@ -114,3 +114,9 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
     }
 }
+
+project(":map"){
+    apply plugin: "java"
+
+    targetCompatibility = ext.javaVersion
+}
