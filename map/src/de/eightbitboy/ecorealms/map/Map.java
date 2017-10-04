@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms.logic;
+package de.eightbitboy.ecorealms.map;
 
 public class Map {
 	private int sizeX;
@@ -7,17 +7,6 @@ public class Map {
 	public Map(int sizeX, int sizeY) {
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
-
-		generateMap();
-	}
-
-	private void generateMap() {
-		int counter = 0;
-		for (int x = 0; x < sizeX; x++) {
-			for (int y = 0; y < sizeY; y++) {
-				counter++;
-			}
-		}
 	}
 
 	public int getSizeX() {

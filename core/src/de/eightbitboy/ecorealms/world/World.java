@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.eightbitboy.ecorealms.CuboidFactory;
-import de.eightbitboy.ecorealms.logic.Map;
+import de.eightbitboy.ecorealms.map.Map;
 
 public class World {
 

@@ -10,8 +10,8 @@ import com.badlogic.gdx.math.Plane;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
-import de.eightbitboy.ecorealms.logic.Map;
-import de.eightbitboy.ecorealms.logic.MapPoint;
+import de.eightbitboy.ecorealms.map.Map;
+import de.eightbitboy.ecorealms.map.MapPoint;
 
 public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;

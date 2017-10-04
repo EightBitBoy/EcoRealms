@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms.logic;
+package de.eightbitboy.ecorealms.map;
 
 public class MapTile {
 

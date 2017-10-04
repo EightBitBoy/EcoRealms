@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.math.Vector3;
 
-import de.eightbitboy.ecorealms.logic.Map;
+import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
