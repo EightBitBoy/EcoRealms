@@ -120,4 +120,8 @@ project(":map"){
     apply plugin: "java"
 
     targetCompatibility = ext.javaVersion
+
+    dependencies {
+        testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    }
 }
