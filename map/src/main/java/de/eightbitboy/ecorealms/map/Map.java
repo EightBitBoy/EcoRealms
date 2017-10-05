@@ -11,6 +11,19 @@ public class Map {
 		initialize();
 	}
 
+
+	public int getSizeX() {
+		return this.sizeX;
+	}
+
+	public int getSizeY() {
+		return this.sizeY;
+	}
+
+	MapEntity[] getEntities() {
+		return this.entities;
+	}
+
 	private void initialize() {
 		entities = new MapEntity[sizeX * sizeY];
 	}
@@ -49,17 +62,5 @@ public class Map {
 				return 0;
 			}
 		};
-	}
-
-	public int getSizeX() {
-		return this.sizeX;
-	}
-
-	public int getSizeY() {
-		return this.sizeY;
-	}
-
-	MapEntity[] getEntities() {
-		return this.entities;
 	}
 }
