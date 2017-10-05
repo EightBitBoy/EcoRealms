@@ -14,7 +14,20 @@ class MapSpec extends Specification {
 	}
 
 	def "add an entity to the map"() {
+		setup:
+		Map map = new Map(10, 10)
 
+		when:
+		map.put(new TestMapEntity(0, 0))
+
+		then:
+		noExceptionThrown()
+
+		when:
+		map.put(new TestMapEntity(-1, -1))
+
+		then:
+		thrown(IllegalStateException)
 	}
 }
 
