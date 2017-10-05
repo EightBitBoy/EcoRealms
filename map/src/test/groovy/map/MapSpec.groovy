@@ -27,7 +27,7 @@ class MapSpec extends Specification {
         map.put(new TestMapEntity(x, y))
 
         then:
-        thrown(IllegalStateException)
+        thrown(InvalidMapAccessException)
 
         where:
         x   | y
