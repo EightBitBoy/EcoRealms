@@ -33,6 +33,8 @@ public class Map {
 			throw new InvalidMapAccessException("The entity has an invalid position: "
 					+ entity.getPosition().toString());
 		}
+
+
 	}
 
 	private boolean hasValidPosition(MapEntity entity) {

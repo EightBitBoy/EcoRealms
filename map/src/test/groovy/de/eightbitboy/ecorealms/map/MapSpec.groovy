@@ -23,6 +23,20 @@ class MapSpec extends Specification {
         noExceptionThrown()
     }
 
+    def "entities are added at the correct position"(int x, int y, int index) {
+        when:
+        Map map = new Map(4, 4)
+        TestMapEntity entity = new TestMapEntity(x, y)
+        map.put(entity)
+
+        then:
+        map.entities[index] == entity
+
+        where:
+        x | y || index
+        0 | 0 || 0
+    }
+
     def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
         when:
         map.put(new TestMapEntity(x, y))
