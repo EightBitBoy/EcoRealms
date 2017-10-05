@@ -17,10 +17,12 @@ class MapSpec extends Specification {
 
     def "add an entity to the map"() {
         when:
-        map.put(new TestMapEntity(5, 5))
+        TestMapEntity entity = new TestMapEntity(5, 5)
+        map.put(entity)
 
         then:
         noExceptionThrown()
+        map.getEntities().contains(entity)
     }
 
     def "entities are added at the correct position"(int x, int y, int index) {
