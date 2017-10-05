@@ -41,6 +41,10 @@ public class Map {
 
 	}
 
+	public void remove(MapEntity entity) {
+		
+	}
+
 	private boolean hasValidPosition(MapEntity entity) {
 		MapPoint position = entity.getPosition();
 

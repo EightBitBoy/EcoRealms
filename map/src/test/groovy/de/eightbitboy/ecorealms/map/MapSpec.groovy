@@ -43,6 +43,18 @@ class MapSpec extends Specification {
         3 | 3 || 15
     }
 
+    def "remove an entity from the map"() {
+
+    }
+
+    def "remove an entity from the map at a certain position"() {
+        
+    }
+
+    def "put an entity at a position where another one already exists fails"() {
+
+    }
+
     def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
         when:
         map.put(new TestMapEntity(x, y))
