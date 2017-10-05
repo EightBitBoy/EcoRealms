@@ -55,7 +55,7 @@ public class Map {
 	}
 
 	public MapEntity get(Position position) {
-		return null;
+		return entities[getIndexForPosition(position)];
 	}
 
 	public void remove(MapEntity entity) {
