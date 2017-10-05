@@ -99,7 +99,7 @@ class MapSpec extends Specification {
     }
 
     def "remove an entity from the map"() {
-        when:
+        setup:
         TestMapEntity entity = new TestMapEntity(1, 1)
         map.put(entity)
 

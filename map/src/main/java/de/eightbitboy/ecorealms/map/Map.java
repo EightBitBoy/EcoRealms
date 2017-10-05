@@ -71,8 +71,7 @@ public class Map {
 				position.y >= this.sizeY);
 	}
 
-	boolean isClear(Position point) {
-		//TODO
-		return true;
+	boolean isClear(Position position) {
+		return entities[getIndexForPosition(position)] == null;
 	}
 }
