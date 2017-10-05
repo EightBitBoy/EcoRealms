@@ -22,7 +22,7 @@ class MapSpec extends Specification {
         noExceptionThrown()
     }
 
-    def "add an entity with an invalid (outside of map) position to the map"() {
+    def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
         when:
         map.put(new TestMapEntity(x, y))
 
