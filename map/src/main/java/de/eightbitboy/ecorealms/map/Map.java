@@ -31,18 +31,25 @@ public class Map {
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
 			throw new InvalidMapAccessException(
-					"The entity has an invalid position: " + entity.getPosition().toString());
+					"The entity has an invalid position: " + entity.getPosition());
 		} else {
 			insert(entity);
 		}
 	}
 
 	private void insert(MapEntity entity) {
-
+		MapPoint position = entity.getPosition();
+		if (positionIsFree(position)) {
+			int index = (position.x % sizeX) + position.y;
+			entities[index] = entity;
+		} else {
+			throw new InvalidMapAccessException(
+					"The position is already occupied: " + entity.getPosition());
+		}
 	}
 
 	public void remove(MapEntity entity) {
-		
+
 	}
 
 	private boolean hasValidPosition(MapEntity entity) {
@@ -52,6 +59,11 @@ public class Map {
 				position.y < 0 ||
 				position.x >= this.sizeX ||
 				position.y >= this.sizeY);
+	}
+
+	private boolean positionIsFree(MapPoint point) {
+		//TODO
+		return true;
 	}
 
 	public MapEntity get(MapPoint position) {
