@@ -1,22 +1,20 @@
 package de.eightbitboy.ecorealms.map
 
 import spock.lang.Specification
+import spock.lang.Subject
 
 class MapSpec extends Specification {
 
-	def "the map has the correct size"() {
-		when:
-		Map map = new Map(10, 10)
+    @Subject
+    private Map map = new Map(10, 10)
 
-		then:
+	def "the map has the correct size"() {
+		expect:
 		map.sizeX == 10
 		map.sizeY == 10
 	}
 
 	def "add an entity to the map"() {
-		setup:
-		Map map = new Map(10, 10)
-
 		when:
 		map.put(new TestMapEntity(0, 0))
 
@@ -29,6 +27,10 @@ class MapSpec extends Specification {
 		then:
 		thrown(IllegalStateException)
 	}
+
+    def "add an entity with an invalid position to the map"(){
+        
+    }
 }
 
 class TestMapEntity implements MapEntity {

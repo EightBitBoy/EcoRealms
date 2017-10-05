@@ -3,6 +3,7 @@ package de.eightbitboy.ecorealms.map;
 public class Map {
 	private int sizeX;
 	private int sizeY;
+	private MapEntity[] entities;
 
 	public Map(int sizeX, int sizeY) {
 		this.sizeX = sizeX;
@@ -11,7 +12,6 @@ public class Map {
 	}
 
 	private void initialize() {
-
 	}
 
 	public void put(MapEntity entity) {
