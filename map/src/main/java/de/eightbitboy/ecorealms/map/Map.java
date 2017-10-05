@@ -54,6 +54,10 @@ public class Map {
 		return ((position.x % sizeX) * sizeY) + position.y;
 	}
 
+	public MapEntity get(MapPoint position) {
+		return null;
+	}
+
 	public void remove(MapEntity entity) {
 
 	}
@@ -70,25 +74,5 @@ public class Map {
 	private boolean positionIsFree(MapPoint point) {
 		//TODO
 		return true;
-	}
-
-	public MapEntity get(MapPoint position) {
-		//TODO
-		return new MapEntity() {
-			@Override
-			public MapPoint getPosition() {
-				return null;
-			}
-
-			@Override
-			public int getSizeX() {
-				return 0;
-			}
-
-			@Override
-			public int getSizeY() {
-				return 0;
-			}
-		};
 	}
 }

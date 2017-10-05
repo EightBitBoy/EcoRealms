@@ -55,16 +55,18 @@ class MapSpec extends Specification {
         2 | 4 || 14
     }
 
-    def "remove an entity from the map"() {
-
-    }
-
-    def "remove an entity from the map at a certain position"() {
-
-    }
 
     def "put an entity at a position where another one already exists fails"() {
+        setup:
+        TestMapEntity entity1 = new TestMapEntity(1, 1)
+        TestMapEntity entity2 = new TestMapEntity(1, 1)
+        map.put(entity1)
 
+        when:
+        map.put(entity2)
+
+        then:
+        thrown(InvalidMapAccessException)
     }
 
     def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
@@ -80,6 +82,35 @@ class MapSpec extends Specification {
         -1  | +0
         -1  | -1
         -10 | -10
+    }
+
+    def "get an entity a certain position"() {
+        setup:
+        TestMapEntity entity = new TestMapEntity(1, 1)
+        map.put(entity)
+
+        expect:
+        map.get(new MapPoint(1, 1)) == entity
+    }
+
+    def "return null if an entity does not exist at a certain position"() {
+        expect:
+        map.get(new MapPoint(1, 1)) == null
+    }
+
+    def "remove an entity from the map"() {
+        when:
+        TestMapEntity entity = new TestMapEntity(1, 1)
+        map.put(entity)
+
+        expect:
+        map.entities.contains(entity)
+
+        when:
+        map.remove(entity)
+
+        then:
+        !map.getEntities().contains(entity)
     }
 }
 
