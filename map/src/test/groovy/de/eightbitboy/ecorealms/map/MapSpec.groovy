@@ -35,11 +35,11 @@ class MapSpec extends Specification {
         where:
         x | y || index
         0 | 0 || 0
-        1 | 0 || 1
-        1 | 0 || 2
-        1 | 0 || 3
-        1 | 1 || 4
-        1 | 2 || 5
+        0 | 1 || 1
+        0 | 2 || 2
+        0 | 3 || 3
+        1 | 0 || 4
+        1 | 1 || 5
         3 | 3 || 15
     }
 
@@ -48,7 +48,7 @@ class MapSpec extends Specification {
     }
 
     def "remove an entity from the map at a certain position"() {
-        
+
     }
 
     def "put an entity at a position where another one already exists fails"() {
@@ -92,5 +92,10 @@ class TestMapEntity implements MapEntity {
     @Override
     int getSizeY() {
         return 1
+    }
+
+    @Override
+    String toString() {
+        return "TestMapEntity at (${position.x},${position.y})"
     }
 }
