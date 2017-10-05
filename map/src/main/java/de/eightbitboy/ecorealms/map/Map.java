@@ -51,7 +51,7 @@ public class Map {
 	 * The y-values are stored next to each other.
 	 */
 	private int getIndexForPosition(MapPoint position) {
-		return (position.x % sizeX) + position.y;
+		return (sizeX * (position.x % sizeX)) + position.y;
 	}
 
 	public void remove(MapEntity entity) {
