@@ -59,7 +59,7 @@ public class Map {
 	}
 
 	public void remove(MapEntity entity) {
-
+		entities[getIndexForPosition(entity.getPosition())] = null;
 	}
 
 	private boolean hasValidPosition(MapEntity entity) {
