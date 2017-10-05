@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
 import de.eightbitboy.ecorealms.map.Map;
-import de.eightbitboy.ecorealms.map.MapPoint;
+import de.eightbitboy.ecorealms.map.Position;
 
 public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;
@@ -139,14 +139,14 @@ public class Control extends InputAdapter implements InputProcessor {
 		camera.position.y += cameraY * SENSITIVITY;
 	}
 
-	MapPoint getClickOnMap() {
+	Position getClickOnMap() {
 		Intersector.intersectRayPlane(clickRay, mapPlane, clickIntersection);
-		return new MapPoint((int) clickIntersection.x, (int) clickIntersection.y);
+		return new Position((int) clickIntersection.x, (int) clickIntersection.y);
 	}
 
-	MapPoint getHoverOverMap() {
+	Position getHoverOverMap() {
 		hoverRay = camera.getPickRay(mouseHoverX, mouseHoverY);
 		Intersector.intersectRayPlane(hoverRay, mapPlane, hoverIntersection);
-		return new MapPoint((int) hoverIntersection.x, (int) hoverIntersection.y);
+		return new Position((int) hoverIntersection.x, (int) hoverIntersection.y);
 	}
 }

@@ -1,10 +1,10 @@
 package de.eightbitboy.ecorealms.map;
 
-public class MapPoint {
+public class Position {
 	public final int x;
 	public final int y;
 
-	public MapPoint(int x, int y) {
+	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

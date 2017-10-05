@@ -90,12 +90,12 @@ class MapSpec extends Specification {
         map.put(entity)
 
         expect:
-        map.get(new MapPoint(1, 1)) == entity
+        map.get(new Position(1, 1)) == entity
     }
 
     def "return null if an entity does not exist at a certain position"() {
         expect:
-        map.get(new MapPoint(1, 1)) == null
+        map.get(new Position(1, 1)) == null
     }
 
     def "remove an entity from the map"() {
@@ -112,18 +112,27 @@ class MapSpec extends Specification {
         then:
         !map.getEntities().contains(entity)
     }
+
+    def "a position can be free or occupied"() {
+        setup:
+        map.put(new TestMapEntity(3, 8))
+
+        expect:
+        map.isClear(new Position(1, 1))
+        !map.isClear(new Position(3, 8))
+    }
 }
 
 class TestMapEntity implements MapEntity {
 
-    private MapPoint position;
+    private Position position;
 
     TestMapEntity(int positionX, int positionY) {
-        position = new MapPoint(positionX, positionY)
+        position = new Position(positionX, positionY)
     }
 
     @Override
-    MapPoint getPosition() {
+    Position getPosition() {
         return position
     }
 

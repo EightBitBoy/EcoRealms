@@ -38,8 +38,8 @@ public class Map {
 	}
 
 	private void insert(MapEntity entity) {
-		MapPoint position = entity.getPosition();
-		if (positionIsFree(position)) {
+		Position position = entity.getPosition();
+		if (isClear(position)) {
 			entities[getIndexForPosition(entity.getPosition())] = entity;
 		} else {
 			throw new InvalidMapAccessException(
@@ -50,11 +50,11 @@ public class Map {
 	/**
 	 * The y-values are stored next to each other.
 	 */
-	private int getIndexForPosition(MapPoint position) {
+	private int getIndexForPosition(Position position) {
 		return ((position.x % sizeX) * sizeY) + position.y;
 	}
 
-	public MapEntity get(MapPoint position) {
+	public MapEntity get(Position position) {
 		return null;
 	}
 
@@ -63,7 +63,7 @@ public class Map {
 	}
 
 	private boolean hasValidPosition(MapEntity entity) {
-		MapPoint position = entity.getPosition();
+		Position position = entity.getPosition();
 
 		return !(position.x < 0 ||
 				position.y < 0 ||
@@ -71,7 +71,7 @@ public class Map {
 				position.y >= this.sizeY);
 	}
 
-	private boolean positionIsFree(MapPoint point) {
+	boolean isClear(Position point) {
 		//TODO
 		return true;
 	}

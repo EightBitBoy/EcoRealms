@@ -1,7 +1,7 @@
 package de.eightbitboy.ecorealms.map;
 
 public interface MapEntity {
-	public MapPoint getPosition();
+	public Position getPosition();
 
 	public int getSizeX();
 
