@@ -35,6 +35,12 @@ class MapSpec extends Specification {
         where:
         x | y || index
         0 | 0 || 0
+        1 | 0 || 1
+        1 | 0 || 2
+        1 | 0 || 3
+        1 | 1 || 4
+        1 | 2 || 5
+        3 | 3 || 15
     }
 
     def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
