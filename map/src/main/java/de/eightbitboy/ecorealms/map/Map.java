@@ -40,12 +40,18 @@ public class Map {
 	private void insert(MapEntity entity) {
 		MapPoint position = entity.getPosition();
 		if (positionIsFree(position)) {
-			int index = (position.x % sizeX) + position.y;
-			entities[index] = entity;
+			entities[getIndexForPosition(entity.getPosition())] = entity;
 		} else {
 			throw new InvalidMapAccessException(
 					"The position is already occupied: " + entity.getPosition());
 		}
+	}
+
+	/**
+	 * The y-values are stored next to each other.
+	 */
+	private int getIndexForPosition(MapPoint position) {
+		return (position.x % sizeX) + position.y;
 	}
 
 	public void remove(MapEntity entity) {

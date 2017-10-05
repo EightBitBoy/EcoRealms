@@ -25,7 +25,7 @@ class MapSpec extends Specification {
 
     def "entities are added at the correct position"(int x, int y, int index) {
         when:
-        Map map = new Map(4, 4)
+        Map map = new Map(3, 5)
         TestMapEntity entity = new TestMapEntity(x, y)
         map.put(entity)
 
@@ -38,9 +38,19 @@ class MapSpec extends Specification {
         0 | 1 || 1
         0 | 2 || 2
         0 | 3 || 3
-        1 | 0 || 4
-        1 | 1 || 5
-        3 | 3 || 15
+        0 | 4 || 4
+
+        1 | 0 || 5
+        1 | 1 || 6
+        1 | 2 || 7
+        1 | 3 || 8
+        1 | 4 || 9
+
+        2 | 0 || 10
+        2 | 1 || 11
+        2 | 2 || 12
+        2 | 3 || 13
+        2 | 4 || 14
     }
 
     def "remove an entity from the map"() {
