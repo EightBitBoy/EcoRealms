@@ -12,4 +12,32 @@ class MapSpec extends Specification {
 		map.sizeX == 10
 		map.sizeY == 10
 	}
+
+	def "add an entity to the map"() {
+
+	}
+}
+
+class TestMapEntity implements MapEntity {
+
+	private MapPoint position;
+
+	TestMapEntity(int positionX, int positionY) {
+		position = new MapPoint(positionX, positionY)
+	}
+
+	@Override
+	MapPoint getPosition() {
+		return position
+	}
+
+	@Override
+	int getSizeX() {
+		return 1
+	}
+
+	@Override
+	int getSizeY() {
+		return 1
+	}
 }

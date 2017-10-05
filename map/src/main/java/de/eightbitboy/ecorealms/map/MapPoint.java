@@ -1,25 +1,12 @@
 package de.eightbitboy.ecorealms.map;
 
 public class MapPoint {
-	private int x;
-	private int y;
-
-	public MapPoint() {
-		this.x = 0;
-		this.y = 0;
-	}
+	public final int x;
+	public final int y;
 
 	public MapPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
-	}
-
-	public int getX() {
-		return this.x;
-	}
-
-	public int getY() {
-		return this.y;
 	}
 
 	@Override
