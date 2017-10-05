@@ -15,22 +15,19 @@ public class Map {
 	}
 
 	public void put(MapEntity entity) {
-		if(!hasValidPosition(entity)){
+		if (!hasValidPosition(entity)) {
 			throw new InvalidMapAccessException("The entity has an invalid position: "
 					+ entity.getPosition().toString());
 		}
 	}
 
-	private boolean hasValidPosition(MapEntity entity){
+	private boolean hasValidPosition(MapEntity entity) {
 		MapPoint position = entity.getPosition();
 
-		if(position.x < 0 || position.x >= this.sizeX){
-			if(position.y<0 || position.y >= this.sizeY){
-				return false;
-			}
-		}
-
-		return true;
+		return !(position.x < 0 ||
+				position.y < 0 ||
+				position.x >= this.sizeX ||
+				position.y >= this.sizeY);
 	}
 
 	public MapEntity get(MapPoint position) {

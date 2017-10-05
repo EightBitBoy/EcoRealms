@@ -16,13 +16,13 @@ class MapSpec extends Specification {
 
     def "add an entity to the map"() {
         when:
-        map.put(new TestMapEntity(0, 0))
+        map.put(new TestMapEntity(5, 5))
 
         then:
         noExceptionThrown()
     }
 
-    def "add an entity with an invalid position to the map"() {
+    def "add an entity with an invalid (outside of map) position to the map"() {
         when:
         map.put(new TestMapEntity(x, y))
 
@@ -31,10 +31,10 @@ class MapSpec extends Specification {
 
         where:
         x   | y
+        +0  | -1
+        -1  | +0
         -1  | -1
         -10 | -10
-        0   | -1
-        -1  | 0
     }
 }
 
