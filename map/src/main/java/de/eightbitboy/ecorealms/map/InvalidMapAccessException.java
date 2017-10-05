@@ -3,5 +3,8 @@ package de.eightbitboy.ecorealms.map;
 /**
  * RuntimeException class which is used for managing map logic mistakes.
  */
-public class InvalidMapAccessException extends RuntimeException {
+class InvalidMapAccessException extends RuntimeException {
+	InvalidMapAccessException(String message) {
+		super(message);
+	}
 }
