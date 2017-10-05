@@ -30,10 +30,14 @@ public class Map {
 
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
-			throw new InvalidMapAccessException("The entity has an invalid position: "
-					+ entity.getPosition().toString());
+			throw new InvalidMapAccessException(
+					"The entity has an invalid position: " + entity.getPosition().toString());
+		} else {
+			insert(entity);
 		}
+	}
 
+	private void insert(MapEntity entity) {
 
 	}
 
