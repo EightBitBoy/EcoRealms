@@ -12,6 +12,7 @@ class MapSpec extends Specification {
         expect:
         map.sizeX == 10
         map.sizeY == 10
+        map.getEntities().length == 100
     }
 
     def "add an entity to the map"() {

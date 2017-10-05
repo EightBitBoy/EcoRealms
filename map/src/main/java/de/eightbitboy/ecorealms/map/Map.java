@@ -12,6 +12,7 @@ public class Map {
 	}
 
 	private void initialize() {
+		entities = new MapEntity[sizeX * sizeY];
 	}
 
 	public void put(MapEntity entity) {
@@ -51,10 +52,14 @@ public class Map {
 	}
 
 	public int getSizeX() {
-		return sizeX;
+		return this.sizeX;
 	}
 
 	public int getSizeY() {
-		return sizeY;
+		return this.sizeY;
+	}
+
+	MapEntity[] getEntities() {
+		return this.entities;
 	}
 }
