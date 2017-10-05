@@ -58,11 +58,11 @@ class Highlighter {
 
 	void update() {
 		clickModel.transform.setToTranslation(
-				control.getClickOnMap().getX(),
-				control.getClickOnMap().getY(), CLICK_HEIGHT);
+				control.getClickOnMap().x,
+				control.getClickOnMap().y, CLICK_HEIGHT);
 		hoverModel.transform.setToTranslation(
-				control.getHoverOverMap().getX(),
-				control.getHoverOverMap().getY(), HOVER_HEIGHT);
+				control.getHoverOverMap().x,
+				control.getHoverOverMap().y, HOVER_HEIGHT);
 	}
 
 	List<ModelInstance> getModelInstances() {
