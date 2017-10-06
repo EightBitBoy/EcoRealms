@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.math.Vector3;
 
 import de.eightbitboy.ecorealms.map.Map;
+import de.eightbitboy.ecorealms.world.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 
 public class EcoRealms extends ApplicationAdapter {
@@ -25,6 +26,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private Control control;
 	private Gizmo gizmo;
+	private GridLines gridLines;
 	private Highlighter highlighter;
 
 	public EcoRealms() {
@@ -39,13 +41,13 @@ public class EcoRealms extends ApplicationAdapter {
 		createEnvironment();
 		createCamera();
 
-		modelBatch = new ModelBatch();
-		gizmo = new Gizmo();
-
 		control = new Control(camera, map);
 		Gdx.input.setInputProcessor(control);
 
+		modelBatch = new ModelBatch();
+		gridLines = new GridLines();
 		highlighter = new Highlighter(control);
+		gizmo = new Gizmo();
 	}
 
 	@Override
@@ -72,8 +74,12 @@ public class EcoRealms extends ApplicationAdapter {
 	@SuppressWarnings("ConstantConditions")
 	private void renderModels() {
 		modelBatch.render(world.getModelInstances(), environment);
-		if(config.showGizmo) modelBatch.render(gizmo.getModelInstances(), environment);
+		modelBatch.render(gridLines.getModelInstances(), environment);
 		modelBatch.render(highlighter.getModelInstances(), environment);
+
+		if (config.showGizmo) {
+			modelBatch.render(gizmo.getModelInstances(), environment);
+		}
 	}
 
 	private void createWorld() {
