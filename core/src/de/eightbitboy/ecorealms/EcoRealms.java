@@ -45,7 +45,7 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.input.setInputProcessor(control);
 
 		modelBatch = new ModelBatch();
-		gridLines = new GridLines();
+		gridLines = new GridLines(map);
 		highlighter = new Highlighter(control);
 		gizmo = new Gizmo();
 	}
