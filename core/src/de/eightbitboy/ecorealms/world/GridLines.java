@@ -18,13 +18,11 @@ public class GridLines {
 	private final float X_MAX;
 	private final float Y_MAX;
 
-	private List<ModelInstance> modelInstances;
+	private List<ModelInstance> modelInstances = new ArrayList<ModelInstance>();
 
 	public GridLines(Map map) {
-		modelInstances = new ArrayList<ModelInstance>();
 		X_MAX = map.getSizeX();
 		Y_MAX = map.getSizeY();
-
 		buildGrid();
 	}
 
@@ -35,15 +33,23 @@ public class GridLines {
 		MeshPartBuilder builder = modelBuilder.part("line", 1, 3, new Material());
 		builder.setColor(Color.RED);
 
-		for (int x = 0; x <= X_MAX; x++) {
-			builder.line(x, 0.0f, HEIGHT, x, Y_MAX, HEIGHT);
-		}
-		for (int y = 0; y <= Y_MAX; y++) {
-			builder.line(0.0f, y, HEIGHT, X_MAX, y, HEIGHT);
-		}
+		buildVerticalLines(builder);
+		buildHorizontalLines(builder);
 
 		Model gridModel = modelBuilder.end();
 		modelInstances.add(new ModelInstance(gridModel));
+	}
+
+	private void buildVerticalLines(MeshPartBuilder builder) {
+		for (int x = 0; x <= X_MAX; x++) {
+			builder.line(x, 0.0f, HEIGHT, x, Y_MAX, HEIGHT);
+		}
+	}
+
+	private void buildHorizontalLines(MeshPartBuilder builder) {
+		for (int y = 0; y <= Y_MAX; y++) {
+			builder.line(0.0f, y, HEIGHT, X_MAX, y, HEIGHT);
+		}
 	}
 
 	public List<ModelInstance> getModelInstances() {
