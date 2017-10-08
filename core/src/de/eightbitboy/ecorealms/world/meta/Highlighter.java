@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms;
+package de.eightbitboy.ecorealms.world.meta;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.VertexAttributes;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Control;
 
-class Highlighter {
+public class Highlighter {
 
 	private static final float CLICK_HEIGHT = 0.01f;
 	private static final float HOVER_HEIGHT = CLICK_HEIGHT + 0.005f;
@@ -24,7 +24,7 @@ class Highlighter {
 	private ModelInstance clickModel;
 	private ModelInstance hoverModel;
 
-	Highlighter(Control control) {
+	public Highlighter(Control control) {
 		this.control = control;
 		createModels();
 	}
@@ -58,7 +58,7 @@ class Highlighter {
 		instances[1] = hoverModel;
 	}
 
-	void update() {
+	public void update() {
 		clickModel.transform.setToTranslation(
 				control.getClickOnMap().x,
 				control.getClickOnMap().y, CLICK_HEIGHT);
@@ -67,7 +67,7 @@ class Highlighter {
 				control.getHoverOverMap().y, HOVER_HEIGHT);
 	}
 
-	List<ModelInstance> getModelInstances() {
+	public List<ModelInstance> getModelInstances() {
 		return Arrays.asList(instances);
 	}
 }

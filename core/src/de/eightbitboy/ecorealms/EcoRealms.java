@@ -17,6 +17,7 @@ import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 import de.eightbitboy.ecorealms.world.meta.Gizmo;
+import de.eightbitboy.ecorealms.world.meta.Highlighter;
 
 public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
