@@ -35,7 +35,12 @@ public class GridLines {
 		MeshPartBuilder builder = modelBuilder.part("line", 1, 3, new Material());
 		builder.setColor(Color.RED);
 
-		builder.line(0.0f, 0.0f, HEIGHT, 0.0f, Y_MAX, HEIGHT);
+		for (int x = 0; x <= X_MAX; x++) {
+			builder.line(x, 0.0f, HEIGHT, x, Y_MAX, HEIGHT);
+		}
+		for (int y = 0; y <= Y_MAX; y++) {
+			builder.line(0.0f, y, HEIGHT, X_MAX, y, HEIGHT);
+		}
 
 		Model gridModel = modelBuilder.end();
 		modelInstances.add(new ModelInstance(gridModel));
