@@ -134,6 +134,15 @@ public class Control extends InputAdapter implements InputProcessor {
 		return super.mouseMoved(screenX, screenY);
 	}
 
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		//TODO
+		if (lmbDown) {
+
+		}
+		return super.touchDragged(screenX, screenY, pointer);
+	}
+
 	void updateCamera() {
 		camera.position.x += cameraX * SENSITIVITY;
 		camera.position.y += cameraY * SENSITIVITY;
