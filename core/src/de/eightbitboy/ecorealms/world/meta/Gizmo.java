@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms;
+package de.eightbitboy.ecorealms.world.meta;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
@@ -8,13 +8,13 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 
-class Gizmo {
+public class Gizmo {
 
 	private static final float SPACE = 5;
 
 	private ModelInstance[] instances = new ModelInstance[4];
 
-	Gizmo() {
+	public Gizmo() {
 		ModelInstance aCube = CuboidFactory.getCube(Color.MAGENTA);
 		ModelInstance xCube = CuboidFactory.getCube(Color.RED);
 		ModelInstance yCube = CuboidFactory.getCube(Color.GREEN);
@@ -30,7 +30,7 @@ class Gizmo {
 		instances[3] = zCube;
 	}
 
-	List<ModelInstance> getModelInstances() {
+	public List<ModelInstance> getModelInstances() {
 		return Arrays.asList(instances);
 	}
 }
