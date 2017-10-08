@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import java.util.Arrays;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
+
 class Gizmo {
 
 	private static final float SPACE = 5;

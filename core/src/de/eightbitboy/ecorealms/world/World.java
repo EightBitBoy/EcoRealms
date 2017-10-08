@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.eightbitboy.ecorealms.CuboidFactory;
+import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 import de.eightbitboy.ecorealms.map.Map;
 
 public class World {

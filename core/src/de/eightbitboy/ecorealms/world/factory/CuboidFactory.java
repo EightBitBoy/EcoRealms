@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms;
+package de.eightbitboy.ecorealms.world.factory;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.VertexAttributes;
