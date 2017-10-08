@@ -2,8 +2,8 @@ package de.eightbitboy.ecorealms;
 
 import com.badlogic.gdx.Gdx;
 
-class Logger {
-	static void debug(String message) {
+public class Logger {
+	public static void debug(String message) {
 		Gdx.app.debug("DEBUG", message);
 	}
 

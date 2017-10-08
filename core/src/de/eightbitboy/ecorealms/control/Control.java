@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms;
+package de.eightbitboy.ecorealms.control;
 
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Plane;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
+import de.eightbitboy.ecorealms.Logger;
 import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.map.Position;
 
@@ -34,7 +35,7 @@ public class Control extends InputAdapter implements InputProcessor {
 	private Vector3 clickIntersection = new Vector3();
 	private Vector3 hoverIntersection = new Vector3();
 
-	Control(PerspectiveCamera camera, Map map) {
+	public Control(PerspectiveCamera camera, Map map) {
 		this.camera = camera;
 		this.map = map;
 
@@ -143,17 +144,17 @@ public class Control extends InputAdapter implements InputProcessor {
 		return super.touchDragged(screenX, screenY, pointer);
 	}
 
-	void updateCamera() {
+	public void updateCamera() {
 		camera.position.x += cameraX * SENSITIVITY;
 		camera.position.y += cameraY * SENSITIVITY;
 	}
 
-	Position getClickOnMap() {
+	public Position getClickOnMap() {
 		Intersector.intersectRayPlane(clickRay, mapPlane, clickIntersection);
 		return new Position((int) clickIntersection.x, (int) clickIntersection.y);
 	}
 
-	Position getHoverOverMap() {
+	public Position getHoverOverMap() {
 		hoverRay = camera.getPickRay(mouseHoverX, mouseHoverY);
 		Intersector.intersectRayPlane(hoverRay, mapPlane, hoverIntersection);
 		return new Position((int) hoverIntersection.x, (int) hoverIntersection.y);

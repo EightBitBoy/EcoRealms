@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import java.util.Arrays;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.control.Control;
+
 class Highlighter {
 
 	private static final float CLICK_HEIGHT = 0.01f;
