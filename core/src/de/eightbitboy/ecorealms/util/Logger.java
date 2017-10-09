@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms;
+package de.eightbitboy.ecorealms.util;
 
 import com.badlogic.gdx.Gdx;
 

@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Plane;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
-import de.eightbitboy.ecorealms.Logger;
+import de.eightbitboy.ecorealms.util.Logger;
 import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.map.Position;
 
