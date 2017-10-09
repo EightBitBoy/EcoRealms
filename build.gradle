@@ -108,6 +108,7 @@ project(":core") {
 
 	dependencies {
 		compile project(":map")
+		compile project(":simulation")
 		compile "com.badlogicgames.gdx:gdx:$gdxVersion"
 		compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 		compile "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
@@ -117,6 +118,16 @@ project(":core") {
 }
 
 project(":map") {
+	apply plugin: "groovy"
+
+	targetCompatibility = ext.javaVersion
+
+	dependencies {
+		testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+	}
+}
+
+project(":simulation") {
 	apply plugin: "groovy"
 
 	targetCompatibility = ext.javaVersion
