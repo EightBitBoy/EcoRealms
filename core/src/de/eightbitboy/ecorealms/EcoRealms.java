@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 
 import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
+import de.eightbitboy.ecorealms.control.ControlMapping;
 import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
@@ -40,6 +41,7 @@ public class EcoRealms extends ApplicationAdapter {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		ControlMapping.getInstance();
 
 		createWorld();
 		createEnvironment();
