@@ -41,13 +41,12 @@ public class EcoRealms extends ApplicationAdapter {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		ControlMapping.getInstance();
 
 		createWorld();
 		createEnvironment();
 		createCamera();
 
-		control = new Control(camera, map);
+		control = new Control(camera, ControlMapping.getInstance(), map);
 		Gdx.input.setInputProcessor(control);
 
 		modelBatch = new ModelBatch();
