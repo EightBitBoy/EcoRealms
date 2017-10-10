@@ -16,6 +16,7 @@ android:
 install:
   - echo "### Install step"
   - echo $ANDROID_HOME
+  - cp debug.keystore ~/.android
   - echo ~/.android
   - ls -la ~
   - ls ~/.android
