@@ -18,7 +18,7 @@ public class Control extends InputAdapter implements InputProcessor {
 	private static final float SENSITIVITY = 0.2f;
 
 	private PerspectiveCamera camera;
-	private ControlMapping controlMapping;
+	private ControlActionMapping controlActionMapping;
 	private Map map;
 	private int cameraX = 0;
 	private int cameraY = 0;
@@ -36,9 +36,9 @@ public class Control extends InputAdapter implements InputProcessor {
 	private Vector3 clickIntersection = new Vector3();
 	private Vector3 hoverIntersection = new Vector3();
 
-	public Control(PerspectiveCamera camera, ControlMapping controlMapping, Map map) {
+	public Control(PerspectiveCamera camera, ControlActionMapping controlActionMapping, Map map) {
 		this.camera = camera;
-		this.controlMapping = controlMapping;
+		this.controlActionMapping = controlActionMapping;
 		this.map = map;
 
 		this.clickRay = camera.getPickRay(0, 0);
@@ -104,12 +104,12 @@ public class Control extends InputAdapter implements InputProcessor {
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
-				controlMapping.fireAction(ControlMapping.Action.LMB);
+				controlActionMapping.fireAction(ControlActionMapping.Action.LMB);
 				Logger.debug("Key: LMB");
 				break;
 			case Buttons.RIGHT:
 				rmbDown = true;
-				controlMapping.fireAction(ControlMapping.Action.RMB);
+				controlActionMapping.fireAction(ControlActionMapping.Action.RMB);
 				Logger.debug("Key: RMB");
 				break;
 		}

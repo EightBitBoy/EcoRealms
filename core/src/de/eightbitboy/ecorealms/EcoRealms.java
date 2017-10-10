@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 
 import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
-import de.eightbitboy.ecorealms.control.ControlMapping;
+import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
@@ -46,7 +46,7 @@ public class EcoRealms extends ApplicationAdapter {
 		createEnvironment();
 		createCamera();
 
-		control = new Control(camera, ControlMapping.getInstance(), map);
+		control = new Control(camera, ControlActionMapping.getInstance(), map);
 		Gdx.input.setInputProcessor(control);
 
 		modelBatch = new ModelBatch();

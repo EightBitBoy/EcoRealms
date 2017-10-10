@@ -3,7 +3,7 @@ package de.eightbitboy.ecorealms.control;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControlMapping {
+public class ControlActionMapping {
 
 	enum Action {
 		LMB,
@@ -14,14 +14,14 @@ public class ControlMapping {
 		void action(Action action);
 	}
 
-	private static final ControlMapping INSTANCE = new ControlMapping();
+	private static final ControlActionMapping INSTANCE = new ControlActionMapping();
 
 	private List<ActionListener> listeners = new ArrayList<ActionListener>();
 
-	private ControlMapping() {
+	private ControlActionMapping() {
 	}
 
-	public static ControlMapping getInstance() {
+	public static ControlActionMapping getInstance() {
 		return INSTANCE;
 	}
 
