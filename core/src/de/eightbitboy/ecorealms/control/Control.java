@@ -104,10 +104,12 @@ public class Control extends InputAdapter implements InputProcessor {
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
+				controlMapping.fireAction(ControlMapping.Action.LMB);
 				Logger.debug("Key: LMB");
 				break;
 			case Buttons.RIGHT:
 				rmbDown = true;
+				controlMapping.fireAction(ControlMapping.Action.RMB);
 				Logger.debug("Key: RMB");
 				break;
 		}
