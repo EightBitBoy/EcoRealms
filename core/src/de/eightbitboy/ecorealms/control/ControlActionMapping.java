@@ -7,7 +7,15 @@ public class ControlActionMapping {
 
 	enum Action {
 		LMB,
-		RMB
+		RMB;
+
+		public ActionInformation info() {
+			return ControlActionMapping.getActionInformation();
+		}
+	}
+
+	public class ActionInformation {
+
 	}
 
 	public interface ActionListener {
@@ -18,6 +26,8 @@ public class ControlActionMapping {
 
 	private List<ActionListener> listeners = new ArrayList<ActionListener>();
 
+	private ActionInformation actionInformation = new ActionInformation();
+
 	private ControlActionMapping() {
 	}
 
@@ -27,6 +37,10 @@ public class ControlActionMapping {
 
 	public static void subscribe(ActionListener listener) {
 		INSTANCE.listeners.add(listener);
+	}
+
+	public static ActionInformation getActionInformation() {
+		return INSTANCE.actionInformation;
 	}
 
 	public void fireAction(Action action) {
