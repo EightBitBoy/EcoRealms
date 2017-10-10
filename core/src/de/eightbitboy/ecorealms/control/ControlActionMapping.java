@@ -3,9 +3,11 @@ package de.eightbitboy.ecorealms.control;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.map.Position;
+
 public class ControlActionMapping {
 
-	enum Action {
+	public enum Action {
 		LMB,
 		RMB;
 
@@ -15,7 +17,11 @@ public class ControlActionMapping {
 	}
 
 	public class ActionInformation {
+		public Position mousePositionOnMap = new Position(0, 0);
 
+		void reset() {
+			mousePositionOnMap = new Position(0, 0);
+		}
 	}
 
 	public interface ActionListener {
@@ -43,9 +49,14 @@ public class ControlActionMapping {
 		return INSTANCE.actionInformation;
 	}
 
-	public void fireAction(Action action) {
+	public void setMousePositionOnMap(Position position) {
+		actionInformation.mousePositionOnMap = position;
+	}
+
+	void fireAction(Action action) {
 		for (ActionListener listener : listeners) {
 			listener.action(action);
 		}
+		actionInformation.reset();
 	}
 }

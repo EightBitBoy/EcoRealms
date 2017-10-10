@@ -12,8 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Control;
+import de.eightbitboy.ecorealms.control.ControlActionMapping;
 
-public class Highlighter {
+public class Highlighter implements ControlActionMapping.ActionListener {
 
 	private static final float CLICK_HEIGHT = 0.01f;
 	private static final float HOVER_HEIGHT = CLICK_HEIGHT + 0.005f;
@@ -69,5 +70,18 @@ public class Highlighter {
 
 	public List<ModelInstance> getModelInstances() {
 		return Arrays.asList(instances);
+	}
+
+	@Override
+	public void action(ControlActionMapping.Action action) {
+
+		clickModel.transform.setToTranslation(
+				action.info().mousePositionOnMap.x,
+				action.info().mousePositionOnMap.y,
+				CLICK_HEIGHT);
+		hoverModel.transform.setToTranslation(
+				action.info().mousePositionOnMap.x,
+				action.info().mousePositionOnMap.y,
+				HOVER_HEIGHT);
 	}
 }
