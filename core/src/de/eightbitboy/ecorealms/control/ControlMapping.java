@@ -30,6 +30,8 @@ public class ControlMapping {
 	}
 
 	public void fireAction(Action action) {
-		
+		for (ActionListener listener : listeners) {
+			listener.action(action);
+		}
 	}
 }
