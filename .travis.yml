@@ -13,18 +13,12 @@ android:
 
 install:
   - echo "### Install step"
-  - echo $ANDROID_HOME
   - cp debug.keystore ~/.android
-  - echo ~/.android
-  - ls -la ~
-  - ls ~/.android
-  - chmod +rw ~/.android
   - chmod +x gradlew
 
 script:
   - echo "### Test step"
   - ./gradlew assemble
-  - ls ~/.android
   - ./gradlew test
 
 branches:
