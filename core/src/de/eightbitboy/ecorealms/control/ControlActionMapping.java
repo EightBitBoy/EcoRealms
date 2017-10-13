@@ -32,6 +32,7 @@ public class ControlActionMapping {
 
 	private static final ControlActionMapping INSTANCE = new ControlActionMapping();
 
+	//TODO Use a set for listeners?
 	private Map<Action, List<ActionListener>> listeners;
 
 	private ActionInformation actionInformation;
@@ -50,7 +51,7 @@ public class ControlActionMapping {
 	}
 
 	public static void subscribe(Action action, ActionListener listener) {
-		//INSTANCE.listeners.add(listener);
+		INSTANCE.listeners.get(action).add(listener);
 	}
 
 	public static ActionInformation getActionInformation() {
