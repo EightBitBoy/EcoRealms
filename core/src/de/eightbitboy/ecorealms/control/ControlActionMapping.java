@@ -53,10 +53,7 @@ public class ControlActionMapping {
 		actionInformation.mousePositionOnMap = position;
 	}
 
-	void fireAction(Action action) {
-		for (ActionListener listener : listeners) {
-			listener.action(action);
-		}
+	void update() {
 		actionInformation.reset();
 	}
 }
