@@ -11,7 +11,8 @@ public class ControlActionMapping {
 
 	public enum Action {
 		LMB,
-		RMB;
+		RMB,
+		UPDATE;
 
 		public ActionInformation info() {
 			return ControlActionMapping.getActionInformation();
@@ -69,6 +70,7 @@ public class ControlActionMapping {
 	}
 
 	public void update() {
+		fire(Action.UPDATE);
 		actionInformation.reset();
 	}
 }
