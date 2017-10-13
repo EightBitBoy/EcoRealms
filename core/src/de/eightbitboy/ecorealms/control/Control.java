@@ -105,16 +105,17 @@ public class Control extends InputAdapter implements InputProcessor {
 			case Buttons.LEFT:
 				lmbDown = true;
 				controlActionMapping.setMousePositionOnMap(getHoverOverMap());
+				controlActionMapping.fire(ControlActionMapping.Action.LMB);
 				Logger.debug("Key: LMB");
 				break;
 			case Buttons.RIGHT:
 				rmbDown = true;
 				controlActionMapping.setMousePositionOnMap(getHoverOverMap());
+				controlActionMapping.fire(ControlActionMapping.Action.RMB);
 				Logger.debug("Key: RMB");
 				break;
 		}
-
-		//Logger.debug("Screen: " + screenX + "," + screenY);
+		
 		return super.touchDown(screenX, screenY, pointer, button);
 	}
 

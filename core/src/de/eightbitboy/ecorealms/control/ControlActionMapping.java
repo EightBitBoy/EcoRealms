@@ -61,6 +61,12 @@ public class ControlActionMapping {
 		actionInformation.mousePositionOnMap = position;
 	}
 
+	public void fire(Action action) {
+		for (ActionListener listener : listeners.get(action)) {
+			listener.action(action);
+		}
+	}
+
 	public void update() {
 		actionInformation.reset();
 	}
