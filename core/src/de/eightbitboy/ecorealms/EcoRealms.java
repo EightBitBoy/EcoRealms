@@ -64,6 +64,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 		control.updateCamera();
 		highlighter.update();
+		ControlActionMapping.getInstance().update();
 		camera.update();
 
 		modelBatch.begin(camera);

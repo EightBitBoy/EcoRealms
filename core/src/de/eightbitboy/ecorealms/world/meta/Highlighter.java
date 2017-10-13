@@ -13,6 +13,7 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
+import de.eightbitboy.ecorealms.util.Logger;
 
 public class Highlighter implements ControlActionMapping.ActionListener {
 
@@ -28,6 +29,7 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 	public Highlighter(Control control) {
 		this.control = control;
 		createModels();
+		ControlActionMapping.subscribe(ControlActionMapping.Action.LMB, this);
 	}
 
 	private void createModels() {
@@ -74,14 +76,6 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 
 	@Override
 	public void action(ControlActionMapping.Action action) {
-
-		clickModel.transform.setToTranslation(
-				action.info().mousePositionOnMap.x,
-				action.info().mousePositionOnMap.y,
-				CLICK_HEIGHT);
-		hoverModel.transform.setToTranslation(
-				action.info().mousePositionOnMap.x,
-				action.info().mousePositionOnMap.y,
-				HOVER_HEIGHT);
+		Logger.debug("Updating Highlighter!");
 	}
 }

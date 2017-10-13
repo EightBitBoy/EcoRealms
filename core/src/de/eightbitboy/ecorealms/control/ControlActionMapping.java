@@ -1,6 +1,8 @@
 package de.eightbitboy.ecorealms.control;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 import de.eightbitboy.ecorealms.map.Position;
@@ -30,11 +32,17 @@ public class ControlActionMapping {
 
 	private static final ControlActionMapping INSTANCE = new ControlActionMapping();
 
-	private Map<Action, ActionListener> listeners = new EnumMap<Action, ActionListener>(Action.class);
+	private Map<Action, List<ActionListener>> listeners;
 
-	private ActionInformation actionInformation = new ActionInformation();
+	private ActionInformation actionInformation;
 
 	private ControlActionMapping() {
+		listeners = new EnumMap<Action, List<ActionListener>>(Action.class);
+		for (Action action : Action.values()) {
+			listeners.put(action, new ArrayList<ActionListener>());
+		}
+
+		actionInformation = new ActionInformation();
 	}
 
 	public static ControlActionMapping getInstance() {
@@ -53,7 +61,7 @@ public class ControlActionMapping {
 		actionInformation.mousePositionOnMap = position;
 	}
 
-	void update() {
+	public void update() {
 		actionInformation.reset();
 	}
 }
