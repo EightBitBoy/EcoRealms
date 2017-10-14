@@ -62,9 +62,6 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 	}
 
 	public void update() {
-		clickModel.transform.setToTranslation(
-				control.getClickOnMap().x,
-				control.getClickOnMap().y, CLICK_HEIGHT);
 		hoverModel.transform.setToTranslation(
 				control.getHoverOverMap().x,
 				control.getHoverOverMap().y, HOVER_HEIGHT);
@@ -76,6 +73,9 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 
 	@Override
 	public void action(ControlActionMapping.Action action) {
-		Logger.debug("Updating Highlighter!");
+		clickModel.transform.setToTranslation(
+				action.info().mousePositionOnMap.x,
+				action.info().mousePositionOnMap.y,
+				CLICK_HEIGHT);
 	}
 }
