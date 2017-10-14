@@ -51,7 +51,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 		modelBatch = new ModelBatch();
 		gridLines = new GridLines(map);
-		highlighter = new Highlighter(control);
+		highlighter = new Highlighter();
 		gizmo = new Gizmo();
 	}
 

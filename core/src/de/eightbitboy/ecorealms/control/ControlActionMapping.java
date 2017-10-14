@@ -9,10 +9,6 @@ import de.eightbitboy.ecorealms.map.Position;
 
 public class ControlActionMapping {
 
-	public interface ActionListener {
-		void action(Action action);
-	}
-
 	private static final ControlActionMapping INSTANCE = new ControlActionMapping();
 	private Map<Action, List<ActionListener>> listeners;
 	private ActionInformation actionInformation = new ActionInformation();

@@ -12,22 +12,20 @@ import java.util.Arrays;
 import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Action;
-import de.eightbitboy.ecorealms.control.Control;
+import de.eightbitboy.ecorealms.control.ActionListener;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 
-public class Highlighter implements ControlActionMapping.ActionListener {
+public class Highlighter implements ActionListener {
 
 	private static final float CLICK_HEIGHT = 0.01f;
 	private static final float HOVER_HEIGHT = CLICK_HEIGHT + 0.005f;
-	private Control control;
 
 	private ModelInstance[] instances = new ModelInstance[2];
 
 	private ModelInstance clickModel;
 	private ModelInstance hoverModel;
 
-	public Highlighter(Control control) {
-		this.control = control;
+	public Highlighter() {
 		createModels();
 		ControlActionMapping.subscribe(Action.LMB, this);
 		ControlActionMapping.subscribe(Action.UPDATE, this);
