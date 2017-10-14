@@ -63,7 +63,6 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
 		control.updateCamera();
-		highlighter.update();
 		ControlActionMapping.getInstance().update();
 		camera.update();
 

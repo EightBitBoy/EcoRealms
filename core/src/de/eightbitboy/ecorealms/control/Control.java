@@ -104,18 +104,18 @@ public class Control extends InputAdapter implements InputProcessor {
 		switch (button) {
 			case Buttons.LEFT:
 				lmbDown = true;
-				controlActionMapping.setMousePositionOnMap(getHoverOverMap());
+				controlActionMapping.setClickPositionOnMap(getClickOnMap());
 				controlActionMapping.fire(ControlActionMapping.Action.LMB);
 				Logger.debug("Key: LMB");
 				break;
 			case Buttons.RIGHT:
 				rmbDown = true;
-				controlActionMapping.setMousePositionOnMap(getHoverOverMap());
+				controlActionMapping.setClickPositionOnMap(getClickOnMap());
 				controlActionMapping.fire(ControlActionMapping.Action.RMB);
 				Logger.debug("Key: RMB");
 				break;
 		}
-		
+
 		return super.touchDown(screenX, screenY, pointer, button);
 	}
 
@@ -136,6 +136,8 @@ public class Control extends InputAdapter implements InputProcessor {
 	public boolean mouseMoved(int screenX, int screenY) {
 		mouseHoverX = screenX;
 		mouseHoverY = screenY;
+
+		controlActionMapping.setHoverPositionOnMap(getHoverOverMap());
 
 		return super.mouseMoved(screenX, screenY);
 	}

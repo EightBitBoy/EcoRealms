@@ -20,10 +20,11 @@ public class ControlActionMapping {
 	}
 
 	public class ActionInformation {
-		public Position mousePositionOnMap = new Position(0, 0);
+		public Position clickPositionOnMap = new Position(0, 0);
+		public Position hoverPositionOnMap = new Position(0, 0);
 
 		void reset() {
-			mousePositionOnMap = new Position(0, 0);
+			clickPositionOnMap = new Position(0, 0);
 		}
 	}
 
@@ -55,15 +56,19 @@ public class ControlActionMapping {
 		INSTANCE.listeners.get(action).add(listener);
 	}
 
-	public static ActionInformation getActionInformation() {
+	static ActionInformation getActionInformation() {
 		return INSTANCE.actionInformation;
 	}
 
-	public void setMousePositionOnMap(Position position) {
-		actionInformation.mousePositionOnMap = position;
+	void setClickPositionOnMap(Position position) {
+		actionInformation.clickPositionOnMap = position;
 	}
 
-	public void fire(Action action) {
+	void setHoverPositionOnMap(Position position) {
+		actionInformation.hoverPositionOnMap = position;
+	}
+
+	void fire(Action action) {
 		for (ActionListener listener : listeners.get(action)) {
 			listener.action(action);
 		}

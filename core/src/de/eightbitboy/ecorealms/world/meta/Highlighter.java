@@ -13,7 +13,6 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
-import de.eightbitboy.ecorealms.util.Logger;
 
 public class Highlighter implements ControlActionMapping.ActionListener {
 
@@ -30,6 +29,7 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 		this.control = control;
 		createModels();
 		ControlActionMapping.subscribe(ControlActionMapping.Action.LMB, this);
+		ControlActionMapping.subscribe(ControlActionMapping.Action.UPDATE, this);
 	}
 
 	private void createModels() {
@@ -61,21 +61,23 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 		instances[1] = hoverModel;
 	}
 
-	public void update() {
-		hoverModel.transform.setToTranslation(
-				control.getHoverOverMap().x,
-				control.getHoverOverMap().y, HOVER_HEIGHT);
-	}
-
 	public List<ModelInstance> getModelInstances() {
 		return Arrays.asList(instances);
 	}
 
 	@Override
 	public void action(ControlActionMapping.Action action) {
-		clickModel.transform.setToTranslation(
-				action.info().mousePositionOnMap.x,
-				action.info().mousePositionOnMap.y,
-				CLICK_HEIGHT);
+		if (action == ControlActionMapping.Action.LMB) {
+			clickModel.transform.setToTranslation(
+					action.info().clickPositionOnMap.x,
+					action.info().clickPositionOnMap.y,
+					CLICK_HEIGHT);
+		}
+		if (action == ControlActionMapping.Action.UPDATE) {
+			hoverModel.transform.setToTranslation(
+					action.info().hoverPositionOnMap.x,
+					action.info().hoverPositionOnMap.y,
+					HOVER_HEIGHT);
+		}
 	}
 }
