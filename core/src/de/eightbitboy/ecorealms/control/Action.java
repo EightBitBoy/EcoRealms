@@ -5,7 +5,7 @@ public enum Action {
 	RMB,
 	UPDATE;
 
-	public ControlActionMapping.ActionInformation info() {
+	public ActionInformation info() {
 		return ControlActionMapping.getActionInformation();
 	}
 }

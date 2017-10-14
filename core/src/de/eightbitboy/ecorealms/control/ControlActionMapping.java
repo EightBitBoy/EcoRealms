@@ -9,33 +9,19 @@ import de.eightbitboy.ecorealms.map.Position;
 
 public class ControlActionMapping {
 
-	public class ActionInformation {
-		public Position clickPositionOnMap = new Position(0, 0);
-		public Position hoverPositionOnMap = new Position(0, 0);
-
-		void reset() {
-			clickPositionOnMap = new Position(0, 0);
-		}
-	}
-
 	public interface ActionListener {
 		void action(Action action);
 	}
 
 	private static final ControlActionMapping INSTANCE = new ControlActionMapping();
-
-	//TODO Use a set for listeners?
 	private Map<Action, List<ActionListener>> listeners;
-
-	private ActionInformation actionInformation;
+	private ActionInformation actionInformation = new ActionInformation();
 
 	private ControlActionMapping() {
 		listeners = new EnumMap<Action, List<ActionListener>>(Action.class);
 		for (Action action : Action.values()) {
 			listeners.put(action, new ArrayList<ActionListener>());
 		}
-
-		actionInformation = new ActionInformation();
 	}
 
 	public static ControlActionMapping getInstance() {
