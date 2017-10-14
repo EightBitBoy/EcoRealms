@@ -13,7 +13,14 @@ public class World {
 
 	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
 
+	private Map map;
+
 	public World(Map map) {
+		this.map = map;
+		createIsland();
+	}
+
+	private void createIsland() {
 		ModelInstance ground = CuboidFactory.getCuboid(map.getSizeX(), map.getSizeY(), 3, new Color(0x208400ff));
 		ground.transform.setToTranslation(map.getSizeX() / 2, map.getSizeY() / 2, -1.5f);
 
