@@ -76,12 +76,12 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatch.dispose();
 	}
 
-	@SuppressWarnings("ConstantConditions")
 	private void renderModels() {
 		modelBatch.render(world.getModelInstances(), environment);
 		modelBatch.render(gridLines.getModelInstances(), environment);
 		modelBatch.render(highlighter.getModelInstances(), environment);
 
+		//noinspection ConstantConditions
 		if (config.showGizmo) {
 			modelBatch.render(gizmo.getModelInstances(), environment);
 		}
