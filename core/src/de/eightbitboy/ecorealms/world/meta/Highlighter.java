@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import java.util.Arrays;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.control.Action;
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 
@@ -28,8 +29,8 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 	public Highlighter(Control control) {
 		this.control = control;
 		createModels();
-		ControlActionMapping.subscribe(ControlActionMapping.Action.LMB, this);
-		ControlActionMapping.subscribe(ControlActionMapping.Action.UPDATE, this);
+		ControlActionMapping.subscribe(Action.LMB, this);
+		ControlActionMapping.subscribe(Action.UPDATE, this);
 	}
 
 	private void createModels() {
@@ -66,14 +67,14 @@ public class Highlighter implements ControlActionMapping.ActionListener {
 	}
 
 	@Override
-	public void action(ControlActionMapping.Action action) {
-		if (action == ControlActionMapping.Action.LMB) {
+	public void action(Action action) {
+		if (action == Action.LMB) {
 			clickModel.transform.setToTranslation(
 					action.info().clickPositionOnMap.x,
 					action.info().clickPositionOnMap.y,
 					CLICK_HEIGHT);
 		}
-		if (action == ControlActionMapping.Action.UPDATE) {
+		if (action == Action.UPDATE) {
 			hoverModel.transform.setToTranslation(
 					action.info().hoverPositionOnMap.x,
 					action.info().hoverPositionOnMap.y,

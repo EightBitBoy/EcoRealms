@@ -9,16 +9,6 @@ import de.eightbitboy.ecorealms.map.Position;
 
 public class ControlActionMapping {
 
-	public enum Action {
-		LMB,
-		RMB,
-		UPDATE;
-
-		public ActionInformation info() {
-			return ControlActionMapping.getActionInformation();
-		}
-	}
-
 	public class ActionInformation {
 		public Position clickPositionOnMap = new Position(0, 0);
 		public Position hoverPositionOnMap = new Position(0, 0);

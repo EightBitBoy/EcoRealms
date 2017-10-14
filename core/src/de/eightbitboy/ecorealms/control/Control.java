@@ -105,13 +105,13 @@ public class Control extends InputAdapter implements InputProcessor {
 			case Buttons.LEFT:
 				lmbDown = true;
 				controlActionMapping.setClickPositionOnMap(getClickOnMap());
-				controlActionMapping.fire(ControlActionMapping.Action.LMB);
+				controlActionMapping.fire(Action.LMB);
 				Logger.debug("Key: LMB");
 				break;
 			case Buttons.RIGHT:
 				rmbDown = true;
 				controlActionMapping.setClickPositionOnMap(getClickOnMap());
-				controlActionMapping.fire(ControlActionMapping.Action.RMB);
+				controlActionMapping.fire(Action.RMB);
 				Logger.debug("Key: RMB");
 				break;
 		}
@@ -156,12 +156,12 @@ public class Control extends InputAdapter implements InputProcessor {
 		camera.position.y += cameraY * SENSITIVITY;
 	}
 
-	public Position getClickOnMap() {
+	private Position getClickOnMap() {
 		Intersector.intersectRayPlane(clickRay, mapPlane, clickIntersection);
 		return new Position((int) clickIntersection.x, (int) clickIntersection.y);
 	}
 
-	public Position getHoverOverMap() {
+	private Position getHoverOverMap() {
 		hoverRay = camera.getPickRay(mouseHoverX, mouseHoverY);
 		Intersector.intersectRayPlane(hoverRay, mapPlane, hoverIntersection);
 		return new Position((int) hoverIntersection.x, (int) hoverIntersection.y);
