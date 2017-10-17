@@ -9,7 +9,7 @@ import java.util.List;
 import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 import de.eightbitboy.ecorealms.map.Map;
 
-public class World {
+public class World implements ModelInstanceProvider {
 
 	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
 

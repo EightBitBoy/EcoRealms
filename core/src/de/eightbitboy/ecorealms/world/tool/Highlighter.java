@@ -8,19 +8,21 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import de.eightbitboy.ecorealms.control.Action;
 import de.eightbitboy.ecorealms.control.ActionListener;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
+import de.eightbitboy.ecorealms.world.ModelInstanceProvider;
 
-public class Highlighter implements ActionListener {
+public class Highlighter implements ActionListener, ModelInstanceProvider {
 
 	private static final float CLICK_HEIGHT = 0.01f;
 	private static final float HOVER_HEIGHT = CLICK_HEIGHT + 0.005f;
 
-	private ModelInstance[] instances = new ModelInstance[2];
+	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
 
 	private ModelInstance clickModel;
 	private ModelInstance hoverModel;
@@ -56,23 +58,23 @@ public class Highlighter implements ActionListener {
 
 		hoverModel = new ModelInstance(model);
 
-		instances[0] = clickModel;
-		instances[1] = hoverModel;
+		instances.add(clickModel);
+		instances.add(hoverModel);
 	}
 
 	public List<ModelInstance> getModelInstances() {
-		return Arrays.asList(instances);
+		return instances;
 	}
 
 	@Override
 	public void action(Action action) {
-		if (action == Action.LMB) {
+		if(action == Action.LMB) {
 			clickModel.transform.setToTranslation(
 					action.info().clickPositionOnMap.x,
 					action.info().clickPositionOnMap.y,
 					CLICK_HEIGHT);
 		}
-		if (action == Action.UPDATE) {
+		if(action == Action.UPDATE) {
 			hoverModel.transform.setToTranslation(
 					action.info().hoverPositionOnMap.x,
 					action.info().hoverPositionOnMap.y,

@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.eightbitboy.ecorealms.map.Map;
+import de.eightbitboy.ecorealms.world.ModelInstanceProvider;
 
-public class GridLines {
+public class GridLines implements ModelInstanceProvider {
 
 	private final float HEIGHT = 0.01f;
 	private final float X_MAX;
