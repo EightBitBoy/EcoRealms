@@ -42,9 +42,9 @@ public class EcoRealms extends ApplicationAdapter {
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
-		createWorld();
-		createEnvironment();
-		createCamera();
+		setupWorld();
+		setupEnvironment();
+		setupCamera();
 
 		control = new Control(camera, ControlActionMapping.getInstance(), map);
 		Gdx.input.setInputProcessor(control);
@@ -82,23 +82,23 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatch.render(highlighter.getModelInstances(), environment);
 
 		//noinspection ConstantConditions
-		if (config.showGizmo) {
+		if(config.showGizmo) {
 			modelBatch.render(gizmo.getModelInstances(), environment);
 		}
 	}
 
-	private void createWorld() {
+	private void setupWorld() {
 		map = new Map(config.WORLD_SIZE_X, config.WORLD_SIZE_Y);
 		world = new World(map);
 	}
 
-	private void createEnvironment() {
+	private void setupEnvironment() {
 		environment = new Environment();
 		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
 		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, 1f, 0.5f, -0.8f));
 	}
 
-	private void createCamera() {
+	private void setupCamera() {
 		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.position.set(-10f, -10f, 10f);
 		camera.rotate(new Vector3(1, 0, 0), 90);
