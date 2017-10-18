@@ -6,12 +6,15 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.eightbitboy.ecorealms.map.MapChangeListener;
+import de.eightbitboy.ecorealms.map.MapEntity;
 import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 import de.eightbitboy.ecorealms.map.Map;
 
-public class World implements ModelInstanceProvider {
+public class World implements ModelInstanceProvider, MapChangeListener {
 
-	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
+	private List<ModelInstance> islandInstances = new ArrayList<ModelInstance>();
+	private List<ModelInstance> entityInstances = new ArrayList<ModelInstance>();
 
 	private Map map;
 
@@ -30,12 +33,24 @@ public class World implements ModelInstanceProvider {
 		ModelInstance sea = CuboidFactory.getCuboid(map.getSizeX() + 100, map.getSizeY() + 100, 3, Color.BLUE);
 		sea.transform.setToTranslation(((map.getSizeX() + 100) / 2) - 50, ((map.getSizeY() + 100) / 2) - 50, -2.5f);
 
-		instances.add(ground);
-		instances.add(shore);
-		instances.add(sea);
+		islandInstances.add(ground);
+		islandInstances.add(shore);
+		islandInstances.add(sea);
 	}
 
 	public List<ModelInstance> getModelInstances() {
+		//TODO Make this more performant!
+		List<ModelInstance> instances = new ArrayList<ModelInstance>();
+		instances.addAll(islandInstances);
+		instances.addAll(entityInstances);
 		return instances;
+	}
+
+	@Override
+	public void mapChanged() {
+		entityInstances.clear();
+		for (MapEntity entity : map.getAllEntities()) {
+			entityInstances.addAll(((ModelInstanceProvider) entity).getModelInstances());
+		}
 	}
 }

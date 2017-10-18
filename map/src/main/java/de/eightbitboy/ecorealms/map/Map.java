@@ -95,4 +95,14 @@ public class Map {
 			listener.mapChanged();
 		}
 	}
+
+	public List<MapEntity> getAllEntities() {
+		List<MapEntity> e = new ArrayList<MapEntity>();
+		for (int i = 0; i < entities.length; i++) {
+			if (entities[i] != null) {
+				e.add(entities[i]);
+			}
+		}
+		return e;
+	}
 }

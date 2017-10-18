@@ -4,7 +4,6 @@ import de.eightbitboy.ecorealms.control.Action;
 import de.eightbitboy.ecorealms.control.ActionListener;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
-import de.eightbitboy.ecorealms.util.Logger;
 import de.eightbitboy.ecorealms.world.DummyEntity;
 
 public class BuildTool implements ActionListener {
@@ -18,7 +17,6 @@ public class BuildTool implements ActionListener {
 	@Override
 	public void action(Action action) {
 		DummyEntity dummy = new DummyEntity(action.info().clickPositionOnMap);
-		Logger.debug(dummy.toString());
 		if (action == Action.LMB) {
 			map.put(dummy);
 		}
