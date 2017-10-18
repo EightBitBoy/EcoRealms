@@ -17,7 +17,7 @@ import de.eightbitboy.ecorealms.control.ActionListener;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.world.ModelInstanceProvider;
 
-public class Highlighter implements ActionListener, ModelInstanceProvider {
+public class HighlightingTool implements ActionListener, ModelInstanceProvider {
 
 	private static final float CLICK_HEIGHT = 0.01f;
 	private static final float HOVER_HEIGHT = CLICK_HEIGHT + 0.005f;
@@ -27,7 +27,7 @@ public class Highlighter implements ActionListener, ModelInstanceProvider {
 	private ModelInstance clickModel;
 	private ModelInstance hoverModel;
 
-	public Highlighter() {
+	public HighlightingTool() {
 		createModels();
 		ControlActionMapping.subscribe(Action.LMB, this);
 		ControlActionMapping.subscribe(Action.UPDATE, this);

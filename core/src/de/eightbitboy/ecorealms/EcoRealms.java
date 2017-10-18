@@ -18,7 +18,7 @@ import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 import de.eightbitboy.ecorealms.world.meta.Gizmo;
 import de.eightbitboy.ecorealms.world.render.ModelBatchRenderer;
-import de.eightbitboy.ecorealms.world.tool.Highlighter;
+import de.eightbitboy.ecorealms.world.tool.HighlightingTool;
 
 public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
@@ -87,7 +87,7 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatchRenderer = new ModelBatchRenderer(environment, camera);
 		modelBatchRenderer.add(world);
 		modelBatchRenderer.add(new GridLines(map));
-		modelBatchRenderer.add(new Highlighter());
+		modelBatchRenderer.add(new HighlightingTool());
 
 		//noinspection ConstantConditions
 		if(config.showGizmo) {
