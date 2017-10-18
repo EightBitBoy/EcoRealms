@@ -18,6 +18,7 @@ import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 import de.eightbitboy.ecorealms.world.meta.Gizmo;
 import de.eightbitboy.ecorealms.world.render.ModelBatchRenderer;
+import de.eightbitboy.ecorealms.world.tool.BuildTool;
 import de.eightbitboy.ecorealms.world.tool.HighlightingTool;
 
 public class EcoRealms extends ApplicationAdapter {
@@ -43,6 +44,8 @@ public class EcoRealms extends ApplicationAdapter {
 		setupCamera();
 		setupControl();
 		setupRendering();
+
+		new BuildTool(map);
 	}
 
 	@Override
@@ -90,7 +93,7 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatchRenderer.add(new HighlightingTool());
 
 		//noinspection ConstantConditions
-		if(config.showGizmo) {
+		if (config.showGizmo) {
 			modelBatchRenderer.add(new Gizmo());
 		}
 	}

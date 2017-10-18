@@ -13,7 +13,7 @@ public class DummyEntity implements MapEntity {
 
 	@Override
 	public Position getPosition() {
-		return null;
+		return position;
 	}
 
 	@Override
@@ -24,5 +24,10 @@ public class DummyEntity implements MapEntity {
 	@Override
 	public int getSizeY() {
 		return 1;
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getName() + position.toString();
 	}
 }

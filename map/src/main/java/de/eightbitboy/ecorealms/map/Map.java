@@ -30,8 +30,11 @@ public class Map {
 
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
+			//TODO Rather log this information!
+			/*
 			throw new InvalidMapAccessException(
 					"The entity has an invalid position: " + entity.getPosition());
+					*/
 		} else {
 			insert(entity);
 		}
@@ -42,8 +45,11 @@ public class Map {
 		if (isClear(position)) {
 			entities[getIndexForPosition(entity.getPosition())] = entity;
 		} else {
+			//TODO Rather log this information!
+			/*
 			throw new InvalidMapAccessException(
 					"The position is already occupied: " + entity.getPosition());
+					*/
 		}
 	}
 
