@@ -1,9 +1,13 @@
 package de.eightbitboy.ecorealms.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Map {
 	private int sizeX;
 	private int sizeY;
 	private MapEntity[] entities;
+	private List<MapChangeListener> listeners = new ArrayList<MapChangeListener>();
 
 	public Map(int sizeX, int sizeY) {
 		this.sizeX = sizeX;
@@ -44,6 +48,7 @@ public class Map {
 		Position position = entity.getPosition();
 		if (isClear(position)) {
 			entities[getIndexForPosition(entity.getPosition())] = entity;
+			notifyListeners();
 		} else {
 			//TODO Rather log this information!
 			/*
@@ -79,5 +84,15 @@ public class Map {
 
 	boolean isClear(Position position) {
 		return entities[getIndexForPosition(position)] == null;
+	}
+
+	public void subscribe(MapChangeListener listener) {
+		listeners.add(listener);
+	}
+
+	private void notifyListeners() {
+		for (MapChangeListener listener : listeners) {
+			listener.mapChanged();
+		}
 	}
 }
