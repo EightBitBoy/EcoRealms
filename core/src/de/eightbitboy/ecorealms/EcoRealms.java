@@ -6,7 +6,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.g3d.Environment;
-import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.math.Vector3;
@@ -31,9 +30,6 @@ public class EcoRealms extends ApplicationAdapter {
 	private ModelBatchRenderer modelBatchRenderer;
 
 	private Control control;
-	private Gizmo gizmo;
-	private GridLines gridLines;
-	private Highlighter highlighter;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -94,18 +90,14 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void setupRendering() {
-		gridLines = new GridLines(map);
-		highlighter = new Highlighter();
-		gizmo = new Gizmo();
-
 		modelBatchRenderer = new ModelBatchRenderer(environment, camera);
 		modelBatchRenderer.add(world);
-		modelBatchRenderer.add(gridLines);
-		modelBatchRenderer.add(highlighter);
+		modelBatchRenderer.add(new GridLines(map));
+		modelBatchRenderer.add(new Highlighter());
 
 		//noinspection ConstantConditions
 		if(config.showGizmo) {
-			modelBatchRenderer.add(gizmo);
+			modelBatchRenderer.add(new Gizmo());
 		}
 	}
 
