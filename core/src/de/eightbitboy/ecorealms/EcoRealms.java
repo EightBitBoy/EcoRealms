@@ -14,6 +14,7 @@ import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
+import de.eightbitboy.ecorealms.world.camera.FlyingCamera;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 import de.eightbitboy.ecorealms.world.meta.Gizmo;
@@ -75,13 +76,7 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void setupCamera() {
-		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		camera.position.set(-10f, -10f, 10f);
-		camera.rotate(new Vector3(1, 0, 0), 90);
-		camera.lookAt(0, 0, -5);
-		camera.near = 1f;
-		camera.far = 300f;
-		camera.update();
+		camera = new FlyingCamera();
 	}
 
 	private void setupControl() {
