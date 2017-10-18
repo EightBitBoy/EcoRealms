@@ -41,24 +41,16 @@ public class EcoRealms extends ApplicationAdapter {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-
 		setupWorld();
 		setupEnvironment();
 		setupCamera();
 		setupControl();
-
-		modelBatch = new ModelBatch();
-		gridLines = new GridLines(map);
-		highlighter = new Highlighter();
-		gizmo = new Gizmo();
+		setupRendering();
 	}
 
 	@Override
 	public void render() {
-		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-		Gdx.gl.glEnable(GL20.GL_BLEND);
-		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		executeGlFunctions();
 
 		control.updateCamera();
 		ControlActionMapping.getInstance().update();
@@ -69,9 +61,11 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatch.end();
 	}
 
-	@Override
-	public void dispose() {
-		modelBatch.dispose();
+	private void executeGlFunctions() {
+		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+		Gdx.gl.glEnable(GL20.GL_BLEND);
+		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 	}
 
 	private void renderModels() {
@@ -109,5 +103,17 @@ public class EcoRealms extends ApplicationAdapter {
 	private void setupControl() {
 		control = new Control(camera, ControlActionMapping.getInstance(), map);
 		Gdx.input.setInputProcessor(control);
+	}
+
+	private void setupRendering() {
+		modelBatch = new ModelBatch();
+		gridLines = new GridLines(map);
+		highlighter = new Highlighter();
+		gizmo = new Gizmo();
+	}
+
+	@Override
+	public void dispose() {
+		modelBatch.dispose();
 	}
 }
