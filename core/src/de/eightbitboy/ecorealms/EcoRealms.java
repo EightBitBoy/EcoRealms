@@ -18,6 +18,7 @@ import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
 import de.eightbitboy.ecorealms.world.meta.Gizmo;
+import de.eightbitboy.ecorealms.world.render.ModelBatchRenderer;
 import de.eightbitboy.ecorealms.world.tool.Highlighter;
 
 public class EcoRealms extends ApplicationAdapter {
@@ -27,7 +28,7 @@ public class EcoRealms extends ApplicationAdapter {
 
 	private Environment environment;
 	private PerspectiveCamera camera;
-	private ModelBatch modelBatch;
+	private ModelBatchRenderer modelBatchRenderer;
 
 	private Control control;
 	private Gizmo gizmo;
@@ -56,9 +57,7 @@ public class EcoRealms extends ApplicationAdapter {
 		ControlActionMapping.getInstance().update();
 		camera.update();
 
-		modelBatch.begin(camera);
-		renderModels();
-		modelBatch.end();
+		modelBatchRenderer.render();
 	}
 
 	private void executeGlFunctions() {
@@ -66,17 +65,6 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 		Gdx.gl.glEnable(GL20.GL_BLEND);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-	}
-
-	private void renderModels() {
-		modelBatch.render(world.getModelInstances(), environment);
-		modelBatch.render(gridLines.getModelInstances(), environment);
-		modelBatch.render(highlighter.getModelInstances(), environment);
-
-		//noinspection ConstantConditions
-		if(config.showGizmo) {
-			modelBatch.render(gizmo.getModelInstances(), environment);
-		}
 	}
 
 	private void setupWorld() {
@@ -106,14 +94,23 @@ public class EcoRealms extends ApplicationAdapter {
 	}
 
 	private void setupRendering() {
-		modelBatch = new ModelBatch();
 		gridLines = new GridLines(map);
 		highlighter = new Highlighter();
 		gizmo = new Gizmo();
+
+		modelBatchRenderer = new ModelBatchRenderer(environment, camera);
+		modelBatchRenderer.add(world);
+		modelBatchRenderer.add(gridLines);
+		modelBatchRenderer.add(highlighter);
+
+		//noinspection ConstantConditions
+		if(config.showGizmo) {
+			modelBatchRenderer.add(gizmo);
+		}
 	}
 
 	@Override
 	public void dispose() {
-		modelBatch.dispose();
+		modelBatchRenderer.dispose();
 	}
 }
