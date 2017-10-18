@@ -45,9 +45,7 @@ public class EcoRealms extends ApplicationAdapter {
 		setupWorld();
 		setupEnvironment();
 		setupCamera();
-
-		control = new Control(camera, ControlActionMapping.getInstance(), map);
-		Gdx.input.setInputProcessor(control);
+		setupControl();
 
 		modelBatch = new ModelBatch();
 		gridLines = new GridLines(map);
@@ -106,5 +104,10 @@ public class EcoRealms extends ApplicationAdapter {
 		camera.near = 1f;
 		camera.far = 300f;
 		camera.update();
+	}
+
+	private void setupControl() {
+		control = new Control(camera, ControlActionMapping.getInstance(), map);
+		Gdx.input.setInputProcessor(control);
 	}
 }
