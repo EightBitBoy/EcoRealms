@@ -8,6 +8,7 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.map.MapChangeListener;
 import de.eightbitboy.ecorealms.map.MapEntity;
+import de.eightbitboy.ecorealms.util.Logger;
 import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 import de.eightbitboy.ecorealms.map.Map;
 
@@ -20,6 +21,7 @@ public class World implements ModelInstanceProvider, MapChangeListener {
 
 	public World(Map map) {
 		this.map = map;
+		this.map.subscribe(this);
 		createIsland();
 	}
 
@@ -52,5 +54,6 @@ public class World implements ModelInstanceProvider, MapChangeListener {
 		for (MapEntity entity : map.getAllEntities()) {
 			entityInstances.addAll(((ModelInstanceProvider) entity).getModelInstances());
 		}
+		Logger.debug(entityInstances.toString());
 	}
 }
