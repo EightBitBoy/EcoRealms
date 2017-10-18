@@ -98,9 +98,9 @@ public class Map {
 
 	public List<MapEntity> getAllEntities() {
 		List<MapEntity> e = new ArrayList<MapEntity>();
-		for (int i = 0; i < entities.length; i++) {
-			if (entities[i] != null) {
-				e.add(entities[i]);
+		for (MapEntity entity : entities) {
+			if (entity != null) {
+				e.add(entity);
 			}
 		}
 		return e;

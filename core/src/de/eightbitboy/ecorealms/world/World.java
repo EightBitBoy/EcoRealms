@@ -51,9 +51,9 @@ public class World implements ModelInstanceProvider, MapChangeListener {
 	@Override
 	public void mapChanged() {
 		entityInstances.clear();
+		Logger.debug("Size FOO: " + map.getAllEntities().size());
 		for (MapEntity entity : map.getAllEntities()) {
 			entityInstances.addAll(((ModelInstanceProvider) entity).getModelInstances());
 		}
-		Logger.debug(entityInstances.toString());
 	}
 }
