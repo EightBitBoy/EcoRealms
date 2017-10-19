@@ -4,7 +4,7 @@ import de.eightbitboy.ecorealms.control.Action;
 import de.eightbitboy.ecorealms.control.ActionListener;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
-import de.eightbitboy.ecorealms.world.DummyEntity;
+import de.eightbitboy.ecorealms.entity.DummyEntity;
 
 public class BuildTool implements ActionListener {
 	private Map map;

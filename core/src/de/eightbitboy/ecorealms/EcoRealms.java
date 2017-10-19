@@ -13,8 +13,6 @@ import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
-import de.eightbitboy.ecorealms.map.Position;
-import de.eightbitboy.ecorealms.world.DummyEntity;
 import de.eightbitboy.ecorealms.world.camera.FlyingCamera;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;

@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms.world;
+package de.eightbitboy.ecorealms.entity;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import de.eightbitboy.ecorealms.map.MapEntity;
 import de.eightbitboy.ecorealms.map.Position;
+import de.eightbitboy.ecorealms.world.ModelInstanceProvider;
 import de.eightbitboy.ecorealms.world.factory.CuboidFactory;
 
 public class DummyEntity implements MapEntity, ModelInstanceProvider {
