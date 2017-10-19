@@ -54,6 +54,9 @@ public class EcoRealms extends ApplicationAdapter {
 	public void render() {
 		executeGlFunctions();
 
+		//TODO
+		engine.update(Gdx.graphics.getDeltaTime());
+
 		control.updateCamera();
 		ControlActionMapping.getInstance().update();
 		camera.update();
