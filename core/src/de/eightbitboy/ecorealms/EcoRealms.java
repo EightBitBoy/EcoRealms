@@ -13,6 +13,8 @@ import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
 import de.eightbitboy.ecorealms.map.Map;
+import de.eightbitboy.ecorealms.map.Position;
+import de.eightbitboy.ecorealms.world.DummyEntity;
 import de.eightbitboy.ecorealms.world.camera.FlyingCamera;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
 import de.eightbitboy.ecorealms.world.World;
@@ -91,9 +93,10 @@ public class EcoRealms extends ApplicationAdapter {
 		modelBatchRenderer.add(world);
 		modelBatchRenderer.add(new GridLines(map));
 		modelBatchRenderer.add(new HighlightingTool());
+		//modelBatchRenderer.add(new DummyEntity(new Position(1, 1)));
 
 		//noinspection ConstantConditions
-		if (config.showGizmo) {
+		if(config.showGizmo) {
 			modelBatchRenderer.add(new Gizmo());
 		}
 	}

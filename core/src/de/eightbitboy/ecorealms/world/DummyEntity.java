@@ -14,12 +14,16 @@ public class DummyEntity implements MapEntity, ModelInstanceProvider {
 
 	private Position position;
 	private List<ModelInstance> instances = new ArrayList<ModelInstance>();
+	private final float OFFSET_X = 0.5f;
+	private final float OFFSET_Y = 0.5f;
 
 	public DummyEntity(Position position) {
 		this.position = position;
 
-		ModelInstance ground = CuboidFactory.getCuboid(1, 1, 5, Color.BROWN);
-		ground.transform.setToTranslation(0, 0, 0);
+		ModelInstance instance = CuboidFactory.getCuboid(1, 1, 5, Color.BROWN);
+		instance.transform.setToTranslation(position.x + OFFSET_X, position.y + OFFSET_Y, 0);
+
+		instances.add(instance);
 	}
 
 	@Override
