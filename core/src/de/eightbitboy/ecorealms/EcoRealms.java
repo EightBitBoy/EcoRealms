@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import de.eightbitboy.ecorealms.config.EcoRealmsConfig;
 import de.eightbitboy.ecorealms.control.Control;
 import de.eightbitboy.ecorealms.control.ControlActionMapping;
+import de.eightbitboy.ecorealms.entity.EntityEngine;
 import de.eightbitboy.ecorealms.map.Map;
 import de.eightbitboy.ecorealms.world.camera.FlyingCamera;
 import de.eightbitboy.ecorealms.world.meta.GridLines;
@@ -23,14 +24,14 @@ import de.eightbitboy.ecorealms.world.tool.HighlightingTool;
 
 public class EcoRealms extends ApplicationAdapter {
 	private EcoRealmsConfig config;
+
 	private Map map;
 	private World world;
-
 	private Environment environment;
 	private PerspectiveCamera camera;
-	private ModelBatchRenderer modelBatchRenderer;
-
 	private Control control;
+	private EntityEngine engine;
+	private ModelBatchRenderer modelBatchRenderer;
 
 	public EcoRealms() {
 		this.config = new EcoRealmsConfig();
@@ -43,6 +44,7 @@ public class EcoRealms extends ApplicationAdapter {
 		setupEnvironment();
 		setupCamera();
 		setupControl();
+		setupEntityEngine();
 		setupRendering();
 
 		new BuildTool(map);
@@ -86,12 +88,15 @@ public class EcoRealms extends ApplicationAdapter {
 		Gdx.input.setInputProcessor(control);
 	}
 
+	private void setupEntityEngine() {
+		engine = new EntityEngine();
+	}
+
 	private void setupRendering() {
 		modelBatchRenderer = new ModelBatchRenderer(environment, camera);
 		modelBatchRenderer.add(world);
 		modelBatchRenderer.add(new GridLines(map));
 		modelBatchRenderer.add(new HighlightingTool());
-		//modelBatchRenderer.add(new DummyEntity(new Position(1, 1)));
 
 		//noinspection ConstantConditions
 		if(config.showGizmo) {
