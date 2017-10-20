@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms.world.component;
+package de.eightbitboy.ecorealms.entity;
 
 import com.badlogic.ashley.core.Component;
 

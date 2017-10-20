@@ -17,6 +17,7 @@ public class EntityEngine {
 
 	private void addExampleEntity() {
 		ExampleEntity entity = new ExampleEntity();
+		entity.add(new PositionComponent());
 		engine.addEntity(entity);
 	}
 
