@@ -58,9 +58,10 @@ class InventorySpec extends Specification {
 
         then:
         amount == 0
+        !inventory.getResources().contains(Resource.Stone)
     }
 
-    def "remove more of a resource that available"() {
+    def "remove more of a resource than available"() {
         setup:
         inventory.add(Resource.Fish, 18)
 
@@ -85,5 +86,5 @@ class InventorySpec extends Specification {
         inventory.getResources().isEmpty()
     }
 
-    //TODO Test resource limits?
+    //TODO Test resource amount limits?
 }
