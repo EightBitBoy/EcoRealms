@@ -21,7 +21,10 @@ public class Inventory {
 	}
 
 	public int get(Resource resource) {
-		return 0; //TODO
+		if (!resources.containsKey(resource)) {
+			return 0;
+		}
+		return resources.get(resource);
 	}
 
 	public int remove(Resource resource, int amount) {
