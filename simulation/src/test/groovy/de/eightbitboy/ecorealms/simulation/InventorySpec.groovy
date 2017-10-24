@@ -28,6 +28,10 @@ class InventorySpec extends Specification {
         inventory.get(Resource.Fish) == 5
     }
 
+    def "cannot add a negative amount"() {
+
+    }
+
     def "get a resource"() {
         setup:
         inventory.add(Resource.Fish, 3)
@@ -50,6 +54,17 @@ class InventorySpec extends Specification {
         then:
         amount == 13
         inventory.get(Resource.Fish) == 54
+    }
+
+    def "cannot remove a negative amount"() {
+        setup:
+        inventory.add(Resource.Fish, 89)
+
+        when:
+        inventory.remove(Resource.Fish, -3)
+
+        then:
+        thrown(RuntimeException)
     }
 
     def "remove a resource which is not available"() {
