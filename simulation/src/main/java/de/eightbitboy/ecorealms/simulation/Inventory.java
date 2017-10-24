@@ -16,10 +16,6 @@ public class Inventory {
 		return resources.keySet();
 	}
 
-	public void add(Resource resource, int amount) {
-		//TODO
-	}
-
 	public int get(Resource resource) {
 		if (!resources.containsKey(resource)) {
 			return 0;
@@ -27,7 +23,24 @@ public class Inventory {
 		return resources.get(resource);
 	}
 
+	public void add(Resource resource, int amount) {
+		checkAmount(resource, amount);
+		if (resources.containsKey(resource)) {
+			resources.put(resource, amount);
+		} else {
+
+		}
+	}
+
 	public int remove(Resource resource, int amount) {
+		checkAmount(resource, amount);
 		return 0; //TODO
+	}
+
+	private void checkAmount(Resource resource, int amount) {
+		if (amount < 0) {
+			throw new RuntimeException("The resource amount is negative! "
+					+ resource.name() + ": " + amount);
+		}
 	}
 }
