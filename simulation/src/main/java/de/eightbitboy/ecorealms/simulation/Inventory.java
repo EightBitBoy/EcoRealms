@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Inventory {
 
-	private Map<Resource, Integer> resources; //TODO Find a better name!?
+	private final Map<Resource, Integer> resources; //TODO Find a better name!?
 
 	public Inventory() {
 		resources = new EnumMap<Resource, Integer>(Resource.class);
