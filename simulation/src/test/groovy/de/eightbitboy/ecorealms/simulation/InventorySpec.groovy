@@ -29,7 +29,11 @@ class InventorySpec extends Specification {
     }
 
     def "cannot add a negative amount"() {
+        when:
+        inventory.add(Resource.Fish, -45)
 
+        then:
+        thrown(RuntimeException)
     }
 
     def "get a resource"() {
