@@ -25,10 +25,10 @@ public class Inventory {
 
 	public void add(Resource resource, int amount) {
 		checkAmount(resource, amount);
-		if (resources.containsKey(resource)) {
+		if (!resources.containsKey(resource)) {
 			resources.put(resource, amount);
 		} else {
-
+			resources.put(resource, resources.get(resource) + amount);
 		}
 	}
 
