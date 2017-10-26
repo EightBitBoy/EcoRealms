@@ -1,4 +1,4 @@
-package de.eightbitboy.ecorealms.simulation;
+package de.eightbitboy.ecorealms.simulation.resource;
 
 public enum Resource {
 	Fish(100),

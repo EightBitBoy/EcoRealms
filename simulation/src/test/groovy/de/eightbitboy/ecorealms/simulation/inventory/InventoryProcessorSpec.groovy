@@ -1,6 +1,6 @@
 package de.eightbitboy.ecorealms.simulation.inventory
 
-import de.eightbitboy.ecorealms.simulation.Resource
+import de.eightbitboy.ecorealms.simulation.resource.Resource
 import spock.lang.Specification
 import spock.lang.Subject
 

@@ -3,7 +3,7 @@ package de.eightbitboy.ecorealms.simulation.inventory;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import de.eightbitboy.ecorealms.simulation.Resource;
+import de.eightbitboy.ecorealms.simulation.resource.Resource;
 
 //TODO Find an alternative to "Processor". An inventory is not "processed"!
 public class InventoryProcessor {

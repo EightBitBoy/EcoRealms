@@ -3,7 +3,7 @@ package de.eightbitboy.ecorealms.simulation.inventory;
 import java.util.EnumMap;
 import java.util.Map;
 
-import de.eightbitboy.ecorealms.simulation.Resource;
+import de.eightbitboy.ecorealms.simulation.resource.Resource;
 
 public class Inventory {
 
