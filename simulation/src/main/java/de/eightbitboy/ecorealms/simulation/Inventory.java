@@ -7,11 +7,9 @@ import java.util.stream.Collectors;
 
 public class Inventory {
 
-	private final Map<Resource, Integer> resources; //TODO Find a better name!?
+	//TODO Find a better name!?
+	public final Map<Resource, Integer> resources = new EnumMap<Resource, Integer>(Resource.class);
 
-	public Inventory() {
-		resources = new EnumMap<Resource, Integer>(Resource.class);
-	}
 
 	public Set<Resource> getResources() {
 		return resources.keySet().stream()
