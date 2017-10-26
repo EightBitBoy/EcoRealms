@@ -1,7 +1,9 @@
-package de.eightbitboy.ecorealms.simulation;
+package de.eightbitboy.ecorealms.simulation.inventory;
 
 import java.util.EnumMap;
 import java.util.Map;
+
+import de.eightbitboy.ecorealms.simulation.Resource;
 
 public class Inventory {
 

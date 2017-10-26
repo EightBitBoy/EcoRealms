@@ -1,13 +1,14 @@
-package de.eightbitboy.ecorealms.simulation
+package de.eightbitboy.ecorealms.simulation.inventory
 
+import de.eightbitboy.ecorealms.simulation.Resource
 import spock.lang.Specification
 import spock.lang.Subject
 
 class InventoryProcessorSpec extends Specification {
 
     @Subject
-    private InventoryProcessor processor = new InventoryProcessor()
-    private Inventory inventory = new Inventory()
+    private de.eightbitboy.ecorealms.simulation.inventory.InventoryProcessor processor = new de.eightbitboy.ecorealms.simulation.inventory.InventoryProcessor()
+    private de.eightbitboy.ecorealms.simulation.inventory.Inventory inventory = new de.eightbitboy.ecorealms.simulation.inventory.Inventory()
 
     def "a new inventory is empty"() {
         when:
