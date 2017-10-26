@@ -25,6 +25,7 @@ public class Inventory {
 
 	public void add(Resource resource, int amount) {
 		checkAmount(resource, amount);
+
 		if (!resources.containsKey(resource)) {
 			resources.put(resource, amount);
 		} else {
@@ -34,7 +35,20 @@ public class Inventory {
 
 	public int remove(Resource resource, int amount) {
 		checkAmount(resource, amount);
-		return 0; //TODO
+
+		if (!resources.containsKey(resource)) {
+			return 0;
+		}
+
+		int currentAmount = resources.get(resource);
+
+		if (amount > currentAmount) {
+			resources.put(resource, 0);
+			return 0;
+		} else {
+			resources.put(resource, currentAmount - amount);
+			return amount;
+		}
 	}
 
 	private void checkAmount(Resource resource, int amount) {
