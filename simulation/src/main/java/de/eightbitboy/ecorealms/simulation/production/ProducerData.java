@@ -1,8 +1,14 @@
 package de.eightbitboy.ecorealms.simulation.production;
 
-/**
- * Created by Stefan on 27.10.2017.
- */
+import de.eightbitboy.ecorealms.simulation.resource.Resource;
 
 public class ProducerData {
+
+	public void addInputResource(Resource resource, int amount) {
+
+	}
+
+	public void addOutputResource(Resource resource, int amount) {
+
+	}
 }
