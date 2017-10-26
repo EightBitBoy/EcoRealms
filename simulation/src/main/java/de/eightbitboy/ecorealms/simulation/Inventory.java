@@ -3,6 +3,7 @@ package de.eightbitboy.ecorealms.simulation;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Inventory {
 
@@ -13,7 +14,9 @@ public class Inventory {
 	}
 
 	public Set<Resource> getResources() {
-		return resources.keySet();
+		return resources.keySet().stream()
+				.filter(resource -> resources.get(resource) != 0)
+				.collect(Collectors.toSet());
 	}
 
 	public int get(Resource resource) {
@@ -44,7 +47,7 @@ public class Inventory {
 
 		if (amount > currentAmount) {
 			resources.put(resource, 0);
-			return 0;
+			return currentAmount;
 		} else {
 			resources.put(resource, currentAmount - amount);
 			return amount;
