@@ -11,7 +11,7 @@ class InventoryProcessorSpec extends Specification {
 
     def "a new inventory is empty"() {
         when:
-        Set<Resource> resources = inventory.getResources()
+        Set<Resource> resources = processor.getResources(inventory)
 
         then:
         resources.isEmpty()
@@ -20,18 +20,18 @@ class InventoryProcessorSpec extends Specification {
 
     def "add a resource"() {
         when:
-        inventory.add(Resource.Fish, 5)
+        processor.add(inventory, Resource.Fish, 5)
 
         then:
-        !inventory.getResources().isEmpty()
-        inventory.getResources().size() == 1
-        inventory.getResources().contains(Resource.Fish)
-        inventory.get(Resource.Fish) == 5
+        !processor.getResources(inventory).isEmpty()
+        processor.getResources(inventory).size() == 1
+        processor.getResources(inventory).contains(Resource.Fish)
+        processor.get(inventory, Resource.Fish) == 5
     }
 
     def "cannot add a negative amount"() {
         when:
-        inventory.add(Resource.Fish, -45)
+        processor.add(inventory, Resource.Fish, -45)
 
         then:
         thrown(RuntimeException)
@@ -39,34 +39,34 @@ class InventoryProcessorSpec extends Specification {
 
     def "get a resource"() {
         setup:
-        inventory.add(Resource.Fish, 3)
+        processor.add(inventory, Resource.Fish, 3)
 
         when:
-        int amount = inventory.get(Resource.Fish)
+        int amount = processor.get(inventory, Resource.Fish)
 
         then:
         amount == 3
-        inventory.get(Resource.Fish) == 3
+        processor.get(inventory, Resource.Fish) == 3
     }
 
     def "remove a resource"() {
         setup:
-        inventory.add(Resource.Fish, 67)
+        processor.add(inventory, Resource.Fish, 67)
 
         when:
-        int amount = inventory.remove(Resource.Fish, 13)
+        int amount = processor.remove(inventory, Resource.Fish, 13)
 
         then:
         amount == 13
-        inventory.get(Resource.Fish) == 54
+        processor.get(inventory, Resource.Fish) == 54
     }
 
     def "cannot remove a negative amount"() {
         setup:
-        inventory.add(Resource.Fish, 89)
+        processor.add(inventory, Resource.Fish, 89)
 
         when:
-        inventory.remove(Resource.Fish, -3)
+        processor.remove(inventory, Resource.Fish, -3)
 
         then:
         thrown(RuntimeException)
@@ -74,36 +74,36 @@ class InventoryProcessorSpec extends Specification {
 
     def "remove a resource which is not available"() {
         when:
-        int amount = inventory.remove(Resource.Stone, 7)
+        int amount = processor.remove(inventory, Resource.Stone, 7)
 
         then:
         amount == 0
-        !inventory.getResources().contains(Resource.Stone)
+        !processor.getResources(inventory).contains(Resource.Stone)
     }
 
     def "remove more of a resource than available"() {
         setup:
-        inventory.add(Resource.Fish, 18)
+        processor.add(inventory, Resource.Fish, 18)
 
         when:
-        int amount = inventory.remove(Resource.Fish, 44)
+        int amount = processor.remove(inventory, Resource.Fish, 44)
 
         then:
         amount == 18
-        inventory.get(Resource.Fish) == 0
-        inventory.getResources().isEmpty()
+        processor.get(inventory, Resource.Fish) == 0
+        processor.getResources(inventory).isEmpty()
     }
 
     def "remove a resource completely"() {
         setup:
-        inventory.add(Resource.Fish, 87)
+        processor.add(inventory, Resource.Fish, 87)
 
         when:
-        inventory.remove(Resource.Fish, 87)
+        processor.remove(inventory, Resource.Fish, 87)
 
         then:
-        inventory.get(Resource.Fish) == 0
-        inventory.getResources().isEmpty()
+        processor.get(inventory, Resource.Fish) == 0
+        processor.getResources(inventory).isEmpty()
     }
 
     //TODO Test resource amount limits?
