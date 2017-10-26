@@ -8,20 +8,20 @@ import de.eightbitboy.ecorealms.simulation.Resource;
 //TODO Find an alternative to "Processor". An inventory is not "processed"!
 public class InventoryProcessor {
 
-	public Set<Resource> getResources(de.eightbitboy.ecorealms.simulation.inventory.Inventory inventory) {
+	public Set<Resource> getResources(Inventory inventory) {
 		return inventory.resources.keySet().stream()
 				.filter(resource -> inventory.resources.get(resource) != 0)
 				.collect(Collectors.toSet());
 	}
 
-	public int get(de.eightbitboy.ecorealms.simulation.inventory.Inventory inventory, Resource resource) {
+	public int get(Inventory inventory, Resource resource) {
 		if (!inventory.resources.containsKey(resource)) {
 			return 0;
 		}
 		return inventory.resources.get(resource);
 	}
 
-	public void add(de.eightbitboy.ecorealms.simulation.inventory.Inventory inventory, Resource resource, int amount) {
+	public void add(Inventory inventory, Resource resource, int amount) {
 		checkAmount(resource, amount);
 
 		if (!inventory.resources.containsKey(resource)) {
@@ -31,7 +31,7 @@ public class InventoryProcessor {
 		}
 	}
 
-	public int remove(de.eightbitboy.ecorealms.simulation.inventory.Inventory inventory, Resource resource, int amount) {
+	public int remove(Inventory inventory, Resource resource, int amount) {
 		checkAmount(resource, amount);
 
 		if (!inventory.resources.containsKey(resource)) {
