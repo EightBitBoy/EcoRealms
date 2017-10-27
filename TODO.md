@@ -11,6 +11,12 @@
 # Libraries
 * https://github.com/MrStahlfelge/gdx-gamesvcs/
 
+# Logging
+* https://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/
+
+# Benchmarking
+* http://openjdk.java.net/projects/code-tools/jmh/
+
 https://carelesslabs.wordpress.com
 https://github.com/mbrlabs/Mundus
 https://github.com/Sheep42/3dTiledWorld
