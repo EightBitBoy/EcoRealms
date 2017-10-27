@@ -12,11 +12,17 @@
 * https://github.com/MrStahlfelge/gdx-gamesvcs/
 
 # Logging
+* slf4j
 * https://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/
+* https://github.com/vbauer/herald
+* https://logback.qos.ch/manual/mdc.html
 
 # Benchmarking
+* https://github.com/melix/jmh-gradle-plugin
 * http://openjdk.java.net/projects/code-tools/jmh/
 
+http://blog.takipi.com/we-analyzed-30000-github-projects-here-are-the-top-100-libraries-in-java-js-and-ruby/
+http://blog.takipi.com/the-top-100-java-libraries-in-2016-after-analyzing-47251-dependencies/
 https://carelesslabs.wordpress.com
 https://github.com/mbrlabs/Mundus
 https://github.com/Sheep42/3dTiledWorld
