@@ -131,6 +131,17 @@ project(":map") {
     }
 }
 
+project(":models") {
+    apply plugin: "groovy"
+
+    targetCompatibility = ext.javaVersion
+    sourceCompatibility = ext.javaVersion
+
+    dependencies {
+        testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    }
+}
+
 project(":simulation") {
     apply plugin: "groovy"
 

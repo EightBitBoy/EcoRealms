@@ -1,1 +1,1 @@
-include 'desktop', 'android', 'ios', 'core', 'map', 'simulation'
+include 'desktop', 'android', 'ios', 'core', 'map', 'models', 'simulation'

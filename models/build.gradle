@@ -1,0 +1,17 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+}
+
+test {
+    outputs.upToDateWhen { false }
+    testLogging {
+        exceptionFormat = 'full'
+        events 'failed', 'passed', 'skipped', 'standardOut'
+    }
+}
