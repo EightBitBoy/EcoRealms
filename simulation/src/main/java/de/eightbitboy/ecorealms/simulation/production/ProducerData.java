@@ -10,12 +10,4 @@ public class ProducerData {
 	public Map<Resource, Integer> input = new HashMap<Resource, Integer>();
 
 	public Map<Resource, Integer> output = new HashMap<Resource, Integer>();
-
-	public void addInputResource(Resource resource, int amount) {
-
-	}
-
-	public void addOutputResource(Resource resource, int amount) {
-
-	}
 }
