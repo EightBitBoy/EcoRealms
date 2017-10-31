@@ -7,6 +7,5 @@ import de.eightbitboy.ecorealms.simulation.resource.Resource;
 
 public class Inventory {
 
-	//TODO Find a better name!?
-	public final Map<Resource, Integer> resources = new EnumMap<Resource, Integer>(Resource.class);
+	public final Map<Resource, Integer> items = new EnumMap<Resource, Integer>(Resource.class);
 }

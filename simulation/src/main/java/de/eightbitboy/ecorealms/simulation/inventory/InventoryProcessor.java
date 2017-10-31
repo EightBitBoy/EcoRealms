@@ -8,42 +8,42 @@ import de.eightbitboy.ecorealms.simulation.resource.Resource;
 public class InventoryProcessor {
 
 	public Set<Resource> getResources(Inventory inventory) {
-		return inventory.resources.keySet().stream()
-				.filter(resource -> inventory.resources.get(resource) != 0)
+		return inventory.items.keySet().stream()
+				.filter(resource -> inventory.items.get(resource) != 0)
 				.collect(Collectors.toSet());
 	}
 
 	public int get(Inventory inventory, Resource resource) {
-		if (!inventory.resources.containsKey(resource)) {
+		if (!inventory.items.containsKey(resource)) {
 			return 0;
 		}
-		return inventory.resources.get(resource);
+		return inventory.items.get(resource);
 	}
 
 	public void add(Inventory inventory, Resource resource, int amount) {
 		checkAmount(resource, amount);
 
-		if (!inventory.resources.containsKey(resource)) {
-			inventory.resources.put(resource, amount);
+		if (!inventory.items.containsKey(resource)) {
+			inventory.items.put(resource, amount);
 		} else {
-			inventory.resources.put(resource, inventory.resources.get(resource) + amount);
+			inventory.items.put(resource, inventory.items.get(resource) + amount);
 		}
 	}
 
 	public int remove(Inventory inventory, Resource resource, int amount) {
 		checkAmount(resource, amount);
 
-		if (!inventory.resources.containsKey(resource)) {
+		if (!inventory.items.containsKey(resource)) {
 			return 0;
 		}
 
-		int currentAmount = inventory.resources.get(resource);
+		int currentAmount = inventory.items.get(resource);
 
 		if (amount > currentAmount) {
-			inventory.resources.put(resource, 0);
+			inventory.items.put(resource, 0);
 			return currentAmount;
 		} else {
-			inventory.resources.put(resource, currentAmount - amount);
+			inventory.items.put(resource, currentAmount - amount);
 			return amount;
 		}
 	}
