@@ -1,9 +1,13 @@
 package de.eightbitboy.ecorealms.map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private int sizeX;
 	private int sizeY;
 	private MapEntity[] entities;
@@ -34,7 +38,7 @@ public class Map {
 
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
-			//TODO Rather log this information!
+			//TODO Expect some log output in tests.
 			/*
 			throw new InvalidMapAccessException(
 					"The entity has an invalid position: " + entity.getPosition());
@@ -50,7 +54,15 @@ public class Map {
 			entities[getIndexForPosition(entity.getPosition())] = entity;
 			notifyListeners();
 		} else {
-			//TODO Rather log this information!
+			//FIXME
+			// https://www.slf4j.org/manual.html
+			// https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-message-in-a-logger
+			// http://projects.lidalia.org.uk/slf4j-test/
+			Logger logger = LoggerFactory.getLogger(this.getClass());
+			logger.debug("This map position is already occupied: " + entity.getPosition());
+
+
+			//TODO Expect some log output in tests.
 			/*
 			throw new InvalidMapAccessException(
 					"The position is already occupied: " + entity.getPosition());
