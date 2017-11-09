@@ -22,7 +22,6 @@ android {
 		targetSdkVersion 27
 		versionCode 1
 		versionName = version
-		multiDexEnabled true
 	}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_1_8
