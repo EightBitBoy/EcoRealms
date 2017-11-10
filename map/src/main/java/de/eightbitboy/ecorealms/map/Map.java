@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+@jdk.nashorn.internal.runtime.logging.Logger
 public class Map {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Map.class);
 	private int sizeX;
@@ -33,6 +34,7 @@ public class Map {
 	}
 
 	private void initialize() {
+		LOGGER.info("Creating a map with the size: " + sizeX + "x/" + sizeY + "y");
 		entities = new MapEntity[sizeX * sizeY];
 	}
 
