@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private static final Logger LOGGER = LoggerFactory.getLogger(Map.class);
 	private int sizeX;
 	private int sizeY;
 	private MapEntity[] entities;
@@ -38,11 +38,8 @@ public class Map {
 
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
-			//TODO Expect some log output in tests.
-			/*
-			throw new InvalidMapAccessException(
-					"The entity has an invalid position: " + entity.getPosition());
-					*/
+			//TODO Find out if this can be tested!
+			LOGGER.debug("The entity has an invalid position: " + entity.getPosition());
 		} else {
 			insert(entity);
 		}
@@ -58,15 +55,7 @@ public class Map {
 			// https://www.slf4j.org/manual.html
 			// https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-message-in-a-logger
 			// http://projects.lidalia.org.uk/slf4j-test/
-			Logger logger = LoggerFactory.getLogger(this.getClass());
-			logger.debug("This map position is already occupied: " + entity.getPosition());
-
-
-			//TODO Expect some log output in tests.
-			/*
-			throw new InvalidMapAccessException(
-					"The position is already occupied: " + entity.getPosition());
-					*/
+			LOGGER.debug("This map position is already occupied: " + entity.getPosition());
 		}
 	}
 
