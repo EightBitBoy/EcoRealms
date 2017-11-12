@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log
 public class Map {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Map.class);
 	private int sizeX;
