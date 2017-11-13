@@ -2,6 +2,7 @@ package de.eightbitboy.ecorealms.map
 
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
 
 // TODO
 // https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-message-in-a-logger
@@ -74,11 +75,14 @@ class MapSpec extends Specification {
     }
 
     def "add an entity with an invalid (outside of map) position to the map"(int x, int y) {
+        setup:
+        TestMapEntity entity = new TestMapEntity(x, y)
+
         when:
-        map.put(new TestMapEntity(x, y))
+        map.put(entity)
 
         then:
-        thrown(InvalidMapAccessException)
+        !map.getEntities().contains(entity)
 
         where:
         x   | y
