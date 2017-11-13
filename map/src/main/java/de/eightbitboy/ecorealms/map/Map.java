@@ -39,7 +39,6 @@ public class Map {
 
 	public void put(MapEntity entity) {
 		if (!hasValidPosition(entity)) {
-			//TODO Find out if this can be tested!
 			LOGGER.debug("The entity has an invalid position: " + entity.getPosition());
 		} else {
 			insert(entity);
@@ -52,10 +51,6 @@ public class Map {
 			entities[getIndexForPosition(entity.getPosition())] = entity;
 			notifyListeners();
 		} else {
-			//FIXME
-			// https://www.slf4j.org/manual.html
-			// https://stackoverflow.com/questions/1827677/how-to-do-a-junit-assert-on-a-message-in-a-logger
-			// http://projects.lidalia.org.uk/slf4j-test/
 			LOGGER.debug("This map position is already occupied: " + entity.getPosition());
 		}
 	}
