@@ -5,10 +5,14 @@ import java.util.List;
 
 public class Simulation {
 
-	private List<SimulationEntity> entities = new ArrayList<SimulationEntity>();
+	private List<SimulationMember> entities = new ArrayList<SimulationMember>();
 
-	public void addEntity(SimulationEntity entity) {
+	public void addEntity(SimulationMember entity) {
 		this.entities.add(entity);
+	}
+
+	public void removeEntity(SimulationMember entity) {
+
 	}
 
 	public void tick() {
