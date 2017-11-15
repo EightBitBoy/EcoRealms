@@ -7,11 +7,11 @@ public class Simulation {
 
 	private List<SimulationMember> members = new ArrayList<SimulationMember>();
 
-	public void addEntity(SimulationMember member) {
+	public void addMember(SimulationMember member) {
 		members.add(member);
 	}
 
-	public void removeEntity(SimulationMember member) {
+	public void removeMember(SimulationMember member) {
 		members.remove(member);
 	}
 
