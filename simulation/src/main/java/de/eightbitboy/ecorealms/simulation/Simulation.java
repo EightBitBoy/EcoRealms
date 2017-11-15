@@ -7,6 +7,10 @@ public class Simulation {
 
 	private List<SimulationMember> members = new ArrayList<SimulationMember>();
 
+	public List<SimulationMember> getMembers() {
+		return members;
+	}
+
 	public void addMember(SimulationMember member) {
 		members.add(member);
 	}
