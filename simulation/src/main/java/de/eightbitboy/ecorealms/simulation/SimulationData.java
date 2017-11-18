@@ -1,9 +1,9 @@
 package de.eightbitboy.ecorealms.simulation;
 
 import de.eightbitboy.ecorealms.simulation.inventory.Inventory;
-import de.eightbitboy.ecorealms.simulation.production.ProducerData;
+import de.eightbitboy.ecorealms.simulation.production.ProductionData;
 
 public class SimulationData {
 	public Inventory inventory = new Inventory();
-	public ProducerData producerData = new ProducerData();
+	public ProductionData productionData = new ProductionData();
 }

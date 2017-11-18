@@ -5,7 +5,7 @@ import java.util.Map;
 
 import de.eightbitboy.ecorealms.simulation.resource.Resource;
 
-public class ProducerData {
+public class ProductionData {
 
 	public final Map<Resource, Integer> input = new HashMap<Resource, Integer>();
 
