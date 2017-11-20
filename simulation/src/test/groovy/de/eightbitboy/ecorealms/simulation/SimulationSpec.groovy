@@ -6,35 +6,46 @@ import spock.lang.Subject
 
 class SimulationSpec extends Specification {
 
-	@Subject
-	Simulation simulation = new Simulation();
+    @Subject
+    Simulation simulation = new Simulation();
 
-	def "add a simulation member"() {
-		setup:
-		SimulationMember member = new TestSimulationMember()
+    def "add a simulation member"() {
+        setup:
+        SimulationMember member = new TestSimulationMember()
 
-		when:
-		simulation.addMember(member)
+        when:
+        simulation.addMember(member)
 
-		then:
-		simulation.getMembers().contains(member)
-		simulation.getMembers().size() == 1
-	}
+        then:
+        simulation.getMembers().contains(member)
+        simulation.getMembers().size() == 1
+    }
 
-	def "remove a simulation member"() {
-		setup:
-		SimulationMember member = new TestSimulationMember()
-		simulation.addMember(member)
+    def "remove a simulation member"() {
+        setup:
+        SimulationMember member = new TestSimulationMember()
+        simulation.addMember(member)
 
-		when:
-		simulation.removeMember(member)
+        when:
+        simulation.removeMember(member)
 
-		then:
-		!simulation.getMembers().contains(member)
-		simulation.getMembers().size() == 0
-	}
+        then:
+        !simulation.getMembers().contains(member)
+        simulation.getMembers().size() == 0
+    }
 
-	def "simulation members are updated on every tick"() {
+    def "the simulation does 5 ticks per second"() {
+        setup:
+        Simulation sim = Spy(Simulation)
 
-	}
+        when:
+        sim.tickWithDelta(1000)
+
+        then:
+        5 * sim.tick()
+    }
+
+    def "simulation members are updated on every tick"() {
+
+    }
 }
