@@ -8,10 +8,10 @@ import de.eightbitboy.ecorealms.simulation.production.ProductionDataProcessor;
 
 public class Simulation {
 
-	private final float TICKS_PER_SECOND = 5;
-	private final float MILLIS_PER_TICK = 1000 / TICKS_PER_SECOND;
+	private static final float TICKS_PER_SECOND = 5;
+	private static final float MILLIS_PER_TICK = 1000 / TICKS_PER_SECOND;
 
-	private float millisFromLastTick = 0;
+	private float extraMillisFromLastTick = 0;
 	private int tickCount = 0;
 
 	private List<SimulationMember> members = new ArrayList<SimulationMember>();
@@ -43,11 +43,15 @@ public class Simulation {
 		tickCount++;
 	}
 
-	public void tickWithDelta(float timeDeltaMillis) {
+	public float tickWithDelta(float timeDeltaMillis) {
+		timeDeltaMillis += extraMillisFromLastTick;
+
 		while (timeDeltaMillis >= MILLIS_PER_TICK) {
 			timeDeltaMillis -= MILLIS_PER_TICK;
 			tick();
 		}
-		millisFromLastTick = timeDeltaMillis;
+
+		extraMillisFromLastTick = timeDeltaMillis;
+		return extraMillisFromLastTick;
 	}
 }
