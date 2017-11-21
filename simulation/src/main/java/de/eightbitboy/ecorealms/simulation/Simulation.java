@@ -10,9 +10,7 @@ public class Simulation {
 
 	private static final float TICKS_PER_SECOND = 5;
 	private static final float MILLIS_PER_TICK = 1000 / TICKS_PER_SECOND;
-
 	private float extraMillisFromLastTick = 0;
-	private int tickCount = 0;
 
 	private List<SimulationMember> members = new ArrayList<SimulationMember>();
 	private InventoryProcessor inventoryProcessor;
@@ -21,10 +19,6 @@ public class Simulation {
 	public Simulation() {
 		inventoryProcessor = new InventoryProcessor();
 		productionDataProcessor = new ProductionDataProcessor();
-	}
-
-	public int getTickCount() {
-		return tickCount;
 	}
 
 	public List<SimulationMember> getMembers() {
@@ -39,10 +33,6 @@ public class Simulation {
 		members.remove(member);
 	}
 
-	public void tick() {
-		tickCount++;
-	}
-
 	public float tickWithDelta(float timeDeltaMillis) {
 		timeDeltaMillis += extraMillisFromLastTick;
 
@@ -53,5 +43,13 @@ public class Simulation {
 
 		extraMillisFromLastTick = timeDeltaMillis;
 		return extraMillisFromLastTick;
+	}
+
+	public void tick() {
+		produceResources();
+	}
+
+	private void produceResources() {
+
 	}
 }
